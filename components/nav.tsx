@@ -1,12 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { List, X } from "@phosphor-icons/react";
 import AnimatedButton from "./animated-button";
 import Logo from "./logo";
 
-const links = ["Work", "Services", "Process", "Founders"];
+const links = [
+  { label: "Work",     href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Process",  href: "/process" },
+  { label: "Founders", href: "/founders" },
+];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,26 +36,26 @@ export default function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="/"
+        <motion.div
           whileHover={reduce ? {} : { scale: 1.03 }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
-          <Logo size={30} wordmarkColor="dark" />
-        </motion.a>
+          <Link href="/" aria-label="CJ Studio home">
+            <Logo size={30} wordmarkColor="dark" />
+          </Link>
+        </motion.div>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+          {links.map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
               className="relative text-[14px] text-gray-500 hover:text-gray-900 transition-colors duration-200 py-1 group"
             >
-              {item}
-              {/* Sliding underline */}
+              {label}
               <span className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -67,10 +73,7 @@ export default function Nav() {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <motion.div
-            animate={{ rotate: open ? 90 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
+          <motion.div animate={{ rotate: open ? 90 : 0 }} transition={{ duration: 0.2 }}>
             {open ? <X size={20} /> : <List size={20} />}
           </motion.div>
         </motion.button>
@@ -84,17 +87,17 @@ export default function Nav() {
         className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-100"
       >
         <div className="px-6 py-4 flex flex-col gap-4">
-          {links.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+          {links.map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
               className="text-[15px] text-gray-700 hover:text-gray-900 transition-colors py-1"
               onClick={() => setOpen(false)}
             >
-              {item}
-            </a>
+              {label}
+            </Link>
           ))}
-          <AnimatedButton href="#contact" onClick={() => setOpen(false)} className="w-full justify-center">
+          <AnimatedButton href="/contact" onClick={() => setOpen(false)} className="w-full justify-center">
             Start a project
           </AnimatedButton>
         </div>
