@@ -6,6 +6,7 @@ import {
   useScroll,
   useTransform,
   useReducedMotion,
+  useMotionValueEvent,
 } from "motion/react";
 
 export default function WebsiteAssembly() {
@@ -17,6 +18,10 @@ export default function WebsiteAssembly() {
     target: containerRef,
     offset: ["start start", "end start"],
   });
+
+  useMotionValueEvent(scrollYProgress, "change", (v) =>
+    console.log("[WebsiteAssembly] scrollYProgress:", v.toFixed(3))
+  );
 
   // ── Browser frame ────────────────────────────────────────────────────────
   const frameScale  = useTransform(scrollYProgress, [0, 0.25], [0.82, 1]);
@@ -91,10 +96,10 @@ export default function WebsiteAssembly() {
 
   return (
     /* Scroll container — 3× viewport gives scroll room for the animation */
-    <div ref={containerRef} className="relative h-[280vh] overflow-x-hidden">
+    <div ref={containerRef} className="relative h-[280vh]">
       {/* Sticky viewport */}
       <div
-        className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
+        className="sticky top-0 h-screen flex items-center justify-center overflow-hidden bg-white"
         style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
       >
 
