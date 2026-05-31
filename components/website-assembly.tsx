@@ -84,9 +84,18 @@ export default function WebsiteAssembly() {
 
   return (
     /* Scroll container — 3× viewport gives scroll room for the animation */
-    <div ref={containerRef} className="relative h-[280vh]">
+    <div ref={containerRef} className="relative h-[280vh] overflow-x-hidden">
       {/* Sticky viewport */}
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      <div
+        className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
+        style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
+      >
+
+        <motion.div
+          style={reduce ? {} : { scale: sceneScale }}
+          className="relative w-full h-full flex items-center justify-center"
+          aria-label="Website assembly animation"
+        >
 
         {/* Section label — fades out as assembly begins */}
         <motion.div
@@ -106,7 +115,6 @@ export default function WebsiteAssembly() {
         <motion.div
           style={reduce ? { width: "min(900px, 90vw)", aspectRatio: "900 / 560" } : { scale: frameScale, opacity: frameOpacity, boxShadow: frameShadow, width: "min(900px, 90vw)", aspectRatio: "900 / 560" }}
           className="relative rounded-2xl overflow-hidden border border-gray-200/80 bg-white"
-          aria-label="Website assembly animation"
         >
           {/* Browser top bar */}
           <div className="h-9 bg-gray-50 border-b border-gray-100 flex items-center px-4 gap-2 shrink-0">
@@ -266,6 +274,8 @@ export default function WebsiteAssembly() {
             </motion.div>
 
           </div>
+        </motion.div>
+
         </motion.div>
 
         {/* Scroll progress hint at bottom */}
