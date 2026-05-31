@@ -1,22 +1,20 @@
 "use client";
 
-import { useRef, useId } from "react";
+import { useId } from "react";
 import {
+  MotionValue,
   motion,
-  useScroll,
   useTransform,
   useReducedMotion,
 } from "motion/react";
 
-export default function WebsiteAssembly() {
-  const containerRef = useRef<HTMLDivElement>(null);
+interface Props {
+  scrollYProgress: MotionValue<number>;
+}
+
+export default function WebsiteAssembly({ scrollYProgress }: Props) {
   const reduce = useReducedMotion();
   const uid = useId();
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 0.9", "end start"],
-  });
 
   // ── Browser frame ────────────────────────────────────────────────────────
   const frameScale  = useTransform(scrollYProgress, [0, 0.25], [0.82, 1]);
@@ -90,14 +88,10 @@ export default function WebsiteAssembly() {
   ].join(", ");
 
   return (
-    <div className="overflow-x-hidden">
-    {/* Scroll container — 3× viewport gives scroll room for the animation */}
-    <div ref={containerRef} className="relative h-[280vh]">
-      {/* Sticky viewport */}
-      <div
-        className="sticky top-0 h-screen flex items-center justify-center overflow-hidden bg-white"
-        style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
-      >
+    <div
+      className="sticky top-0 h-screen w-full -z-10 overflow-hidden bg-white"
+      style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
+    >
 
         <motion.div
           style={reduce ? {} : { scale: sceneScale }}
@@ -378,8 +372,6 @@ export default function WebsiteAssembly() {
           <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-300 to-gray-300 animate-pulse" />
         </motion.div>
 
-      </div>
-    </div>
     </div>
   );
 }
