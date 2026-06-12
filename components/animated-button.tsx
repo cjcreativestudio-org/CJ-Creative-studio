@@ -1,7 +1,11 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
 import type { ReactNode } from "react";
+
+// Wrap Next.js Link with Framer Motion to preserve client-side routing
+const MotionLink = motion.create(Link);
 
 interface Props {
   href?: string;
@@ -44,13 +48,13 @@ export default function AnimatedButton({ href, onClick, variant = "primary", chi
 
   if (href) {
     return (
-      <motion.a
+      <MotionLink
         href={href}
         whileTap={reduce ? {} : { scale: 0.97 }}
         className={`${base} ${variants[variant]} ${className}`}
       >
         {inner}
-      </motion.a>
+      </MotionLink>
     );
   }
 

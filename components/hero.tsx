@@ -18,7 +18,7 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[100dvh] flex items-center overflow-hidden">
+    <section ref={ref} className="relative z-10 w-full min-h-[100dvh] flex items-center">
       <motion.div
         style={reduce ? {} : { y: textY, opacity }}
         className="relative max-w-3xl mx-auto px-6 w-full pt-24 pb-16 flex flex-col items-center text-center"
