@@ -4,17 +4,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { List, X } from "@phosphor-icons/react";
-import AnimatedButton from "./animated-button";
 import Logo from "./logo";
 
 const links = [
-  { label: "Work",     href: "/work" },
-  { label: "Services", href: "/services" },
-  { label: "Process",  href: "/process" },
-  { label: "Founders", href: "/founders" },
+  { label: "Home",             href: "/" },
+  { label: "Our Work",         href: "/work" },
+  { label: "About us",         href: "/founders" },
+  { label: "Our services",     href: "/services" },
+  { label: "Contact Us",       href: "/contact" },
+  { label: "Privacy & Policy", href: "/privacy" },
 ];
 
-export default function Nav() {
+export default function Nav({ onLight = true }: { onLight?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
@@ -51,20 +52,15 @@ export default function Nav() {
             <Link
               key={label}
               href={href}
-              className="relative text-[14px] text-gray-500 hover:text-gray-900 transition-colors duration-200 py-1 group"
+              className={`relative text-[14px] transition-colors duration-300 py-1 group ${
+                onLight ? "text-gray-500 hover:text-gray-900" : "text-white/80 hover:text-white"
+              }`}
             >
               {label}
-              <span className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
+              <span className="absolute bottom-0 left-0 w-full h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" style={{ background: 'linear-gradient(90deg, #8a6cff, #4d7cff 52%, #27d7c4)' }} />
             </Link>
           ))}
         </nav>
-
-        {/* CTA */}
-        <div className="hidden md:block">
-          <AnimatedButton href="/contact" variant="primary">
-            Start a project
-          </AnimatedButton>
-        </div>
 
         {/* Mobile toggle */}
         <motion.button
@@ -97,9 +93,6 @@ export default function Nav() {
               {label}
             </Link>
           ))}
-          <AnimatedButton href="/contact" onClick={() => setOpen(false)} className="w-full justify-center">
-            Start a project
-          </AnimatedButton>
         </div>
       </motion.div>
     </motion.header>

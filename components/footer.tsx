@@ -15,11 +15,12 @@ export default function Footer() {
 
         <div className="flex items-center gap-5 flex-wrap justify-center">
           {[
-            { label: "Work",     href: "/work" },
-            { label: "Services", href: "/services" },
-            { label: "Process",  href: "/process" },
-            { label: "Founders", href: "/founders" },
-            { label: "Contact",  href: "/contact" },
+            { label: "Home",             href: "/" },
+            { label: "Our Work",         href: "/work" },
+            { label: "About us",         href: "/founders" },
+            { label: "Our services",     href: "/services" },
+            { label: "Contact Us",       href: "/contact" },
+            { label: "Privacy & Policy", href: "/privacy" },
           ].map(({ label, href }) => (
             <Link
               key={label}
@@ -29,13 +30,6 @@ export default function Footer() {
               {label}
             </Link>
           ))}
-          <span className="w-px h-3 bg-gray-200" />
-          <Link href="/privacy" className="text-[13px] text-gray-400 hover:text-gray-700 transition-colors">
-            Privacy
-          </Link>
-          <Link href="/terms" className="text-[13px] text-gray-400 hover:text-gray-700 transition-colors">
-            Terms
-          </Link>
         </div>
       </div>
     </footer>
