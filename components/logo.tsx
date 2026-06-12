@@ -1,87 +1,49 @@
 "use client";
 
-import React from "react";
-import { motion, useReducedMotion } from "motion/react";
-
 interface LogoProps {
+  size?: number;
+  showWordmark?: boolean;
+  wordmarkColor?: "dark" | "white";
   className?: string;
-  showText?: boolean;
 }
 
-export default function Logo({ className = "h-12", showText = true }: LogoProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  // Subtle path hover animation
-  const facetVariants = {
-    initial: { opacity: 0.95, scale: 1 },
-    hover: { 
-      opacity: 1, 
-      scale: shouldReduceMotion ? 1 : 1.02,
-      transition: { duration: 0.3, ease: "easeOut" } 
-    }
-  };
-
+export default function Logo({ size = 28, showWordmark = true, wordmarkColor = "dark", className = "" }: LogoProps) {
   return (
-    <motion.div 
-      className={`inline-flex items-center gap-3.5 select-none ${className}`}
-      initial="initial"
-      whileHover="hover"
-    >
-      {/* Prism Graphic Container */}
-      <div className="relative h-full aspect-square">
-        {/* Crisp Vector Prism SVG */}
-        <svg
-          viewBox="0 0 100 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full drop-shadow-sm"
+    <div className={`flex items-center gap-2.5 ${className}`}>
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="100" y2="87" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stopColor="#f472b6" />
+            <stop offset="33%"  stopColor="#a78bfa" />
+            <stop offset="66%"  stopColor="#60a5fa" />
+            <stop offset="100%" stopColor="#34d399" />
+          </linearGradient>
+        </defs>
+        <polygon points="50,4 96,87 4,87" fill="url(#logoGrad)" />
+        <polygon points="50,32 72,72 28,72" fill="white" />
+        <line x1="50" y1="87" x2="26" y2="100" stroke="#fda4af" strokeWidth="3.5" strokeLinecap="round" opacity="0.75" />
+        <line x1="50" y1="87" x2="38" y2="100" stroke="#c4b5fd" strokeWidth="3.5" strokeLinecap="round" opacity="0.75" />
+        <line x1="50" y1="87" x2="50" y2="100" stroke="#93c5fd" strokeWidth="3.5" strokeLinecap="round" opacity="0.75" />
+        <line x1="50" y1="87" x2="62" y2="100" stroke="#6ee7b7" strokeWidth="3.5" strokeLinecap="round" opacity="0.75" />
+        <line x1="50" y1="87" x2="74" y2="100" stroke="#86efac" strokeWidth="3" strokeLinecap="round" opacity="0.6" />
+      </svg>
+
+      {showWordmark && (
+        <span
+          className={`text-[15px] font-semibold tracking-tight ${
+            wordmarkColor === "white" ? "text-white" : "text-gray-900"
+          }`}
         >
-          <defs>
-            {/* Core Brand Aurora Gradient */}
-            <linearGradient id="logo-aurora" x1="15" y1="12" x2="85" y2="72" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#ec4899" />    {/* Pink */}
-              <stop offset="33%" stopColor="#8b5cf6" />   {/* Violet */}
-              <stop offset="66%" stopColor="#3b82f6" />   {/* Blue */}
-              <stop offset="100%" stopColor="#10b981" />  {/* Emerald */}
-            </linearGradient>
-
-            {/* Translucent overlay gradient to mimic structural depth refraction */}
-            <linearGradient id="prism-refraction" x1="50" y1="12" x2="50" y2="72" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="white" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-
-          {/* Facet 1: The Left Splinter */}
-          <motion.path
-            d="M50 12L15 72H50V12Z"
-            fill="url(#logo-aurora)"
-            stroke="rgba(255, 255, 255, 0.7)"
-            strokeWidth="0.75"
-            strokeLinejoin="round"
-            variants={facetVariants}
-          />
-
-          {/* Facet 2: The Right Splinter */}
-          <motion.path
-            d="M50 12L85 72H50V12Z"
-            fill="url(#logo-aurora)"
-            stroke="rgba(255, 255, 255, 0.7)"
-            strokeWidth="0.75"
-            strokeLinejoin="round"
-            variants={facetVariants}
-          />
-
-          {/* Facet 3: Inner Geometric Refraction Core */}
-          <motion.path
-            d="M50 32L73 72H27L50 32Z"
-            fill="url(#prism-refraction)"
-            stroke="rgba(255, 255, 255, 0.85)"
-            strokeWidth="1"
-            strokeLinejoin="round"
-            variants={facetVariants}
-          />
-
-          {/* Geometric Accent Line */}
-          <line 
-            x1="50" y1="12" x2="50" y2="32"
+          CJ Studio
+        </span>
+      )}
+    </div>
+  );
+}
