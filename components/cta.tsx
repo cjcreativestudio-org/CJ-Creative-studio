@@ -9,7 +9,7 @@ export default function CTA() {
 
   return (
     <section id="contact" className="py-28 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 aurora aurora-animate opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="aurora-gradient animate-aurora absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-6xl mx-auto">
         <div className="max-w-3xl">
@@ -18,7 +18,8 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
-            className="text-[13px] uppercase tracking-[0.16em] text-gray-400 mb-6 font-medium"
+            className="font-[ui-monospace,_monospace] text-[11px] uppercase tracking-[0.3em] mb-6"
+            style={{ color: "rgba(12,14,20,0.38)" }}
           >
             Get in touch
           </motion.p>
@@ -28,7 +29,8 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[clamp(2.5rem,6vw,4rem)] font-bold tracking-tight text-gray-900 leading-[1.05] mb-6"
+            className="text-[clamp(2.5rem,6vw,4rem)] font-bold tracking-tight leading-[1.05] mb-6"
+            style={{ color: "#0c0e14" }}
           >
             Ready to build<br />something great?
           </motion.h2>
@@ -38,7 +40,8 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-gray-500 leading-relaxed max-w-[44ch] mb-10"
+            className="text-lg leading-relaxed max-w-[44ch] mb-10"
+            style={{ color: "rgba(12,14,20,0.55)" }}
           >
             Tell us about your project. We&apos;ll get back to you within 24 hours with a quote.
           </motion.p>

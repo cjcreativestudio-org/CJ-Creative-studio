@@ -22,7 +22,7 @@ export default function AnimatedButton({ href, onClick, variant = "primary", chi
 
   const variants = {
     primary: "px-6 py-3 bg-gray-900 text-white hover:bg-gray-800 active:scale-[0.97]",
-    outline: "px-6 py-3 border border-gray-200 text-gray-700 hover:border-gray-400 bg-white/50 backdrop-blur-sm active:scale-[0.97]",
+    outline: "px-6 py-3 border border-gray-200 text-gray-700 hover:border-gray-400 bg-white active:scale-[0.97]",
     ghost: "px-4 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 active:scale-[0.97]",
   };
 

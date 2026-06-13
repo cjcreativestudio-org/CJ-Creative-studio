@@ -19,12 +19,13 @@ export default function WorkTeaser() {
           transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
           className="flex items-end justify-between mb-12"
         >
-          <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-gray-900 leading-tight">
+          <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight leading-tight" style={{ color: "#0c0e14" }}>
             Selected work
           </h2>
           <Link
             href="/work"
-            className="hidden md:flex items-center gap-1.5 text-[14px] text-gray-500 hover:text-gray-900 transition-colors pb-1 group"
+            className="hidden md:flex items-center gap-1.5 text-[14px] transition-colors pb-1 group"
+            style={{ color: "rgba(12,14,20,0.45)" }}
           >
             View all work
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -62,8 +63,8 @@ export default function WorkTeaser() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-[15px] font-semibold text-gray-900">{p.name}</p>
-                  <p className="text-[13px] text-gray-400">{p.type}</p>
+                  <p className="text-[15px] font-semibold" style={{ color: "#0c0e14" }}>{p.name}</p>
+                  <p className="text-[13px]" style={{ color: "rgba(12,14,20,0.42)" }}>{p.type}</p>
                 </div>
               </Link>
             </motion.div>
@@ -80,7 +81,8 @@ export default function WorkTeaser() {
         >
           <Link
             href="/work"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 text-[14px] text-gray-700 hover:border-gray-400 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border text-[14px] transition-colors"
+            style={{ borderColor: "rgba(12,14,20,0.15)", color: "rgba(12,14,20,0.65)" }}
           >
             View all work <ArrowRight size={14} />
           </Link>

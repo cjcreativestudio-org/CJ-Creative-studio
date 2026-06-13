@@ -58,7 +58,7 @@ export default function ContactForm() {
           type="text"
           placeholder="Your name"
           autoComplete="name"
-          className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white/70 backdrop-blur-sm outline-none transition-all duration-200
+          className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white outline-none transition-all duration-200
             focus:ring-2 focus:ring-purple-300 focus:border-purple-300
             ${state.errors?.name ? "border-red-300 bg-red-50/40" : "border-gray-200 hover:border-gray-300"}`}
         />
@@ -78,7 +78,7 @@ export default function ContactForm() {
           type="email"
           placeholder="your@email.com"
           autoComplete="email"
-          className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white/70 backdrop-blur-sm outline-none transition-all duration-200
+          className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white outline-none transition-all duration-200
             focus:ring-2 focus:ring-purple-300 focus:border-purple-300
             ${state.errors?.email ? "border-red-300 bg-red-50/40" : "border-gray-200 hover:border-gray-300"}`}
         />
@@ -97,7 +97,7 @@ export default function ContactForm() {
           name="message"
           rows={4}
           placeholder="Tell us about your project — what you need, rough timeline, any references you like"
-          className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white/70 backdrop-blur-sm outline-none transition-all duration-200 resize-none
+          className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white outline-none transition-all duration-200 resize-none
             focus:ring-2 focus:ring-purple-300 focus:border-purple-300
             ${state.errors?.message ? "border-red-300 bg-red-50/40" : "border-gray-200 hover:border-gray-300"}`}
         />

@@ -8,22 +8,22 @@ const steps = [
     icon: ChatCircle,
     title: "Brief",
     body: "You tell us what you need. We ask the right questions, agree on scope, and you pay 50% to get started.",
-    gradient: "from-pink-100 to-purple-100",
-    accent: "text-purple-500",
+    gradient: "from-purple-100 to-blue-100",
+    accent: "text-[#8a6cff]",
   },
   {
     icon: PaintBrush,
     title: "Build",
     body: "We design and build your site using Claude Code, GitHub, and Vercel. You see a live preview as we go.",
-    gradient: "from-blue-100 to-indigo-100",
-    accent: "text-blue-500",
+    gradient: "from-blue-100 to-teal-100",
+    accent: "text-[#4d7cff]",
   },
   {
     icon: RocketLaunch,
     title: "Launch",
     body: "You approve, pay the remaining 50%, and we point your domain. First 30 days of fixes are on us.",
-    gradient: "from-emerald-100 to-teal-100",
-    accent: "text-emerald-500",
+    gradient: "from-teal-100 to-cyan-100",
+    accent: "text-[#27d7c4]",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function Process() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
           {/* Connector line */}
-          <div className="hidden md:block absolute top-10 left-[calc(16.66%+1rem)] right-[calc(16.66%+1rem)] h-px bg-gradient-to-r from-pink-200 via-blue-200 to-emerald-200" />
+          <div className="hidden md:block absolute top-10 left-[calc(16.66%+1rem)] right-[calc(16.66%+1rem)] h-px bg-gradient-to-r from-purple-200 via-blue-200 to-teal-200" />
 
           {steps.map((s, i) => (
             <motion.div

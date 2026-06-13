@@ -83,15 +83,15 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative overflow-hidden rounded-2xl border border-pink-200/60 bg-gradient-to-br from-pink-50/80 to-purple-50/80 p-10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+            className="relative overflow-hidden rounded-2xl border border-purple-200/60 bg-gradient-to-br from-purple-50/80 to-teal-50/80 p-10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
           >
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -top-12 -right-12 w-64 h-64 rounded-full bg-gradient-to-br from-pink-200/30 to-purple-200/30 blur-3xl"
+              className="pointer-events-none absolute -top-12 -right-12 w-64 h-64 rounded-full bg-gradient-to-br from-purple-200/30 to-teal-200/30 blur-3xl"
             />
             <div
               className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: "linear-gradient(135deg, #f472b6, #a78bfa)" }}
+              style={{ background: "linear-gradient(135deg, #8a6cff, #27d7c4)" }}
               aria-hidden="true"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -162,7 +162,7 @@ export default function Services() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-              className="aspect-video rounded-2xl bg-gradient-to-br from-pink-50 to-purple-50 border border-pink-100"
+              className="aspect-video rounded-2xl bg-gradient-to-br from-purple-50 to-teal-50 border border-purple-100"
             />
           </div>
         </div>
@@ -201,7 +201,7 @@ export default function Services() {
                 transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                 className={`relative rounded-2xl p-7 flex flex-col gap-5 border ${
                   plan.highlight
-                    ? "border-purple-200 bg-gradient-to-br from-pink-50/70 to-purple-50/70"
+                    ? "border-purple-200 bg-gradient-to-br from-purple-50/70 to-teal-50/70"
                     : "border-gray-100 bg-white"
                 }`}
               >
@@ -263,7 +263,8 @@ export default function Services() {
           >
             <a
               href="/contact"
-              className="inline-block bg-gradient-to-r from-pink-400 to-purple-400 text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+              className="inline-block text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+              style={{ background: "linear-gradient(90deg, #8a6cff, #4d7cff 52%, #27d7c4)" }}
             >
               Get a free quote
             </a>

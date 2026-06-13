@@ -32,7 +32,7 @@ export default function Nav({ onLight = true }: { onLight?: boolean }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)]" : "bg-transparent"
+        scrolled && onLight ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)]" : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -53,7 +53,7 @@ export default function Nav({ onLight = true }: { onLight?: boolean }) {
               key={label}
               href={href}
               className={`relative text-[14px] transition-colors duration-300 py-1 group ${
-                scrolled || onLight
+                onLight
                   ? "text-gray-500 hover:text-gray-900"
                   : "text-white/80 hover:text-white"
               }`}

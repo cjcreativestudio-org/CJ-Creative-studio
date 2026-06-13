@@ -201,7 +201,7 @@ export default function About() {
               <div className="flex items-center gap-4">
                 <div
                   className="w-16 h-16 rounded-full p-[2px] shrink-0"
-                  style={{ background: "linear-gradient(135deg, #f472b6, #a78bfa, #60a5fa)" }}
+                  style={{ background: "linear-gradient(135deg, #8a6cff, #4d7cff, #27d7c4)" }}
                 >
                   <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
                     <span className="text-sm font-bold text-gray-900 tracking-wider">
