@@ -64,8 +64,24 @@ export default function LaptopZoom({ onLightChange }: Props) {
             alt="CJ Creative Studio workspace"
             fill
             priority
+            quality={100}
+            sizes="100vw"
             className="object-cover"
           />
+          {/*
+            TODO: Replace hero-master.png with a looping video once the asset is created.
+            Drop hero-video.mp4 into public/assets/ and uncomment:
+
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/assets/hero-video.mp4" type="video/mp4" />
+            </video>
+          */}
           {/* Subtle aurora tint — white room walls pick up brand colours */}
           <div className="aurora-gradient animate-aurora pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-multiply [will-change:background-position]" />
           {/* CJ Studio mark centred on laptop screen — zooms with image */}
