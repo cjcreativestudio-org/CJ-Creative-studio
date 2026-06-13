@@ -5,9 +5,9 @@
     "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
   },
   "C:\\Users\\ollie\\cj-studio\\next.config.ts": {
-    "mtime": 1781375104.5108733,
-    "ast_hash": "9691c98050b075ba20767379e4453dcc",
-    "semantic_hash": ""
+    "mtime": 1780158988.1326587,
+    "ast_hash": "9389c9de4c123fbadedf25c9c3d72a41",
+    "semantic_hash": "9389c9de4c123fbadedf25c9c3d72a41"
   },
   "C:\\Users\\ollie\\cj-studio\\package.json": {
     "mtime": 1780175504.9268718,
@@ -25,13 +25,13 @@
     "semantic_hash": "02fc19ad21338c2ab820a70136310db4"
   },
   "C:\\Users\\ollie\\cj-studio\\app\\layout.tsx": {
-    "mtime": 1781317882.0336788,
-    "ast_hash": "4ac5dc2f5957e6577b83e4af38cca0b2",
-    "semantic_hash": "4ac5dc2f5957e6577b83e4af38cca0b2"
+    "mtime": 1781298947.191688,
+    "ast_hash": "2b253884df3001e0a45a0b0611d389f9",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\app\\page.tsx": {
-    "mtime": 1781376732.366914,
-    "ast_hash": "8f73fa2423306a2f5b455af20b93245e",
+    "mtime": 1781298949.5020113,
+    "ast_hash": "308f28996890a84caa711c2ec38aba90",
     "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\app\\actions\\send-enquiry.ts": {
@@ -40,9 +40,9 @@
     "semantic_hash": "43013e1d4ee533bc125c5bb9e32d4840"
   },
   "C:\\Users\\ollie\\cj-studio\\app\\contact\\page.tsx": {
-    "mtime": 1781317187.377112,
-    "ast_hash": "273f57f5e4d94564d1c709fe91b59a31",
-    "semantic_hash": "273f57f5e4d94564d1c709fe91b59a31"
+    "mtime": 1780301642.2035663,
+    "ast_hash": "2ecc5e42d1111e07585fa0962b073b6d",
+    "semantic_hash": "2ecc5e42d1111e07585fa0962b073b6d"
   },
   "C:\\Users\\ollie\\cj-studio\\app\\privacy\\page.tsx": {
     "mtime": 1780160171.0584607,
@@ -55,49 +55,49 @@
     "semantic_hash": "7d595364ec7e971c6e9d3a8b87a9cb63"
   },
   "C:\\Users\\ollie\\cj-studio\\components\\animated-button.tsx": {
-    "mtime": 1781317886.9590874,
-    "ast_hash": "eb15f54a550bed778bb91921b9d3f9b7",
-    "semantic_hash": "eb15f54a550bed778bb91921b9d3f9b7"
+    "mtime": 1781298949.503031,
+    "ast_hash": "9603e2959b6a7caecbe956357eebda3c",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\contact-form.tsx": {
-    "mtime": 1781317706.7523108,
-    "ast_hash": "00ae9859c5a92e4ed47a8b1c75112c55",
-    "semantic_hash": "00ae9859c5a92e4ed47a8b1c75112c55"
+    "mtime": 1780175650.745659,
+    "ast_hash": "04011a208256e2e1998d239f5dd4783e",
+    "semantic_hash": "04011a208256e2e1998d239f5dd4783e"
   },
   "C:\\Users\\ollie\\cj-studio\\components\\cta.tsx": {
-    "mtime": 1781317663.0113385,
-    "ast_hash": "013c42007198a267cdc940b4e31c10d4",
-    "semantic_hash": "013c42007198a267cdc940b4e31c10d4"
+    "mtime": 1780301651.2131932,
+    "ast_hash": "80b875faa8f8627ccc725cbda742c187",
+    "semantic_hash": "80b875faa8f8627ccc725cbda742c187"
   },
   "C:\\Users\\ollie\\cj-studio\\components\\footer.tsx": {
-    "mtime": 1781317885.1973155,
-    "ast_hash": "8c03260f52ff1f4444cf3ea57ff03de3",
-    "semantic_hash": "8c03260f52ff1f4444cf3ea57ff03de3"
+    "mtime": 1781298932.5729332,
+    "ast_hash": "90f25b16487aad94c7b0fb6f1bb4b147",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\founders.tsx": {
-    "mtime": 1781317685.1834445,
-    "ast_hash": "46df6d5537afef545e0412929269bce1",
-    "semantic_hash": "46df6d5537afef545e0412929269bce1"
+    "mtime": 1781298947.1946933,
+    "ast_hash": "47cb1a454a0ea7df0c4350618a191b7e",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\logo.tsx": {
-    "mtime": 1781354534.4974215,
-    "ast_hash": "a9059ef647ff21d30c94b79b9ee09b2c",
-    "semantic_hash": "a9059ef647ff21d30c94b79b9ee09b2c"
+    "mtime": 1781311941.1875384,
+    "ast_hash": "290e705827bff2c330811ea6abe19c03",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\nav.tsx": {
-    "mtime": 1781375103.2419012,
-    "ast_hash": "a77e3bc2f2939ba79406a1015bfccadc",
+    "mtime": 1781311944.5735025,
+    "ast_hash": "dd38963e4764e88df12c72e54a1bbeb2",
     "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\process.tsx": {
-    "mtime": 1781317699.4595609,
-    "ast_hash": "47b3762e4ba5189eb28b303d127e0327",
-    "semantic_hash": "47b3762e4ba5189eb28b303d127e0327"
+    "mtime": 1780158220.389314,
+    "ast_hash": "0ba64ec7aef366de0fc861ac4e288287",
+    "semantic_hash": "0ba64ec7aef366de0fc861ac4e288287"
   },
   "C:\\Users\\ollie\\cj-studio\\components\\services.tsx": {
-    "mtime": 1781317723.186905,
-    "ast_hash": "c9b57c09e7a6c8eb328a1a9c2cef04c3",
-    "semantic_hash": "c9b57c09e7a6c8eb328a1a9c2cef04c3"
+    "mtime": 1781298947.2027392,
+    "ast_hash": "da52e4a42048ec45194e7e6d9f8d0ae4",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\AGENTS.md": {
     "mtime": 1780157969.1732757,
@@ -107,7 +107,7 @@
   "C:\\Users\\ollie\\cj-studio\\CLAUDE.md": {
     "mtime": 1781298947.1907399,
     "ast_hash": "771faa62feb60b7de901a397aebb29b0",
-    "semantic_hash": "771faa62feb60b7de901a397aebb29b0"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\README.md": {
     "mtime": 1780157880.361705,
@@ -190,248 +190,213 @@
     "semantic_hash": "867c1454d6f57d363ec3cdc19971eb6e"
   },
   "C:\\Users\\ollie\\cj-studio\\lib\\projects.ts": {
-    "mtime": 1781375117.1614635,
-    "ast_hash": "70906f77054c15da8207a46d33ccea06",
+    "mtime": 1781312323.966854,
+    "ast_hash": "7e23ea4a978ea41541e613d4bbec8b5b",
     "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\work-teaser.tsx": {
-    "mtime": 1781317679.6019597,
-    "ast_hash": "d703a8324431bb207ef9d85202b7815b",
-    "semantic_hash": "d703a8324431bb207ef9d85202b7815b"
+    "mtime": 1780269177.2056592,
+    "ast_hash": "fd7d444a9f72817ea4814b792c49033d",
+    "semantic_hash": "fd7d444a9f72817ea4814b792c49033d"
   },
   "C:\\Users\\ollie\\cj-studio\\app\\work\\page.tsx": {
     "mtime": 1781312393.9304242,
     "ast_hash": "03e8ee29d6d487dfa43d921298856190",
-    "semantic_hash": "03e8ee29d6d487dfa43d921298856190"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\app\\services\\page.tsx": {
-    "mtime": 1781316339.2257123,
-    "ast_hash": "942d4b078c667e219cd21af97fe98702",
-    "semantic_hash": "942d4b078c667e219cd21af97fe98702"
+    "mtime": 1780269262.333675,
+    "ast_hash": "e707e81f29e5265ff557d7b664976772",
+    "semantic_hash": "e707e81f29e5265ff557d7b664976772"
   },
   "C:\\Users\\ollie\\cj-studio\\app\\process\\page.tsx": {
-    "mtime": 1781316352.8050127,
-    "ast_hash": "1e812ee9c5a2ac8331bb1c023f8bf936",
-    "semantic_hash": "1e812ee9c5a2ac8331bb1c023f8bf936"
+    "mtime": 1780269269.604631,
+    "ast_hash": "344945054cbdedb2d6285d378aa247bf",
+    "semantic_hash": "344945054cbdedb2d6285d378aa247bf"
   },
   "C:\\Users\\ollie\\cj-studio\\app\\founders\\page.tsx": {
-    "mtime": 1781316352.0965018,
-    "ast_hash": "3e95f4bb06e14ebdb09bb067a115f4f2",
-    "semantic_hash": "3e95f4bb06e14ebdb09bb067a115f4f2"
+    "mtime": 1780269276.3550184,
+    "ast_hash": "129aaccad90388eda98280b6de19a69a",
+    "semantic_hash": "129aaccad90388eda98280b6de19a69a"
   },
   "C:\\Users\\ollie\\cj-studio\\ARCHITECTURE.md": {
     "mtime": 1780419307.6431873,
     "ast_hash": "0df63b31a7515a38388eff331dc41183",
-    "semantic_hash": "0df63b31a7515a38388eff331dc41183"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\plans\\2026-06-02-hero-section.md": {
     "mtime": 1780423821.360199,
     "ast_hash": "d257747e15b12e619ba1ab5d40876869",
-    "semantic_hash": "d257747e15b12e619ba1ab5d40876869"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\specs\\2026-06-02-hero-section-design.md": {
     "mtime": 1780423702.4097712,
     "ast_hash": "b1849038afe4df172abed6b4ff7bfc82",
-    "semantic_hash": "b1849038afe4df172abed6b4ff7bfc82"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-studio-logo.png": {
     "mtime": 1780423366.3911045,
     "ast_hash": "54d1764b9567177efbab3bdd7df38ca4",
-    "semantic_hash": "54d1764b9567177efbab3bdd7df38ca4"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\aurora-background.tsx": {
     "mtime": 1781312298.390789,
     "ast_hash": "0cb3712095a20c8ebae2acc763b66194",
-    "semantic_hash": "0cb3712095a20c8ebae2acc763b66194"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\.impeccable\\live\\config.json": {
     "mtime": 1780675206.322579,
     "ast_hash": "40f52f76b1c6381420e0829605844fcd",
-    "semantic_hash": "40f52f76b1c6381420e0829605844fcd"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\PRODUCT.md": {
     "mtime": 1780675087.098797,
     "ast_hash": "b4fd789cbfbef91cae9195b7846699eb",
-    "semantic_hash": "b4fd789cbfbef91cae9195b7846699eb"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\.superpowers\\brainstorm\\14443-1780760323\\content\\approaches.html": {
     "mtime": 1780760702.1749246,
     "ast_hash": "9af7151a14b66a65ebfa3be2f6117314",
-    "semantic_hash": "9af7151a14b66a65ebfa3be2f6117314"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\.superpowers\\brainstorm\\14443-1780760323\\content\\full-flow.html": {
     "mtime": 1780761046.9173737,
     "ast_hash": "14a6e4c4a644544adc3795605b46248e",
-    "semantic_hash": "14a6e4c4a644544adc3795605b46248e"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\.superpowers\\brainstorm\\14443-1780760323\\content\\master-intake.html": {
     "mtime": 1780760789.370829,
     "ast_hash": "2b94b8438f60927487331cb140c3507d",
-    "semantic_hash": "2b94b8438f60927487331cb140c3507d"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\.superpowers\\brainstorm\\14443-1780760323\\content\\tool-stack.html": {
     "mtime": 1780760576.312709,
     "ast_hash": "7fedac8707652264984e6faac6f88904",
-    "semantic_hash": "7fedac8707652264984e6faac6f88904"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\.superpowers\\brainstorm\\14443-1780760323\\content\\track-structure.html": {
     "mtime": 1780760881.3486836,
     "ast_hash": "e33b4717834545330bb318eec47c3180",
-    "semantic_hash": "e33b4717834545330bb318eec47c3180"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\.superpowers\\brainstorm\\14443-1780760323\\content\\workflow-overview.html": {
     "mtime": 1780760425.1703653,
     "ast_hash": "e36f1c7532a98e113e104f54dc37f185",
-    "semantic_hash": "e36f1c7532a98e113e104f54dc37f185"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\specs\\2026-06-06-cj-production-workflow-design.md": {
     "mtime": 1780761647.1757407,
     "ast_hash": "ffebf11352b7f2d6b01316548768dab3",
-    "semantic_hash": "ffebf11352b7f2d6b01316548768dab3"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\plans\\2026-06-06-cj-workflow-documents.md": {
     "mtime": 1780761964.2136972,
     "ast_hash": "f3699ec1adaebeadec9eec9bd82b2377",
-    "semantic_hash": "f3699ec1adaebeadec9eec9bd82b2377"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\specs\\2026-06-06-dribbble-mcp-design.md": {
     "mtime": 1780763304.3576002,
     "ast_hash": "00c318dcd95c091b18a4e772c13c69ce",
-    "semantic_hash": "00c318dcd95c091b18a4e772c13c69ce"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\plans\\2026-06-06-dribbble-mcp.md": {
     "mtime": 1780763511.5601819,
     "ast_hash": "aedb04689ceeaca9745750f224f2fc3c",
-    "semantic_hash": "aedb04689ceeaca9745750f224f2fc3c"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\specs\\2026-06-12-cj-studio-landing-page-design.md": {
     "mtime": 1781272093.7993462,
     "ast_hash": "6d7becdb71d0f8f526adcfd5efff2b55",
-    "semantic_hash": "6d7becdb71d0f8f526adcfd5efff2b55"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-appicon-180.png": {
     "mtime": 1781185538.797424,
     "ast_hash": "fdd8803ccdc7dd526bd12f8aa34933b2",
-    "semantic_hash": "fdd8803ccdc7dd526bd12f8aa34933b2"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-favicon-32.png": {
     "mtime": 1781185538.918066,
     "ast_hash": "5e403d5c6ae5b3950121d5569e067fc1",
-    "semantic_hash": "5e403d5c6ae5b3950121d5569e067fc1"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-favicon-64.png": {
     "mtime": 1781185539.0248797,
     "ast_hash": "05f87877aa4810e261d2ba5342a828e2",
-    "semantic_hash": "05f87877aa4810e261d2ba5342a828e2"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-lockup-transparent.png": {
     "mtime": 1781185512.9233322,
     "ast_hash": "724b6aa8791448fc3aff591e69ca19b2",
-    "semantic_hash": "724b6aa8791448fc3aff591e69ca19b2"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-mark-ink.svg": {
     "mtime": 1781185424.7293744,
     "ast_hash": "c07c955d9763b0fc0ba8b5ae86fcc548",
-    "semantic_hash": "c07c955d9763b0fc0ba8b5ae86fcc548"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-mark-mono.svg": {
     "mtime": 1781185424.56498,
     "ast_hash": "01160a472d490215063ced87f1067dce",
-    "semantic_hash": "01160a472d490215063ced87f1067dce"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-mark-white.svg": {
     "mtime": 1781185424.646854,
     "ast_hash": "b44664c24ebada87bf6ece3006f4e0e4",
-    "semantic_hash": "b44664c24ebada87bf6ece3006f4e0e4"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\cj-mark.svg": {
     "mtime": 1781185424.470798,
     "ast_hash": "9ef228ea81402a45f08026a4d7f12e77",
-    "semantic_hash": "9ef228ea81402a45f08026a4d7f12e77"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\favicon.svg": {
     "mtime": 1781185424.8131168,
     "ast_hash": "9f6262a091b3663d41f1621427454c22",
-    "semantic_hash": "9f6262a091b3663d41f1621427454c22"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\plans\\2026-06-12-landing-page.md": {
     "mtime": 1781272501.6781414,
     "ast_hash": "5786927d1c066e77b2fbf07db7fe2a4a",
-    "semantic_hash": "5786927d1c066e77b2fbf07db7fe2a4a"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\assets\\hero-master.png": {
     "mtime": 1781298949.6423779,
     "ast_hash": "94470d1c33259d607dd1d655dec1ac7e",
-    "semantic_hash": "94470d1c33259d607dd1d655dec1ac7e"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\laptop-zoom.tsx": {
-    "mtime": 1781376666.3606763,
-    "ast_hash": "56057f6eadbf9207fe2ea410ff4fa017",
+    "mtime": 1781311924.4143467,
+    "ast_hash": "1062d9b39dcdcbc56d1748d44adbcf2f",
     "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\why-it-matters.tsx": {
-    "mtime": 1781314743.2097604,
-    "ast_hash": "d40195f12c9b34052a4906548beb3411",
-    "semantic_hash": "d40195f12c9b34052a4906548beb3411"
+    "mtime": 1781298949.5113988,
+    "ast_hash": "ef30185127fc1ec2df3130a44f754175",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\home-client.tsx": {
     "mtime": 1781298949.5056274,
     "ast_hash": "c49ed83680ab69f8a282641df2b383e3",
-    "semantic_hash": "c49ed83680ab69f8a282641df2b383e3"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\plans\\2026-06-12-landing-page-progress.md": {
     "mtime": 1781298949.5134008,
     "ast_hash": "bd11c98ffa91109cce29653e585a2afa",
-    "semantic_hash": "bd11c98ffa91109cce29653e585a2afa"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\assets\\cj-logo-horizontal.png": {
     "mtime": 1781298724.6600616,
     "ast_hash": "82bce7e35dd43156dec32f9fce3eec25",
-    "semantic_hash": "82bce7e35dd43156dec32f9fce3eec25"
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\public\\assets\\cj-logo-stacked.png": {
-    "mtime": 1781351180.6220627,
-    "ast_hash": "9eb5c736022c3c264f118e2da0c3dd0c",
-    "semantic_hash": "9eb5c736022c3c264f118e2da0c3dd0c"
+    "mtime": 1781298520.3738973,
+    "ast_hash": "c13cc7a4364c9b27d4c220b96f3be09a",
+    "semantic_hash": ""
   },
   "C:\\Users\\ollie\\cj-studio\\components\\work-gallery.tsx": {
     "mtime": 1781312369.6656544,
     "ast_hash": "0a0a99b52a55b9f5cf881a0285420723",
-    "semantic_hash": "0a0a99b52a55b9f5cf881a0285420723"
-  },
-  "C:\\Users\\ollie\\cj-studio\\docs\\superpowers\\plans\\2026-06-13-landing-page-polish.md": {
-    "mtime": 1781313924.9254718,
-    "ast_hash": "f48592ad4d165e6cd5cec1ef54f2d79e",
-    "semantic_hash": "f48592ad4d165e6cd5cec1ef54f2d79e"
-  },
-  "C:\\Users\\ollie\\cj-studio\\app\\about\\page.tsx": {
-    "mtime": 1781316337.2259157,
-    "ast_hash": "261f9234bcd961871a17df5d61eb287e",
-    "semantic_hash": "261f9234bcd961871a17df5d61eb287e"
-  },
-  "C:\\Users\\ollie\\cj-studio\\components\\about.tsx": {
-    "mtime": 1781317703.036345,
-    "ast_hash": "ec2918fffc2ac79f86032e40171a6e6c",
-    "semantic_hash": "ec2918fffc2ac79f86032e40171a6e6c"
-  },
-  "C:\\Users\\ollie\\cj-studio\\docs\\progress-2026-06-13.md": {
-    "mtime": 1781345430.1780698,
-    "ast_hash": "05be3c1b06066df25c0ca91f251e6515",
-    "semantic_hash": "05be3c1b06066df25c0ca91f251e6515"
-  },
-  "C:\\Users\\ollie\\cj-studio\\public\\assets\\cj-logo-full.png": {
-    "mtime": 1781351180.6220627,
-    "ast_hash": "9eb5c736022c3c264f118e2da0c3dd0c",
-    "semantic_hash": "9eb5c736022c3c264f118e2da0c3dd0c"
-  },
-  "C:\\Users\\ollie\\cj-studio\\components\\dark-work-carousel.tsx": {
-    "mtime": 1781376724.4101598,
-    "ast_hash": "14d60fdbb27965d9b1d6e259fca89d70",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\ollie\\cj-studio\\components\\testimonials.tsx": {
-    "mtime": 1781375148.0896099,
-    "ast_hash": "86e9ab555411eccde5dc00d18c82e1ec",
     "semantic_hash": ""
   }
 }

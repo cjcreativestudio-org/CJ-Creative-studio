@@ -1,0 +1,742 @@
+{
+  "nodes": [
+    {
+      "id": "impeccable_live_config_json",
+      "label": "config.json",
+      "file_type": "code",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "live_config_files",
+      "label": "files",
+      "file_type": "code",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "live_config_insertbefore",
+      "label": "insertBefore",
+      "file_type": "code",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "live_config_commentsyntax",
+      "label": "commentSyntax",
+      "file_type": "code",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "live_config_cspchecked",
+      "label": "cspChecked",
+      "file_type": "code",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "app_layout_tsx",
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_layout_fontsans",
+      "label": "fontSans",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "app_layout_fontdisplay",
+      "label": "fontDisplay",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L10"
+    },
+    {
+      "id": "app_layout_fontmono",
+      "label": "fontMono",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "app_layout_metadata",
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L22"
+    },
+    {
+      "id": "app_layout_rootlayout",
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L35"
+    },
+    {
+      "id": "app_page_tsx",
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_page_home",
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "components_aurora_background_tsx",
+      "label": "aurora-background.tsx",
+      "file_type": "code",
+      "source_file": "components/aurora-background.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_aurora_background_props",
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/aurora-background.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "components_aurora_background_aurorabackground",
+      "label": "AuroraBackground()",
+      "file_type": "code",
+      "source_file": "components/aurora-background.tsx",
+      "source_location": "L10"
+    },
+    {
+      "id": "components_founders_tsx",
+      "label": "founders.tsx",
+      "file_type": "code",
+      "source_file": "components/founders.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_founders_founders",
+      "label": "founders",
+      "file_type": "code",
+      "source_file": "components/founders.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "components_hero_text_tsx",
+      "label": "hero-text.tsx",
+      "file_type": "code",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_hero_text_ease",
+      "label": "ease",
+      "file_type": "code",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "components_hero_text_fadeup",
+      "label": "fadeUp",
+      "file_type": "code",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "components_hero_text_stagger",
+      "label": "stagger",
+      "file_type": "code",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "components_hero_text_herotext",
+      "label": "HeroText()",
+      "file_type": "code",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L19"
+    },
+    {
+      "id": "components_hero_tsx",
+      "label": "hero.tsx",
+      "file_type": "code",
+      "source_file": "components/hero.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_hero_hero",
+      "label": "Hero()",
+      "file_type": "code",
+      "source_file": "components/hero.tsx",
+      "source_location": "L8"
+    },
+    {
+      "id": "components_logo_tsx",
+      "label": "logo.tsx",
+      "file_type": "code",
+      "source_file": "components/logo.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_logo_logoprops",
+      "label": "LogoProps",
+      "file_type": "code",
+      "source_file": "components/logo.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_logo_logo",
+      "label": "Logo()",
+      "file_type": "code",
+      "source_file": "components/logo.tsx",
+      "source_location": "L8"
+    },
+    {
+      "id": "components_nav_tsx",
+      "label": "nav.tsx",
+      "file_type": "code",
+      "source_file": "components/nav.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_nav_links",
+      "label": "links",
+      "file_type": "code",
+      "source_file": "components/nav.tsx",
+      "source_location": "L10"
+    },
+    {
+      "id": "components_nav_nav",
+      "label": "Nav()",
+      "file_type": "code",
+      "source_file": "components/nav.tsx",
+      "source_location": "L17"
+    },
+    {
+      "id": "components_services_tsx",
+      "label": "services.tsx",
+      "file_type": "code",
+      "source_file": "components/services.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_services_services",
+      "label": "services",
+      "file_type": "code",
+      "source_file": "components/services.tsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "components_services_service",
+      "label": "Service",
+      "file_type": "code",
+      "source_file": "components/services.tsx",
+      "source_location": "L66"
+    },
+    {
+      "id": "components_services_featuredservicecard",
+      "label": "FeaturedServiceCard()",
+      "file_type": "code",
+      "source_file": "components/services.tsx",
+      "source_location": "L68"
+    },
+    {
+      "id": "components_services_compactservicecard",
+      "label": "CompactServiceCard()",
+      "file_type": "code",
+      "source_file": "components/services.tsx",
+      "source_location": "L122"
+    }
+  ],
+  "edges": [
+    {
+      "source": "impeccable_live_config_json",
+      "target": "live_config_files",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "live_config_files",
+      "target": "ref_app_layout_tsx",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "impeccable_live_config_json",
+      "target": "live_config_insertbefore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "impeccable_live_config_json",
+      "target": "live_config_commentsyntax",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "impeccable_live_config_json",
+      "target": "live_config_cspchecked",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".impeccable/live/config.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "next",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "google",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "c_users_ollie_cj_studio_app_globals_css",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "app_layout_fontsans",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "app_layout_fontdisplay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "app_layout_fontmono",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "app_layout_metadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "app_layout_tsx",
+      "target": "app_layout_rootlayout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "app_page_tsx",
+      "target": "components_nav_tsx",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "app_page_tsx",
+      "target": "components_hero_text_tsx",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "app_page_tsx",
+      "target": "app_page_home",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "components_aurora_background_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/aurora-background.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "components_aurora_background_tsx",
+      "target": "components_aurora_background_props",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/aurora-background.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_aurora_background_tsx",
+      "target": "components_aurora_background_aurorabackground",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/aurora-background.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "components_founders_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/founders.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "components_founders_tsx",
+      "target": "components_founders_founders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/founders.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_founders_tsx",
+      "target": "components_founders_founders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/founders.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_text_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_text_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_text_tsx",
+      "target": "link",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_text_tsx",
+      "target": "components_hero_text_ease",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_text_tsx",
+      "target": "components_hero_text_fadeup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_text_tsx",
+      "target": "components_hero_text_stagger",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_text_tsx",
+      "target": "components_hero_text_herotext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero-text.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_tsx",
+      "target": "link",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "components_hero_tsx",
+      "target": "components_hero_hero",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/hero.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "components_logo_tsx",
+      "target": "components_logo_logoprops",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/logo.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "components_logo_tsx",
+      "target": "components_logo_logo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/logo.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "link",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "c_users_ollie_cj_studio_components_animated_button_tsx",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "components_logo_tsx",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "components_nav_links",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "components_nav_tsx",
+      "target": "components_nav_nav",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/nav.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "components_services_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/services.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "components_services_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/services.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "components_services_tsx",
+      "target": "components_services_services",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/services.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "components_services_tsx",
+      "target": "components_services_service",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/services.tsx",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "components_services_tsx",
+      "target": "components_services_featuredservicecard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/services.tsx",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "components_services_tsx",
+      "target": "components_services_compactservicecard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/services.tsx",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "components_services_tsx",
+      "target": "components_services_services",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/services.tsx",
+      "source_location": "L175",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
