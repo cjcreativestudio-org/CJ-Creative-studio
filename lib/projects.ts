@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     name: "Maple & Co",
     type: "Restaurant",
-    img: "https://picsum.photos/seed/modern-restaurant-interior/800/600",
+    img: "https://images.unsplash.com/photo-1653259038915-7cf0b7a4dd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800",
     color: "from-amber-100/80 to-orange-100/80",
     enter: { x: -40, opacity: 0 },
     slug: "maple-and-co",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
   {
     name: "Northfield Law",
     type: "Legal Services",
-    img: "https://picsum.photos/seed/law-office-minimal/800/600",
+    img: "https://images.unsplash.com/photo-1598139384902-5a8217874645?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800",
     color: "from-slate-100/80 to-blue-100/80",
     enter: { y: 48, opacity: 0 },
     slug: "northfield-law",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
   {
     name: "Bloom Studio",
     type: "Photography",
-    img: "https://picsum.photos/seed/photography-studio-light/800/600",
+    img: "https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800",
     color: "from-rose-100/80 to-pink-100/80",
     enter: { x: 40, opacity: 0 },
     slug: "bloom-studio",

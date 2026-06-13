@@ -23,25 +23,34 @@ export default function LaptopZoom({ onLightChange }: Props) {
     offset: ["start start", "end end"],
   });
 
-  // Quadratic ease-in zoom — 1x → 9x, targeting the laptop screen centre
+  // Quadratic ease-in zoom — 1x → 9x, targeting the screen centre of the centred MacBook
   const scale = useTransform(scrollYProgress, (p) =>
     prefersReducedMotion ? 1 : 1 + p * p * 8
   );
 
-  // Scene fades out as we dive through the screen — explicit endpoints prevent extrapolation bleed
+  // Scene fades out as we dive through the screen
   const sceneOpacity = useTransform(scrollYProgress, [0, 0.6, 0.85, 1], [1, 1, 0, 0]);
 
   // Scroll hint fades on first movement
   const hintOpacity = useTransform(scrollYProgress, [0, 0.07, 1], [1, 0, 0]);
 
-  // Dark portal fills in — pinned at 1 from 0.88 onwards
+  // Dark portal fills in
   const veilOpacity = useTransform(scrollYProgress, [0, 0.55, 0.88, 1], [0, 0, 1, 1]);
 
-  // Arrival headline rises in after the portal is full
+  // Arrival headline rises in after portal is full
   const arrivalOpacity = useTransform(scrollYProgress, [0, 0.82, 0.96, 1], [0, 0, 1, 1]);
   const arrivalY = useTransform(scrollYProgress, [0, 0.82, 0.96, 1], [36, 36, 0, 0]);
 
-  // Nav is dark-text on the white room; light-text once inside the dark portal
+  // Hero tagline fades out before the zoom takes over
+  const heroTaglineOpacity = useTransform(scrollYProgress, [0, 0.09], [1, 0]);
+
+  // MacBook screen content — visible from load, resolves to full on scroll
+  const laptopLogoScale = useTransform(scrollYProgress, [0, 0.32], [0.90, 1]);
+  const laptopLogoOpacity = useTransform(scrollYProgress, [0, 0.28], [0.88, 1]);
+  const laptopTaglineOpacity = useTransform(scrollYProgress, [0, 0.18, 0.38], [0.72, 0.72, 1]);
+  const laptopTaglineY = useTransform(scrollYProgress, [0, 0.18, 0.38], [4, 4, 0]);
+
+  // Nav switches to light text once inside the dark portal
   useMotionValueEvent(scrollYProgress, "change", (p) => {
     onLightChange(p < 0.52);
   });
@@ -51,93 +60,82 @@ export default function LaptopZoom({ onLightChange }: Props) {
 
   return (
     <section ref={sectionRef} className="relative h-[300vh]">
-      <div className="sticky top-0 h-screen overflow-hidden bg-white isolate">
-
-        {/* Ambient aurora — always present behind the scene */}
-        <div className="aurora-gradient animate-aurora pointer-events-none absolute -inset-[10px] opacity-30 [will-change:background-position]" />
+      {/* bg-white removed — body::before aurora shows through the transparent sticky */}
+      <div className="sticky top-0 h-screen overflow-hidden isolate">
 
         {/* ── ZOOMING SCENE ── */}
+        {/* transform-origin 50% 46% targets the MacBook screen centre when device is vertically centred */}
         <motion.div
           style={{ scale, opacity: sceneOpacity }}
-          className="absolute inset-0 z-[1] flex flex-col items-center justify-center [transform-origin:50%_40%]"
+          className="absolute inset-0 z-[1] flex items-center justify-center [transform-origin:50%_46%]"
         >
-          {/* Laptop mockup */}
-          <div className="laptop">
+          {/* ── MacBook device ── */}
+          <div className="macbook">
 
-            {/* ── LID ── */}
-            <div className="laptop-lid">
-              {/* Camera dot */}
-              <div className="camera-dot" />
+            {/* Lid (screen) */}
+            <div className="macbook-lid">
+              <div className="macbook-screen" style={{ containerType: "inline-size" }}>
 
-              {/* Screen bezel → white screen */}
-              <div
-                className="laptop-screen"
-                style={{ containerType: "inline-size" }}
-              >
-                {/* Browser chrome */}
-                <div className="browser-chrome">
-                  <div className="traffic-lights">
-                    <span style={{ background: "#ff5f57" }} />
-                    <span style={{ background: "#febc2e" }} />
-                    <span style={{ background: "#28c840" }} />
+                {/* Dark browser chrome */}
+                <div className="mb-chrome">
+                  <div className="mb-traffic">
+                    <span /><span /><span />
                   </div>
-                  <div className="url-pill">cjstudio.design</div>
+                  <div className="mb-url">cjcreativestudio.com</div>
                 </div>
 
-                {/* Mini site — nav */}
-                <div className="mini-nav">
-                  <div className="mini-brand">
+                {/* Website mockup */}
+                <div className="mb-site">
+                  {/* Mock site nav */}
+                  <div className="mb-site-nav">
                     <Image
-                      src="/cj-mark.svg"
-                      alt="CJ Studio"
-                      width={16}
-                      height={16}
-                      className="mini-mark"
+                      src="/assets/cj-logo-horizontal.png"
+                      alt="CJ Creative Studio"
+                      width={200}
+                      height={50}
+                      className="mb-site-logo"
+                      priority
                     />
-                    <span>
-                      CJ&nbsp;<strong>Studio</strong>
-                      <span className="mini-dot">.</span>
-                    </span>
+                    <div className="mb-site-links">
+                      <span>Work</span>
+                      <span>Services</span>
+                      <span>Contact</span>
+                    </div>
                   </div>
-                  <div className="mini-cta">Start a project</div>
+
+                  {/* Mock hero */}
+                  <motion.div
+                    style={{ scale: laptopLogoScale, opacity: laptopLogoOpacity }}
+                    className="mb-site-hero"
+                  >
+                    <div className="mb-site-eyebrow">UK Web Design Studio</div>
+                    <div className="mb-site-headline">
+                      Websites that<br />win clients.
+                    </div>
+                    <motion.div
+                      style={{ opacity: laptopTaglineOpacity, y: laptopTaglineY }}
+                    >
+                      <p className="mb-site-desc">
+                        We design and build premium websites for<br />
+                        ambitious UK brands.
+                      </p>
+                      <div className="mb-site-cta">Book a discovery call →</div>
+                    </motion.div>
+                  </motion.div>
+
+                  <div className="mb-reflection" />
                 </div>
 
-                {/* Mini site — hero */}
-                <div className="mini-stage">
-                  <p className="mini-eyebrow">WEBSITE DESIGN STUDIO</p>
-                  <h1 className="mini-headline">
-                    <strong>Websites built</strong><br />to stand out.
-                  </h1>
-                  <p className="mini-sub">
-                    We design and build conversion-focused websites<br />
-                    that make your brand impossible to ignore.
-                  </p>
-                  <div className="mini-actions">
-                    <div className="mini-btn-primary">Start a project</div>
-                    <div className="mini-btn-ghost">View our work →</div>
-                  </div>
-                </div>
-
-                {/* Mini site — services strip */}
-                <div className="mini-services">
-                  {["Brand&nbsp;Design", "Web&nbsp;Development", "SEO&nbsp;&amp;&nbsp;Growth"].map((s) => (
-                    <div key={s} className="mini-service-pill" dangerouslySetInnerHTML={{ __html: s }} />
-                  ))}
-                </div>
-
-                {/* Glass sheen */}
-                <div className="screen-glass" />
               </div>
             </div>
 
-            {/* ── BASE ── */}
-            <div className="laptop-base">
-              <div className="laptop-foot" />
-            </div>
-          </div>
+            {/* Hinge + keyboard deck */}
+            <div className="macbook-hinge" />
+            <div className="macbook-body" />
 
-          {/* Desk surface glow */}
-          <div className="desk-glow" />
+            {/* Cylindrical platform pedestal */}
+            <div className="macbook-platform" />
+          </div>
 
           {/* Scroll hint */}
           <motion.div
@@ -148,6 +146,25 @@ export default function LaptopZoom({ onLightChange }: Props) {
             <span>SCROLL TO ENTER</span>
             <span className="hint-arrow">↓</span>
           </motion.div>
+        </motion.div>
+
+        {/* ── HERO TAGLINE — above-fold value prop, fades before zoom kicks in ── */}
+        <motion.div
+          style={{ opacity: heroTaglineOpacity }}
+          className="pointer-events-none absolute bottom-[72px] left-0 right-0 z-[4] flex flex-col items-center gap-1.5"
+        >
+          <p
+            className="text-[10px] uppercase tracking-[0.3em]"
+            style={{ fontFamily: "ui-monospace, monospace", color: "rgba(12,14,20,0.36)" }}
+          >
+            UK Web Design Studio
+          </p>
+          <p
+            className="text-[clamp(1rem,2vw,1.4rem)] font-semibold tracking-tight"
+            style={{ color: "#0c0e14" }}
+          >
+            Websites that win clients.
+          </p>
         </motion.div>
 
         {/* ── DARK PORTAL VEIL ── */}
