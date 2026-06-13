@@ -166,7 +166,7 @@ export default function WhyItMatters() {
               The research
             </span>
 
-            <div className="grid grid-cols-2 gap-x-[clamp(32px,6vw,80px)] gap-y-[clamp(28px,4vw,48px)] max-w-[680px]">
+            <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-x-[clamp(32px,6vw,80px)] gap-y-[clamp(28px,4vw,48px)] max-w-[680px]">
               {[
                 { stat: "75%",   label: "of users judge brand credibility by website design alone" },
                 { stat: "0.05s", label: "is all it takes for visitors to form a lasting first impression" },
