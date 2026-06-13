@@ -4,18 +4,22 @@ import { motion, useReducedMotion } from "motion/react";
 
 const principles = [
   {
+    num: "01",
     title: "Best service first",
     body: "We work with businesses that genuinely need help. Our clients get our full attention, not a template.",
   },
   {
+    num: "02",
     title: "No lock-in, ever",
     body: "No rising fees mid-contract. No hostage websites. You own your domain and can walk away any time.",
   },
   {
+    num: "03",
     title: "Visits become customers",
     body: "Every design decision is made to improve conversion and raise your Google ranking.",
   },
   {
+    num: "04",
     title: "Complete transparency",
     body: "Your domain is bought in your business name. You have full legal access. We just host and maintain.",
   },
@@ -49,7 +53,7 @@ const steps = [
   },
   {
     number: "06",
-    title: "Sign off & go live",
+    title: "Sign off and go live",
     body: "Contracts signed, domain connected, hosting begins.",
   },
 ];
@@ -59,14 +63,14 @@ const founders = [
     initials: "JC",
     name: "Josh Carter",
     role: "Co-founder",
-    bio: "Economics graduate from the University of Nottingham. Passionate about interface design and the psychology of customer conversion — how small design choices drive big business outcomes.",
+    bio: "Economics graduate from the University of Nottingham. Passionate about interface design and the psychology of customer conversion: how small design choices drive big business outcomes.",
     interests: ["Hiking", "Football", "Keeping fit"],
   },
   {
     initials: "OJ",
     name: "Oliver Jackson",
     role: "Co-founder",
-    bio: "Economics & Finance graduate from Cardiff University. Passionate about coding for the web and staying at the cutting edge of AI-assisted design. Believes great software should feel inevitable.",
+    bio: "Economics and Finance graduate from Cardiff University. Passionate about coding for the web and staying at the cutting edge of AI-assisted design. Believes great software should feel inevitable.",
     interests: ["Running", "Tennis", "Padel"],
   },
 ];
@@ -86,9 +90,6 @@ export default function About() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-12"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">
-            Our principles
-          </p>
           <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-gray-900 leading-tight">
             We&apos;re here for businesses<br className="hidden sm:block" /> that want to grow.
           </h2>
@@ -102,13 +103,10 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              className="relative rounded-2xl bg-white/70 backdrop-blur-sm border border-gray-100 p-6 overflow-hidden"
+              className="rounded-2xl bg-white border border-gray-100 p-6 flex flex-col gap-3"
             >
-              <div
-                className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-2xl"
-                style={{ background: "linear-gradient(180deg, #f472b6, #a78bfa)" }}
-              />
-              <h3 className="text-gray-900 font-semibold text-lg mb-2">{p.title}</h3>
+              <span className="text-xs font-bold tracking-widest text-[#8a6cff]">{p.num}</span>
+              <h3 className="text-gray-900 font-semibold text-lg leading-snug">{p.title}</h3>
               <p className="text-gray-500 text-[15px] leading-relaxed">{p.body}</p>
             </motion.div>
           ))}
@@ -124,9 +122,6 @@ export default function About() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-12"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">
-            Our process
-          </p>
           <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-gray-900 leading-tight">
             Six steps from first contact<br className="hidden sm:block" /> to live site.
           </h2>
@@ -145,16 +140,9 @@ export default function About() {
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="snap-start shrink-0 min-w-[270px] rounded-2xl bg-white/70 backdrop-blur-sm border border-gray-100 p-6 flex flex-col gap-3"
+                className="snap-start shrink-0 min-w-[270px] rounded-2xl bg-white border border-gray-100 p-6 flex flex-col gap-3"
               >
-                <span
-                  className="text-4xl font-black leading-none"
-                  style={{
-                    background: "linear-gradient(135deg, #f472b6, #a78bfa)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
+                <span className="text-3xl font-black leading-none text-[#8a6cff]">
                   {step.number}
                 </span>
                 <h3 className="text-gray-900 font-semibold text-base">{step.title}</h3>
@@ -173,16 +161,13 @@ export default function About() {
         >
           {[
             "24-hour response time on all client messages",
-            "Your domain stays in your name — you own it always",
+            "Your domain stays in your name: you own it always",
           ].map((pill) => (
             <span
               key={pill}
-              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/60 px-4 py-2 text-xs text-gray-600"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-xs text-gray-600"
             >
-              <span
-                className="w-1.5 h-1.5 rounded-full shrink-0"
-                style={{ background: "linear-gradient(135deg, #f472b6, #a78bfa)" }}
-              />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8a6cff] shrink-0" />
               {pill}
             </span>
           ))}
@@ -211,7 +196,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.7, delay: i * 0.15, type: "spring", stiffness: 70, damping: 16 }}
-              className="rounded-2xl bg-white/70 backdrop-blur-sm border border-gray-100 p-8 flex flex-col gap-6"
+              className="rounded-2xl bg-white border border-gray-100 p-8 flex flex-col gap-6"
             >
               <div className="flex items-center gap-4">
                 <div

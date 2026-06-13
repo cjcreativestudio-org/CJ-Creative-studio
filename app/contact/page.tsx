@@ -53,7 +53,7 @@ export default function ContactPage() {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-4 p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-100/80 hover:border-purple-200/60 hover:bg-white/80 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-purple-200 hover:bg-gray-50 transition-all group"
               >
                 <div className="w-10 h-10 rounded-xl bg-gray-50 group-hover:bg-purple-50 flex items-center justify-center transition-colors shrink-0">
                   <Icon size={18} className="text-gray-500 group-hover:text-purple-500 transition-colors" />
@@ -71,7 +71,7 @@ export default function ContactPage() {
           <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col gap-2">
             {["Free, no-obligation quote", "Reply within 24 hours", "Based in the UK"].map((item) => (
               <div key={item} className="flex items-center gap-2 text-[14px] text-gray-500">
-                <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#8a6cff] shrink-0" />
                 {item}
               </div>
             ))}
