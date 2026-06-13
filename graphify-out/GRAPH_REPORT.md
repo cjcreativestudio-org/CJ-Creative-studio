@@ -1,16 +1,16 @@
-# Graph Report - cj-studio  (2026-06-12)
+# Graph Report - cj-studio  (2026-06-13)
 
 ## Corpus Check
-- 55 files · ~268,864 words
+- 51 files · ~272,070 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 528 nodes · 587 edges · 53 communities (30 shown, 23 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.9)
+- 489 nodes · 495 edges · 52 communities (31 shown, 21 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 12 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `73bdf2c2`
+- Built from commit: `f2fe5399`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -56,18 +56,17 @@
 - [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 40|Community 40]]
-- [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 43|Community 43]]
-- [[_COMMUNITY_Community 44|Community 44]]
-- [[_COMMUNITY_Community 45|Community 45]]
-- [[_COMMUNITY_Community 46|Community 46]]
 - [[_COMMUNITY_Community 47|Community 47]]
 - [[_COMMUNITY_Community 48|Community 48]]
 - [[_COMMUNITY_Community 49|Community 49]]
 - [[_COMMUNITY_Community 50|Community 50]]
-- [[_COMMUNITY_Community 51|Community 51]]
+- [[_COMMUNITY_Community 52|Community 52]]
 - [[_COMMUNITY_Community 54|Community 54]]
+- [[_COMMUNITY_Community 55|Community 55]]
+- [[_COMMUNITY_Community 56|Community 56]]
+- [[_COMMUNITY_Community 57|Community 57]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
@@ -77,21 +76,21 @@
 5. `Dribbble MCP Server — Implementation Plan` - 11 edges
 6. `CJ Studio Landing Page Implementation Plan` - 11 edges
 7. `CJ Creative Studio — Landing Page Design Spec` - 11 edges
-8. `CJ Studio Brand Identity` - 11 edges
-9. `Contact Form Design` - 10 edges
-10. `Dribbble MCP Server — Design Spec` - 9 edges
+8. `Contact Form Design` - 10 edges
+9. `Dribbble MCP Server — Design Spec` - 9 edges
+10. `Product` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Brand Direction Option: Bold & Dark` --rationale_for--> `CJ Studio Brand Identity`  [INFERRED]
-  .superpowers/brainstorm/3367-1780249286/content/direction.html → components/logo.tsx
-- `Brand Direction Option: Editorial / Craft` --rationale_for--> `CJ Studio Brand Identity`  [INFERRED]
-  .superpowers/brainstorm/3367-1780249286/content/direction.html → components/logo.tsx
-- `Brand Direction Option: Brutalist Fresh` --rationale_for--> `CJ Studio Brand Identity`  [INFERRED]
-  .superpowers/brainstorm/3367-1780249286/content/direction.html → components/logo.tsx
-- `Brand Direction Option: Refined Minimal` --rationale_for--> `CJ Studio Brand Identity`  [INFERRED]
-  .superpowers/brainstorm/3367-1780249286/content/direction.html → components/logo.tsx
 - `AnimatedButton Component` --references--> `Contact Form Design Spec`  [EXTRACTED]
   components/animated-button.tsx → docs/superpowers/specs/2026-05-30-contact-form-design.md
+- `Vercel Logo SVG (public asset)` --conceptually_related_to--> `Vercel Deployment Platform`  [INFERRED]
+  public/vercel.svg → components/services.tsx
+- `README Next.js Bootstrap Info` --references--> `Vercel Deployment Platform`  [EXTRACTED]
+  README.md → components/services.tsx
+- `Founders Page` --rationale_for--> `Multi-Page App Router Architecture`  [EXTRACTED]
+  app/founders/page.tsx → docs/superpowers/specs/2026-05-31-multipage-refactor-design.md
+- `Process Page` --rationale_for--> `Multi-Page App Router Architecture`  [EXTRACTED]
+  app/process/page.tsx → docs/superpowers/specs/2026-05-31-multipage-refactor-design.md
 
 ## Import Cycles
 - None detected.
@@ -102,27 +101,23 @@
 - **Components implementing useReducedMotion accessibility pattern** — component_hero, component_founders, component_cta, component_nav, component_website_assembly, component_work_teaser, component_work [EXTRACTED 1.00]
 - **HomeScrollScene composite: Hero text over WebsiteAssembly 3D background** — component_home_scroll_scene, component_hero, component_website_assembly [EXTRACTED 1.00]
 
-## Communities (53 total, 23 thin omitted)
+## Communities (52 total, 21 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.07
-Nodes (47): AnimatedButton Component, Aurora Gradient Color System (pink→violet→blue→emerald), Brand Direction Brainstorm (Bold Dark / Editorial / Brutalist / Minimal), Brand Direction Option: Bold & Dark, Brand Direction Option: Brutalist Fresh, Brand Direction Option: Editorial / Craft, Brand Direction Option: Refined Minimal, CJ Studio Brand Identity (+39 more)
+Cohesion: 0.17
+Nodes (16): Founders Component, Josh Carter (Co-founder), Ollie Jackson (Co-founder), motion/react Animation Library, Pricing Model (Flat Fee, 50/50 Payment, Monthly Upkeep), Process Component, Process Pricing Callout (Custom Quote + Monthly), Process Steps (Brief, Build, Launch) (+8 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
 Nodes (24): dependencies, motion, next, @phosphor-icons/react, react, react-dom, resend, devDependencies (+16 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.16
-Nodes (5): Logo, LogoProps, links, metadata, metadata
+Cohesion: 0.21
+Nodes (12): Founders Component, WorkTeaser Component, Apple Aesthetic Founders Cards, Shared Project Data Pattern, Projects Data (lib/projects.ts), Josh Carter (Co-founder), Ollie Jackson (Co-founder), Multi-Page Refactor Implementation Plan (+4 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.07
-Nodes (49): FormState Interface (name/email/message errors), sendEnquiry Server Action, AnimatedButton Component, ContactForm Component, CTA Component, Footer Component, Founders Component, Hero Component (+41 more)
-
-### Community 4 - "Community 4"
-Cohesion: 0.24
-Nodes (4): Props, projects, Project, projects
+Cohesion: 0.21
+Nodes (14): Footer Component, Logo Component, CJ Studio Agency Brand (Ollie Jackson + Josh Carter), Flat Fee Pricing Model (50% deposit), Multi-Page App Router Architecture, Stripe Payment Processing, UK GDPR / Data Protection Act 2018 Compliance, Vercel Hosting Infrastructure (+6 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.16
@@ -185,8 +180,8 @@ Cohesion: 0.18
 Nodes (10): Architecture, Contact Form Design, Dependencies, Email Format, Form Fields, Goal, Out of Scope, Page Layout (+2 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.22
-Nodes (3): Service, services, metadata
+Cohesion: 0.05
+Nodes (16): MotionLink, founders, Props, aspectRatios, LogoProps, srcs, links, steps (+8 more)
 
 ### Community 38 - "Community 38"
 Cohesion: 0.22
@@ -208,10 +203,6 @@ Nodes (6): 1. The Core Objective, 2. The Tech Stack, 3. Brand Identity & Aesthet
 Cohesion: 0.29
 Nodes (6): File Map, Task 1: Add prism animation transform hooks, Task 2: Update container structure, Task 3: Add foreground glass prism layer, Task 4: Visual verification, WebsiteAssembly 3D Prism Scene Implementation Plan
 
-### Community 46 - "Community 46"
-Cohesion: 0.40
-Nodes (3): ease, fadeUp, stagger
-
 ### Community 47 - "Community 47"
 Cohesion: 0.40
 Nodes (4): commentSyntax, cspChecked, files, insertBefore
@@ -220,29 +211,41 @@ Nodes (4): commentSyntax, cspChecked, files, insertBefore
 Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
 
+### Community 52 - "Community 52"
+Cohesion: 0.22
+Nodes (14): FormState Interface (name/email/message errors), sendEnquiry Server Action, AnimatedButton Component, ContactForm Component, CTA Component, Aurora CSS Background Animation, Resend Transactional Email (RESEND_API_KEY), Next.js Server Action Pattern (+6 more)
+
 ### Community 54 - "Community 54"
 Cohesion: 0.33
 Nodes (5): Build Status, Issues Caught & Fixed During Review, Landing Page Implementation Progress, Pending: Visual QA Checks, Status: 8/9 Tasks Complete — Awaiting Visual QA
 
+### Community 55 - "Community 55"
+Cohesion: 0.47
+Nodes (6): AnimatedButton Component, contact-form.tsx (planned), Contact Form Design Spec, Contact Page Route (/contact), Resend Email Service Integration, send-enquiry Server Action (planned)
+
+### Community 56 - "Community 56"
+Cohesion: 0.40
+Nodes (5): Brand Direction Brainstorm (Bold Dark / Editorial / Brutalist / Minimal), Brand Direction Option: Bold & Dark, Brand Direction Option: Brutalist Fresh, Brand Direction Option: Editorial / Craft, Brand Direction Option: Refined Minimal
+
 ## Knowledge Gaps
-- **299 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+294 more)
+- **292 isolated node(s):** `metadata`, `Props`, `Props`, `LogoProps`, `srcs` (+287 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **21 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
-  _312 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07030527289546716 - nodes in this community are weakly interconnected._
+- **Why does `Footer Component` connect `Community 3` to `Community 52`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **What connects `metadata`, `Props`, `Props` to the rest of the system?**
+  _309 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._
-- **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.07312925170068027 - nodes in this community are weakly interconnected._
 - **Should `Community 6` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
 - **Should `Community 7` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 9` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
+- **Should `Community 11` be split into smaller, more focused modules?**
+  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
