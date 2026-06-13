@@ -3,13 +3,6 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useReducedMotion } from "motion/react";
 
-const facts = [
-  "75% of users judge a brand's credibility by its website design",
-  "First impressions form in as little as 0.05 seconds",
-  "38% of users stop engaging with a site if the layout is unattractive",
-  "A well-designed site can increase conversion rates by up to 200%",
-];
-
 export default function WhyItMatters() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -81,23 +74,23 @@ export default function WhyItMatters() {
               </span>
             </h2>
 
-            <div className="mt-10 flex flex-col items-start gap-2">
-              <span
-                style={{
-                  fontFamily: "var(--font-jetbrains-mono), monospace",
-                  fontSize: 11,
-                  letterSpacing: "0.20em",
-                  textTransform: "uppercase",
-                  color: "rgba(12,14,20,0.32)",
-                }}
-              >
-                Keep scrolling ↓
-              </span>
-              <div className="w-px h-10 bg-gray-200" />
-            </div>
+            <p
+              style={{
+                fontFamily: "var(--font-space-grotesk), sans-serif",
+                fontSize: "clamp(15px, 1.5vw, 18px)",
+                lineHeight: 1.7,
+                color: "rgba(12,14,20,0.55)",
+                maxWidth: "44ch",
+                margin: "clamp(20px,3vw,32px) 0 0",
+              }}
+            >
+              Before you speak a single word, your site has already made an
+              introduction. Visitors form an opinion in as little as 0.05 seconds
+              — and that impression shapes everything that follows.
+            </p>
           </div>
 
-          {/* Slide 2 — facts */}
+          {/* Slide 2 — digital first impression */}
           <div className={prefersReducedMotion
             ? "w-full py-20 flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
             : "w-screen h-screen flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
@@ -114,66 +107,103 @@ export default function WhyItMatters() {
               Why it matters
             </span>
 
-            <h3
+            <h2
               style={{
                 fontFamily: "var(--font-space-grotesk), sans-serif",
-                fontWeight: 500,
-                fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
-                letterSpacing: "-0.02em",
+                fontWeight: 700,
+                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.03em",
+                maxWidth: "22ch",
                 color: "#0c0e14",
-                margin: "0 0 clamp(20px,3vw,40px)",
+                margin: 0,
               }}
             >
-              The numbers don&apos;t lie
-            </h3>
+              It&apos;s your digital{" "}
+              <span
+                style={{
+                  background:
+                    "linear-gradient(90deg, #8a6cff, #4d7cff 52%, #27d7c4)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                first impression.
+              </span>
+            </h2>
 
-            <ul className="space-y-5 max-w-[52ch] list-none p-0 m-0">
-              {facts.map((fact) => (
-                <li key={fact} className="flex gap-4 items-start">
-                  <span
-                    className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #8a6cff, #27d7c4)",
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontSize: "clamp(15px, 1.4vw, 18px)",
-                      lineHeight: 1.6,
-                      color: "rgba(12,14,20,0.62)",
-                    }}
-                  >
-                    {fact}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <p
+              style={{
+                fontFamily: "var(--font-space-grotesk), sans-serif",
+                fontSize: "clamp(15px, 1.5vw, 18px)",
+                lineHeight: 1.7,
+                color: "rgba(12,14,20,0.55)",
+                maxWidth: "44ch",
+                margin: "clamp(20px,3vw,32px) 0 0",
+              }}
+            >
+              A poor first impression is nearly impossible to recover from. Your
+              website isn&apos;t just a digital brochure — it&apos;s your most
+              powerful sales tool, working around the clock.
+            </p>
           </div>
 
-          {/* Slide 3 — transition buffer */}
+          {/* Slide 3 — research stats */}
           <div className={prefersReducedMotion
-            ? "hidden"
-            : "w-screen h-screen flex flex-col justify-center items-center gap-4"
+            ? "w-full py-20 flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
+            : "w-screen h-screen flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
           }>
-            <div
-              className="w-px h-16"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(138,108,255,0.4), transparent)",
-              }}
-            />
             <span
+              className="mb-10 uppercase"
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: 11,
-                letterSpacing: "0.20em",
-                textTransform: "uppercase",
-                color: "rgba(12,14,20,0.32)",
+                letterSpacing: "0.30em",
+                color: "rgba(12,14,20,0.38)",
               }}
             >
-              See our work ↓
+              The research
             </span>
+
+            <div className="grid grid-cols-2 gap-x-[clamp(32px,6vw,80px)] gap-y-[clamp(28px,4vw,48px)] max-w-[680px]">
+              {[
+                { stat: "75%",   label: "of users judge brand credibility by website design alone" },
+                { stat: "0.05s", label: "is all it takes for visitors to form a lasting first impression" },
+                { stat: "38%",   label: "of users abandon a site if the layout is unattractive" },
+                { stat: "200%",  label: "potential uplift in conversions from professional web design" },
+              ].map(({ stat, label }) => (
+                <div key={stat}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-space-grotesk), sans-serif",
+                      fontWeight: 700,
+                      fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+                      lineHeight: 1,
+                      letterSpacing: "-0.03em",
+                      background: "linear-gradient(90deg, #8a6cff, #4d7cff 52%, #27d7c4)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    {stat}
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-space-grotesk), sans-serif",
+                      fontSize: "clamp(13px, 1.2vw, 15px)",
+                      lineHeight: 1.5,
+                      color: "rgba(12,14,20,0.55)",
+                      marginTop: 8,
+                      maxWidth: "22ch",
+                    }}
+                  >
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
         </motion.div>
