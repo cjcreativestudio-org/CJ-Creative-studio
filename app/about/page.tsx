@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import AuroraBackground from "@/components/aurora-background";
 import Nav from "@/components/nav";
-import Services from "@/components/services";
+import About from "@/components/about";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Services | CJ Studio",
-  description: "Web design, build, and maintenance services from CJ Studio.",
+  title: "About Us | CJ Studio",
+  description: "Who we are, how we work, and the people behind CJ Creative Studio.",
 };
 
-export default function ServicesPage() {
+export default function AboutPage() {
   return (
     <AuroraBackground>
       <Nav />
       <main>
-        <Services />
+        <About />
       </main>
       <Footer />
     </AuroraBackground>

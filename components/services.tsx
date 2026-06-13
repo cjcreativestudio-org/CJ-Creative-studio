@@ -1,181 +1,310 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-const services = [
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-        <defs>
-          <linearGradient id="g1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#f472b6" /><stop offset="1" stopColor="#a78bfa" />
-          </linearGradient>
-        </defs>
-        <rect x="2" y="7" width="32" height="22" rx="3" stroke="url(#g1)" strokeWidth="2.5" fill="none"/>
-        <line x1="2" y1="13" x2="34" y2="13" stroke="url(#g1)" strokeWidth="2.5"/>
-        <circle cx="7" cy="10" r="1.5" fill="url(#g1)"/>
-        <circle cx="12" cy="10" r="1.5" fill="url(#g1)"/>
-        <rect x="8" y="18" width="20" height="3" rx="1.5" fill="url(#g1)" opacity="0.5"/>
-        <rect x="8" y="23" width="12" height="3" rx="1.5" fill="url(#g1)" opacity="0.3"/>
-      </svg>
-    ),
-    title: "Design",
-    body: "Clean, modern designs tailored to your brand. Mobile-first, built to convert.",
-    bg: "from-pink-50/90 to-purple-50/90",
-    spotColor: "rgba(244,114,182,0.18)",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-        <defs>
-          <linearGradient id="g2" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#60a5fa" /><stop offset="1" stopColor="#34d399" />
-          </linearGradient>
-        </defs>
-        <polyline points="10,13 4,18 10,23" stroke="url(#g2)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <polyline points="26,13 32,18 26,23" stroke="url(#g2)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <line x1="21" y1="8" x2="15" y2="28" stroke="url(#g2)" strokeWidth="2.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: "Build",
-    body: "Fast, SEO-ready websites using the latest tech. Deployed on Vercel, live in days not weeks.",
-    bg: "from-blue-50/90 to-emerald-50/90",
-    spotColor: "rgba(96,165,250,0.18)",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-        <defs>
-          <linearGradient id="g3" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#34d399" /><stop offset="1" stopColor="#60a5fa" />
-          </linearGradient>
-        </defs>
-        <circle cx="18" cy="18" r="12" stroke="url(#g3)" strokeWidth="2.5" fill="none"/>
-        <path d="M18 10 L18 18 L23 23" stroke="url(#g3)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="18" cy="18" r="2.5" fill="url(#g3)"/>
-      </svg>
-    ),
-    title: "Maintain",
-    body: "Monthly upkeep so your site stays fast, secure, and up to date. We handle it so you don't have to.",
-    bg: "from-emerald-50/90 to-teal-50/90",
-    spotColor: "rgba(52,211,153,0.18)",
-  },
+const webDesignFeatures = [
+  "Logo design & brand adaptation",
+  "Custom website build, mobile-first",
+  "SEO-ready from day one",
+  "Delivered in days, not months",
 ];
 
-function SpotlightCard({
-  service,
-  index,
-  reduce,
-}: {
-  service: (typeof services)[0];
-  index: number;
-  reduce: boolean | null;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const spotRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (reduce || !ref.current || !spotRef.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    spotRef.current.style.background = `radial-gradient(260px circle at ${x}px ${y}px, ${service.spotColor}, transparent 70%)`;
-    spotRef.current.style.opacity = "1";
-  };
-
-  const handleMouseLeave = () => {
-    if (!spotRef.current) return;
-    spotRef.current.style.opacity = "0";
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      initial={reduce ? false : { opacity: 0, y: 40, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.12,
-        type: "spring",
-        stiffness: 90,
-        damping: 18,
-      }}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      className={`relative bg-gradient-to-br ${service.bg} backdrop-blur-sm rounded-2xl p-8 flex flex-col gap-5 border border-white/70 overflow-hidden group cursor-default`}
-    >
-      {/* Spotlight overlay — updated via JS */}
-      <div
-        ref={spotRef}
-        className="pointer-events-none absolute inset-0 rounded-2xl transition-opacity duration-200"
-        style={{ opacity: 0 }}
-        aria-hidden="true"
-      />
-
-      {/* Icon bounces on card hover */}
-      <motion.div
-        whileHover={reduce ? {} : { y: -4, scale: 1.12 }}
-        transition={{ type: "spring", stiffness: 400, damping: 14 }}
-        className="w-14 h-14 flex items-center justify-center rounded-2xl bg-white/80 shadow-sm backdrop-blur-sm"
-      >
-        {service.icon}
-      </motion.div>
-
-      <div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-        <p className="text-[15px] text-gray-500 leading-relaxed">{service.body}</p>
-      </div>
-    </motion.div>
-  );
-}
+const plans = [
+  {
+    title: "Free hosting",
+    price: "£0 / month",
+    description:
+      "Hosting included forever. Changes aren't covered — if you need an update, we'll quote a callout fee.",
+    callout: "Typical changes from £30",
+    features: ["Hosting included", "Site stays live", "Callout fee for changes"],
+    highlight: false,
+  },
+  {
+    title: "Simple",
+    price: "£15 / month",
+    description: "Ongoing care so your site stays accurate and fast.",
+    callout: null,
+    features: [
+      "Everything in Free",
+      "Monthly content updates",
+      "Error & uptime monitoring",
+      "Traffic consistency checks",
+    ],
+    highlight: false,
+  },
+  {
+    title: "Adaptive",
+    price: "£45 / month",
+    description: "For businesses that move fast and need their site to keep up.",
+    callout: null,
+    features: [
+      "Everything in Simple",
+      "Frequent design changes",
+      "Traffic trend analysis",
+      "Proactive improvement suggestions",
+    ],
+    highlight: true,
+  },
+];
 
 export default function Services() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="services" className="py-28 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 24 }}
+    <div>
+      {/* ── Section 1: Intro ── */}
+      <section className="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
-          className="mb-16"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4"
         >
-          <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-gray-900 leading-tight">
-            Everything you need,<br />nothing you don&apos;t.
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {services.map((s, i) => (
-            <SpotlightCard key={s.title} service={s} index={i} reduce={reduce} />
-          ))}
-        </div>
-
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 24 }}
+          What we offer
+        </motion.p>
+        <motion.h1
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.35, type: "spring", stiffness: 80 }}
-          className="mt-4 rounded-2xl bg-gray-900/95 backdrop-blur-sm text-white p-8 grid grid-cols-2 md:grid-cols-4 gap-6"
+          transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
+          className="text-[clamp(2rem,5vw,3.25rem)] font-bold tracking-tight text-gray-900 leading-tight max-w-2xl"
         >
-          {[
-            { label: "Flat fee builds", sub: "No hourly surprises" },
-            { label: "First month free", sub: "Bug fixes included" },
-            { label: "Auto-deployed", sub: "Live on Vercel" },
-            { label: "UK-based", sub: "Ollie & Josh" },
-          ].map((feat) => (
-            <div key={feat.label}>
-              <p className="text-[15px] font-semibold text-white">{feat.label}</p>
-              <p className="text-[13px] text-gray-400 mt-0.5">{feat.sub}</p>
+          Websites that work as hard as you do.
+        </motion.h1>
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.16, ease: "easeOut" }}
+          className="mt-5 text-[17px] text-gray-500 leading-relaxed max-w-[55ch]"
+        >
+          Technology doesn&apos;t slow down for anyone. We&apos;re here to make sure your business
+          stays ahead — with design that converts, code that performs, and care that lasts.
+        </motion.p>
+      </section>
+
+      {/* ── Section 2: 1-Month Free Callout ── */}
+      <section className="py-10 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative overflow-hidden rounded-2xl border border-pink-200/60 bg-gradient-to-br from-pink-50/80 to-purple-50/80 p-10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-12 -right-12 w-64 h-64 rounded-full bg-gradient-to-br from-pink-200/30 to-purple-200/30 blur-3xl"
+            />
+            <span
+              aria-hidden="true"
+              className="text-5xl bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent select-none shrink-0"
+            >
+              ✦
+            </span>
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">First month on us.</h2>
+              <p className="text-[16px] text-gray-500 leading-relaxed max-w-[52ch]">
+                Every new website includes 1 month of free hosting and upkeep as standard. No
+                strings, no small print.
+              </p>
             </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Section 3: Web Design ── */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <motion.p
+                initial={reduce ? false : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3"
+              >
+                01 / Web Design
+              </motion.p>
+              <motion.h2
+                initial={reduce ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
+                className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-gray-900 leading-tight mb-6"
+              >
+                From logo to live site.
+              </motion.h2>
+              <motion.div
+                initial={reduce ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.14, ease: "easeOut" }}
+                className="space-y-4 text-[16px] text-gray-500 leading-relaxed mb-8"
+              >
+                <p>
+                  Everything from logo design and brand adaptation to a fully custom website —
+                  built to reflect your business and speak directly to your customers.
+                </p>
+                <p>
+                  We start by listening: your market, your customers, your goals. Every design
+                  decision is shaped to improve how visitors experience your brand and turn
+                  browsing into buying.
+                </p>
+              </motion.div>
+              <motion.ul
+                initial={reduce ? false : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                className="space-y-3"
+              >
+                {webDesignFeatures.map((feat) => (
+                  <li key={feat} className="flex items-start gap-3 text-[15px] text-gray-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 shrink-0 mt-2" />
+                    {feat}
+                  </li>
+                ))}
+              </motion.ul>
+            </div>
+
+            <motion.div
+              initial={reduce ? false : { opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+              className="aspect-video rounded-2xl bg-gradient-to-br from-pink-50 to-purple-50 border border-pink-100"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Section 4: Hosting & Upkeep ── */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3"
+          >
+            02 / Hosting &amp; Upkeep
+          </motion.p>
+          <motion.h2
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
+            className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-gray-900 leading-tight mb-4"
+          >
+            Your site, always looked after.
+          </motion.h2>
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.14, ease: "easeOut" }}
+            className="text-[16px] text-gray-500 leading-relaxed max-w-[55ch] mb-12"
+          >
+            Once your site is live, we keep it that way. Pick a plan that fits how often your
+            business changes — or keep hosting free with no commitment.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {plans.map((plan, i) => (
+              <motion.div
+                key={plan.title}
+                initial={reduce ? false : { opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                className={`relative rounded-2xl p-7 flex flex-col gap-5 border ${
+                  plan.highlight
+                    ? "border-purple-200 bg-gradient-to-br from-pink-50/70 to-purple-50/70"
+                    : "border-gray-100 bg-white/60"
+                }`}
+              >
+                {plan.highlight && (
+                  <span className="absolute top-4 right-4 text-[11px] font-semibold uppercase tracking-wider bg-gradient-to-r from-pink-400 to-purple-400 text-white px-2.5 py-1 rounded-full">
+                    Most popular
+                  </span>
+                )}
+                <div>
+                  <p className="text-[13px] font-semibold uppercase tracking-wider text-gray-400 mb-1">
+                    {plan.title}
+                  </p>
+                  <p className="text-2xl font-bold text-gray-900">{plan.price}</p>
+                </div>
+                <p className="text-[15px] text-gray-500 leading-relaxed">{plan.description}</p>
+                {plan.callout && (
+                  <p className="text-[13px] font-medium text-pink-500">{plan.callout}</p>
+                )}
+                <ul className="space-y-2.5 mt-auto">
+                  {plan.features.map((feat) => (
+                    <li key={feat} className="flex items-start gap-3 text-[14px] text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 shrink-0 mt-2" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Section 5: Pricing Framing ── */}
+      <section className="py-24 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4"
+          >
+            Pricing
+          </motion.p>
+          <motion.h2
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
+            className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-gray-900 leading-tight mb-5"
+          >
+            Tailored to your business.
+          </motion.h2>
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.14, ease: "easeOut" }}
+            className="text-[16px] text-gray-500 leading-relaxed mb-10"
+          >
+            To produce outstanding, conversion-focused design we must understand your specific
+            needs — your market, your customers, your goals. That means build pricing is bespoke
+            to each project. But you&apos;ll always receive a clear, fixed quote before anything
+            starts.
+          </motion.p>
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          >
+            <a
+              href="/contact"
+              className="inline-block bg-gradient-to-r from-pink-400 to-purple-400 text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+            >
+              Get a free quote →
+            </a>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ import Logo from "./logo";
 const links = [
   { label: "Home",             href: "/" },
   { label: "Our Work",         href: "/work" },
-  { label: "About us",         href: "/founders" },
+  { label: "About us",         href: "/about" },
   { label: "Our services",     href: "/services" },
   { label: "Contact Us",       href: "/contact" },
   { label: "Privacy & Policy", href: "/privacy" },
