@@ -5,7 +5,7 @@ import Services from "@/components/services";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Services | CJ Studio",
+  title: "Services",
   description: "Web design, build, and maintenance services from CJ Studio.",
 };
 

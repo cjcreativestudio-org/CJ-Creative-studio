@@ -160,12 +160,12 @@ export default function LaptopZoom({ onLightChange }: Props) {
           >
             UK Web Design Studio
           </p>
-          <p
+          <h1
             className="text-[clamp(1rem,2vw,1.4rem)] font-semibold tracking-tight"
-            style={{ color: "#0c0e14" }}
+            style={{ color: "#0c0e14", margin: 0 }}
           >
             Websites that win clients.
-          </p>
+          </h1>
         </motion.div>
 
         {/* ── DARK PORTAL VEIL ── */}

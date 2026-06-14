@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | CJ Studio",
+  title: "Terms of Service",
   description: "Terms and conditions for CJ Studio web design and maintenance services.",
 };
 
