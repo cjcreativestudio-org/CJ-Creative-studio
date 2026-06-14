@@ -1,44 +1,104 @@
 import Image from "next/image";
 
 interface LogoProps {
-  /** "mark" for nav (SVG icon), "horizontal" for footer, "stacked" for other uses, "full" for nav full-width logo */
   variant?: "mark" | "horizontal" | "stacked" | "full";
-  /** Height in pixels — width auto-scales to preserve aspect ratio */
   height?: number;
   className?: string;
-  /** Only true for above-the-fold logos (nav, hero). Defaults to false. */
   priority?: boolean;
+  /** Pass true when rendering on a dark background — text switches to white */
+  onDark?: boolean;
 }
 
-const srcs: Record<NonNullable<LogoProps["variant"]>, string> = {
-  mark: "/cj-mark.svg",
-  horizontal: "/assets/cj-logo-horizontal.png",
-  stacked: "/assets/cj-logo-stacked.png",
-  full: "/assets/cj-logo-full.png",
-};
-
-const aspectRatios: Record<NonNullable<LogoProps["variant"]>, number> = {
-  mark: 1,
-  horizontal: 5,
-  stacked: 2,
-  full: 2.1,
-};
+const BLUE_DOT = "#4d7cff";
 
 export default function Logo({
   variant = "horizontal",
   height = 32,
   className = "",
   priority = false,
+  onDark = false,
 }: LogoProps) {
+  const textColor = onDark ? "#ffffff" : "#0c0e14";
+  const markSize = variant === "stacked" ? height * 0.7 : height;
+
+  if (variant === "mark") {
+    return (
+      <Image
+        src="/cj-mark.svg"
+        alt="CJ Studio"
+        height={height}
+        width={height}
+        style={{ height, width: "auto" }}
+        priority={priority}
+        className={className}
+      />
+    );
+  }
+
+  if (variant === "stacked") {
+    return (
+      <div
+        className={`flex flex-col items-center gap-2 ${className}`}
+        style={{ width: "fit-content" }}
+      >
+        <Image
+          src="/cj-mark.svg"
+          alt=""
+          aria-hidden
+          height={markSize}
+          width={markSize}
+          style={{ height: markSize, width: "auto" }}
+          priority={priority}
+        />
+        <span
+          style={{
+            fontFamily: "var(--font-plus-jakarta-sans), sans-serif",
+            fontSize: height * 0.38,
+            fontWeight: 800,
+            color: textColor,
+            letterSpacing: "-0.02em",
+            whiteSpace: "nowrap",
+            lineHeight: 1,
+            transition: "color 0.3s",
+          }}
+        >
+          CJ Creative Studio
+          <span style={{ color: BLUE_DOT }}>.</span>
+        </span>
+      </div>
+    );
+  }
+
+  // "horizontal" and "full" — mark left, wordmark right
   return (
-    <Image
-      src={srcs[variant]}
-      alt="CJ Studio"
-      height={height}
-      width={height * aspectRatios[variant]}
-      className={`h-auto ${className}`}
-      style={{ height, width: "auto" }}
-      priority={priority}
-    />
+    <div
+      className={`flex items-center gap-2.5 ${className}`}
+      style={{ height, flexShrink: 0 }}
+    >
+      <Image
+        src="/cj-mark.svg"
+        alt=""
+        aria-hidden
+        height={markSize}
+        width={markSize}
+        style={{ height: markSize, width: "auto" }}
+        priority={priority}
+      />
+      <span
+        style={{
+          fontFamily: "var(--font-plus-jakarta-sans), sans-serif",
+          fontSize: height * 0.58,
+          fontWeight: 800,
+          color: textColor,
+          letterSpacing: "-0.02em",
+          whiteSpace: "nowrap",
+          lineHeight: 1,
+          transition: "color 0.3s",
+        }}
+      >
+        CJ Creative Studio
+        <span style={{ color: BLUE_DOT }}>.</span>
+      </span>
+    </div>
   );
 }

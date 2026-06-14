@@ -58,7 +58,7 @@ export default function Nav({ onLight = true }: { onLight?: boolean }) {
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <Link href="/" aria-label="CJ Studio home" className="flex items-center gap-2.5 select-none">
-            <Logo variant="full" height={30} priority />
+            <Logo variant="full" height={30} priority onDark={!onLight} />
           </Link>
         </motion.div>
 

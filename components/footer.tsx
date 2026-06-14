@@ -6,7 +6,7 @@ export default function Footer() {
     <footer style={{ background: "#0c0e14" }} className="py-8 px-6">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <Link href="/" aria-label="CJ Studio home">
-          <Logo variant="horizontal" height={22} />
+          <Logo variant="horizontal" height={22} onDark />
         </Link>
 
         <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.32)" }}>
