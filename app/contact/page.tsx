@@ -25,7 +25,7 @@ const contacts = [
   },
   {
     icon: LinkedinLogo,
-    label: "CJ Creative Studio",
+    label: "CJ Studio",
     href: "https://linkedin.com/company/cj-creative-studio",
     sub: "LinkedIn",
   },

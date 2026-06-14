@@ -90,7 +90,7 @@ export default function LaptopZoom({ onLightChange }: Props) {
                   <div className="mb-site-nav">
                     <Image
                       src="/assets/cj-logo-horizontal.png"
-                      alt="CJ Creative Studio"
+                      alt="CJ Studio"
                       width={200}
                       height={50}
                       className="mb-site-logo"

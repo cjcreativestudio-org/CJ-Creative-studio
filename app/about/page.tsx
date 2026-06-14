@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Who we are, how we work, and the people behind CJ Creative Studio.",
+  description: "Who we are, how we work, and the people behind CJ Studio.",
 };
 
 export default function AboutPage() {

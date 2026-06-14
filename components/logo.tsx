@@ -33,7 +33,7 @@ export default function Logo({
   return (
     <Image
       src={srcs[variant]}
-      alt="CJ Creative Studio"
+      alt="CJ Studio"
       height={height}
       width={height * aspectRatios[variant]}
       className={`h-auto ${className}`}
