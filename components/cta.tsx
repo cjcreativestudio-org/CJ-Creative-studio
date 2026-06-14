@@ -11,6 +11,22 @@ export default function CTA() {
     <section id="contact" className="py-28 px-6 relative overflow-hidden">
       <div className="aurora-gradient animate-aurora absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true" />
 
+      {/* Depth orbs — two layers at different scales/speeds for parallax illusion */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-[0.07]"
+        style={{ background: "radial-gradient(circle, #8a6cff 0%, transparent 70%)" }}
+        animate={reduce ? {} : { y: [0, -24, 0], scale: [1, 1.06, 1] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-24 right-1/3 w-[400px] h-[400px] rounded-full opacity-[0.05]"
+        style={{ background: "radial-gradient(circle, #27d7c4 0%, transparent 70%)" }}
+        animate={reduce ? {} : { y: [0, 20, 0], scale: [1, 0.94, 1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+      />
+
       <div className="relative max-w-6xl mx-auto">
         <div className="max-w-3xl">
           <motion.p

@@ -103,55 +103,101 @@ export default function DarkWorkCarousel() {
             className="flex h-full"
             style={{ x: prefersReducedMotion ? undefined : x, width: trackWidth }}
           >
-            {projects.map((project, i) => (
-              <div
-                key={project.slug}
-                className="relative flex-none w-screen h-full flex items-center"
-              >
-                <div className="w-full max-w-7xl mx-auto px-12 flex items-center gap-14">
+            {projects.map((project, i) => {
+              // Per-card scroll window
+              const cardIn = i / projects.length;
+              const cardMid = (i + 0.5) / projects.length;
 
-                  {/* Image */}
-                  <div
-                    className="relative flex-none w-[52%] overflow-hidden rounded-2xl"
-                    style={{ aspectRatio: "4/3" }}
-                  >
-                    <Image
-                      src={project.img}
-                      alt={project.name}
-                      fill
-                      sizes="52vw"
-                      className="object-cover"
-                    />
-                  </div>
+              // Image parallax — moves at different rate from text (depth layer)
+              const imgY = useTransform(
+                scrollYProgress,
+                [0, 1],
+                [`${-4 + i * 4}%`, `${4 - i * 3}%`]
+              );
+              // Image zooms out as card enters
+              const imgScale = useTransform(
+                scrollYProgress,
+                [cardIn, cardMid],
+                [1.1, 1.0]
+              );
+              // Headline rises in from below
+              const headlineY = useTransform(
+                scrollYProgress,
+                [cardIn, cardMid],
+                [32, 0]
+              );
+              const headlineOpacity = useTransform(
+                scrollYProgress,
+                [cardIn, cardIn + 0.12],
+                [0, 1]
+              );
 
-                  {/* Text */}
-                  <div className="flex flex-col gap-5 flex-1 min-w-0">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/38">
-                      {String(i + 1).padStart(2, "0")} — {project.type}
-                    </p>
-                    <h2 className="text-[clamp(2.2rem,3.8vw,3.6rem)] font-semibold tracking-tight leading-none text-white">
-                      {project.name}
-                    </h2>
-                    <p className="text-[16px] leading-[1.7] text-white/55 max-w-[400px]">
-                      {project.description}
-                    </p>
-                    {project.quote && (
-                      <p className="text-[14px] italic text-white/38 max-w-[360px] leading-relaxed mt-1">
-                        &ldquo;{project.quote.text}&rdquo;
-                        <span className="not-italic ml-2 text-white/24 text-[12px]">— {project.quote.author}</span>
-                      </p>
-                    )}
-                    <Link
-                      href="/work"
-                      className="inline-flex items-center gap-2 text-[14px] font-medium text-white/70 border-b border-white/18 pb-1 self-start mt-2 hover:text-white hover:border-white/40 transition-colors"
+              return (
+                <div
+                  key={project.slug}
+                  className="relative flex-none w-screen h-full flex items-center"
+                >
+                  <div className="w-full max-w-7xl mx-auto px-12 flex items-center gap-14">
+
+                    {/* Image — y parallax + scale depth */}
+                    <motion.div
+                      className="relative flex-none w-[52%] overflow-hidden rounded-2xl"
+                      style={{
+                        aspectRatio: "4/3",
+                        y: prefersReducedMotion ? 0 : imgY,
+                      }}
                     >
-                      View project <span aria-hidden>→</span>
-                    </Link>
-                  </div>
+                      <motion.div
+                        className="absolute inset-0"
+                        style={{ scale: prefersReducedMotion ? 1 : imgScale }}
+                      >
+                        <Image
+                          src={project.img}
+                          alt={project.name}
+                          fill
+                          sizes="52vw"
+                          className="object-cover"
+                        />
+                      </motion.div>
+                    </motion.div>
 
+                    {/* Text — headline rises with depth offset */}
+                    <div className="flex flex-col gap-5 flex-1 min-w-0">
+                      <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/38">
+                        {String(i + 1).padStart(2, "0")} — {project.type}
+                      </p>
+
+                      <motion.h2
+                        className="text-[clamp(2.2rem,3.8vw,3.6rem)] font-semibold tracking-tight leading-none text-white"
+                        style={{
+                          y: prefersReducedMotion ? 0 : headlineY,
+                          opacity: prefersReducedMotion ? 1 : headlineOpacity,
+                        }}
+                      >
+                        {project.name}
+                      </motion.h2>
+
+                      <p className="text-[16px] leading-[1.7] text-white/55 max-w-[400px]">
+                        {project.description}
+                      </p>
+                      {project.quote && (
+                        <p className="text-[14px] italic text-white/38 max-w-[360px] leading-relaxed mt-1">
+                          &ldquo;{project.quote.text}&rdquo;
+                          <span className="not-italic ml-2 text-white/24 text-[12px]">— {project.quote.author}</span>
+                        </p>
+                      )}
+                      <Link
+                        href="/work"
+                        className="inline-flex items-center gap-2 text-[14px] font-medium text-white/70 border-b border-white/18 pb-1 self-start mt-2 hover:text-white hover:border-white/40 transition-colors"
+                      >
+                        View project <span aria-hidden>→</span>
+                      </Link>
+                    </div>
+
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </motion.div>
 
           {/* Scroll progress bar */}

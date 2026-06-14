@@ -29,15 +29,17 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10" style={{ perspective: "1200px" }}>
           {quotes.map((p, i) => (
             <motion.div
               key={p.slug}
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={reduce ? false : { opacity: 0, y: 32, rotateX: 8, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+              whileHover={reduce ? {} : { y: -6, scale: 1.02 }}
               viewport={{ once: true, amount: 0.1, margin: "-40px" }}
-              transition={{ duration: 0.6, delay: i * 0.1, type: "spring", stiffness: 80 }}
+              transition={{ duration: 0.65, delay: i * 0.12, type: "spring", stiffness: 70, damping: 16 }}
               className="flex flex-col gap-5"
+              style={{ transformOrigin: "center bottom" }}
             >
               {/* Quote mark */}
               <div

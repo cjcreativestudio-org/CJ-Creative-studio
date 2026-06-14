@@ -148,19 +148,49 @@ export default function WhyItMatters() {
             className={prefersReducedMotion ? "flex flex-col w-full" : "flex w-[300vw] max-w-none"}
           >
             {/* Slides 1 & 2 */}
-            {slides.map((slide, i) => (
-              <div
-                key={i}
-                className={prefersReducedMotion
-                  ? "w-full py-20 flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
-                  : "w-screen h-screen flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
-                }
-              >
-                <span className="mb-8 uppercase" style={eyebrowStyle}>{slide.eyebrow}</span>
-                <h2 style={headingStyle}>{slide.headline}</h2>
-                <p style={bodyStyle}>{slide.body}</p>
-              </div>
-            ))}
+            {slides.map((slide, i) => {
+              // Each panel occupies 0–0.5 and 0.33–0.66 of scroll progress
+              const panelStart = i * 0.33;
+              const panelMid = panelStart + 0.25;
+              const headlineScale = useTransform(
+                scrollYProgress,
+                [panelStart, panelMid],
+                prefersReducedMotion ? [1, 1] : [0.94, 1]
+              );
+              const headlineY = useTransform(
+                scrollYProgress,
+                [panelStart, panelMid],
+                prefersReducedMotion ? [0, 0] : [24, 0]
+              );
+              const eyebrowX = useTransform(
+                scrollYProgress,
+                [panelStart, panelMid],
+                prefersReducedMotion ? [0, 0] : [-16, 0]
+              );
+
+              return (
+                <div
+                  key={i}
+                  className={prefersReducedMotion
+                    ? "w-full py-20 flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
+                    : "w-screen h-screen flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
+                  }
+                >
+                  <motion.span
+                    className="mb-8 uppercase"
+                    style={{ ...eyebrowStyle, x: eyebrowX }}
+                  >
+                    {slide.eyebrow}
+                  </motion.span>
+                  <motion.h2
+                    style={{ ...headingStyle, scale: headlineScale, y: headlineY, originX: 0 }}
+                  >
+                    {slide.headline}
+                  </motion.h2>
+                  <p style={bodyStyle}>{slide.body}</p>
+                </div>
+              );
+            })}
 
             {/* Slide 3 — stats */}
             <div
