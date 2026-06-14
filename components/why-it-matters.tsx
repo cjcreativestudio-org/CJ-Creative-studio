@@ -92,7 +92,7 @@ export default function WhyItMatters() {
   return (
     <>
       {/* ── MOBILE layout (vertical stack, always) ── */}
-      <div className="md:hidden flex flex-col gap-20 py-20 px-6">
+      <section className="md:hidden flex flex-col gap-20 py-20 px-6" aria-label="Why your website matters">
         {slides.map((slide, i) => (
           <div key={i} className="flex flex-col gap-6">
             <span className="uppercase" style={eyebrowStyle}>{slide.eyebrow}</span>
@@ -103,9 +103,9 @@ export default function WhyItMatters() {
         {/* Stats */}
         <div>
           <span className="uppercase mb-8 block" style={eyebrowStyle}>The research</span>
-          <div className="grid grid-cols-2 gap-x-8 gap-y-8">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-8" role="list">
             {stats.map(({ stat, label }) => (
-              <div key={stat}>
+              <div key={stat} role="listitem">
                 <div
                   style={{
                     fontFamily: "var(--font-space-grotesk), sans-serif",
@@ -128,11 +128,12 @@ export default function WhyItMatters() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ── DESKTOP layout (scroll-driven horizontal) ── */}
       <section
         ref={sectionRef}
+        aria-label="Why your website matters"
         className={`hidden md:block ${prefersReducedMotion ? "relative" : "relative h-[300vh]"}`}
       >
         <div
@@ -169,9 +170,9 @@ export default function WhyItMatters() {
               }
             >
               <span className="mb-10 uppercase" style={eyebrowStyle}>The research</span>
-              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-x-[clamp(32px,6vw,80px)] gap-y-[clamp(28px,4vw,48px)] max-w-[680px]">
+              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-x-[clamp(32px,6vw,80px)] gap-y-[clamp(28px,4vw,48px)] max-w-[680px]" role="list">
                 {stats.map(({ stat, label }) => (
-                  <div key={stat}>
+                  <div key={stat} role="listitem">
                     <div
                       style={{
                         fontFamily: "var(--font-space-grotesk), sans-serif",
