@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Nav from "@/components/nav";
+import AuroraBackground from "@/components/aurora-background";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | CJ Studio",
+  title: "Privacy Policy",
   description: "How CJ Studio collects, uses, and protects your personal data.",
 };
 
@@ -10,21 +12,10 @@ const updated = "30 May 2026";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-[100dvh]">
-      {/* Top bar */}
-      <div className="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-10">
-        <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-[14px] text-gray-500 hover:text-gray-900 transition-colors">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Back to CJ Studio
-          </Link>
-          <span className="text-[12px] text-gray-400">Updated {updated}</span>
-        </div>
-      </div>
-
-      <article className="max-w-3xl mx-auto px-6 py-16">
+    <AuroraBackground>
+      <Nav />
+      <main id="main-content" className="min-h-[100dvh]">
+      <article className="max-w-3xl mx-auto px-6 pt-28 pb-16">
         {/* Header */}
         <header className="mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-600 text-[12px] font-medium mb-4">
@@ -185,7 +176,8 @@ export default function PrivacyPolicy() {
           <a href="mailto:hello@cjstudio.co.uk" className="hover:text-gray-700 transition-colors">Contact</a>
         </div>
       </article>
-    </div>
+      </main>
+    </AuroraBackground>
   );
 }
 

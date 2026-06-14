@@ -156,7 +156,7 @@ export default function LaptopZoom({ onLightChange }: Props) {
         >
           <p
             className="text-[10px] uppercase tracking-[0.3em]"
-            style={{ fontFamily: "ui-monospace, monospace", color: "rgba(12,14,20,0.36)" }}
+            style={{ fontFamily: "var(--font-jetbrains-mono), ui-monospace, monospace", color: "rgba(12,14,20,0.36)" }}
           >
             UK Web Design Studio
           </p>

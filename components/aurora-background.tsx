@@ -8,9 +8,9 @@ interface Props {
 export default function AuroraBackground({ children, className = "" }: Props) {
   return (
     <div className={`relative overflow-hidden bg-white ${className}`}>
-      <div className="aurora-gradient animate-aurora pointer-events-none absolute -inset-[10px] opacity-50 [will-change:background-position]" />
+      <div className="aurora-gradient animate-aurora pointer-events-none absolute -inset-[10px] opacity-50" />
       <div
-        className="aurora-gradient animate-aurora pointer-events-none absolute -inset-[10px] opacity-30 [will-change:background-position]"
+        className="aurora-gradient animate-aurora pointer-events-none absolute -inset-[10px] opacity-30"
         style={{ animationDirection: "reverse", animationDuration: "40s" }}
       />
       <div className="relative z-10">{children}</div>
