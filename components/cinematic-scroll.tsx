@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, useState } from "react";
+import Image from "next/image";
 import { useImagePreloader } from "@/hooks/useImagePreloader";
 import { getLenis } from "@/lib/lenis-instance";
 
@@ -48,6 +49,7 @@ export default function CinematicScroll({
   children,
 }: CinematicScrollProps) {
   const { images, loaded, progress } = useImagePreloader(FRAME_COUNT, BASE_PATH);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -108,6 +110,7 @@ export default function CinematicScroll({
       const p = Math.max(0, Math.min(1, rawProgress));
 
       frameIndexRef.current = getFrameIndex(p);
+      setScrollProgress(p);
       onScrollProgress?.(p);
     };
 
@@ -163,6 +166,28 @@ export default function CinematicScroll({
             style={{ width: `${progress * 100}%` }}
           />
         )}
+
+        {/* CJ Studio logo — sits on laptop screen at scroll=0, fades out on scroll */}
+        <div
+          className="absolute pointer-events-none z-10"
+          style={{
+            left: "50%",
+            top: "37%",
+            transform: "translateX(-50%) translateY(-50%)",
+            width: "28%",
+            opacity: Math.max(0, 1 - scrollProgress / 0.06),
+            transition: "opacity 0.1s linear",
+          }}
+        >
+          <Image
+            src="/assets/cj-logo-lockup.png"
+            alt="CJ Creative Studio"
+            width={560}
+            height={200}
+            style={{ width: "100%", height: "auto" }}
+            priority
+          />
+        </div>
 
         {/* Typography / overlay slot */}
         {children && (
