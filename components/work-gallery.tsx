@@ -91,7 +91,7 @@ export default function WorkGallery() {
     : { type: "spring" as const, stiffness: 300, damping: 30 };
 
   return (
-    <section>
+    <section aria-label="Project portfolio">
       {/* Section header */}
       <div className="mb-10">
         <span

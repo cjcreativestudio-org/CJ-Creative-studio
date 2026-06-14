@@ -349,7 +349,7 @@ body::before {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -373,7 +373,7 @@ body::before {
 
 /* Arrival headline (shown after portal fills) */
 .arrival-eyebrow {
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -409,7 +409,7 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
