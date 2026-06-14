@@ -9,7 +9,7 @@ interface CinematicScrollProps {
   children?: React.ReactNode;
 }
 
-const FRAME_COUNT = 150;
+const FRAME_COUNT = 480;
 const BASE_PATH = "/assets/sequence/";
 
 function drawCover(
