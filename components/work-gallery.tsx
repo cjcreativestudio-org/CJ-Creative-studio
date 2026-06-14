@@ -36,11 +36,30 @@ export default function WorkGallery() {
     trackRef.current?.scrollBy({ left: delta, behavior: "smooth" });
   };
 
-  // Escape key closes overlay
+  // Escape key + focus trap
   useEffect(() => {
     if (!selected) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelected(null);
+      if (e.key === "Escape") {
+        setSelected(null);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const panel = document.querySelector<HTMLElement>('[role="dialog"]');
+      if (!panel) return;
+      const focusable = panel.querySelectorAll<HTMLElement>(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);

@@ -57,7 +57,7 @@ export default function Services() {
         <motion.h1
           initial={reduce ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "-60px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-[clamp(2rem,5vw,3.25rem)] font-bold tracking-tight text-gray-900 leading-tight max-w-2xl"
         >
@@ -66,7 +66,7 @@ export default function Services() {
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "-60px" }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="mt-5 text-[17px] text-gray-500 leading-relaxed max-w-[55ch]"
         >
@@ -81,7 +81,7 @@ export default function Services() {
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-60px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative overflow-hidden rounded-2xl border border-purple-200/60 bg-gradient-to-br from-purple-50/80 to-teal-50/80 p-10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
           >
@@ -117,7 +117,7 @@ export default function Services() {
               <motion.h2
                 initial={reduce ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1, margin: "-60px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-gray-900 leading-tight mb-6"
               >
@@ -126,7 +126,7 @@ export default function Services() {
               <motion.div
                 initial={reduce ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
                 className="space-y-4 text-[16px] text-gray-500 leading-relaxed mb-8"
               >
@@ -144,7 +144,7 @@ export default function Services() {
               <motion.ul
                 initial={reduce ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
                 className="space-y-3"
               >
@@ -160,7 +160,7 @@ export default function Services() {
             <motion.div
               initial={reduce ? false : { opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
               className="aspect-video rounded-2xl overflow-hidden bg-[#0c0e14] border border-white/10 flex flex-col"
               aria-hidden="true"
@@ -205,7 +205,7 @@ export default function Services() {
           <motion.h2
             initial={reduce ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-60px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-gray-900 leading-tight mb-4"
           >
@@ -214,7 +214,7 @@ export default function Services() {
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
             className="text-[16px] text-gray-500 leading-relaxed max-w-[55ch] mb-12"
           >
@@ -228,7 +228,7 @@ export default function Services() {
                 key={plan.title}
                 initial={reduce ? false : { opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={{ once: true, amount: 0.08 }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                 className={`relative rounded-2xl p-7 flex flex-col gap-5 border ${
                   plan.highlight
@@ -269,7 +269,7 @@ export default function Services() {
           <motion.h2
             initial={reduce ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-60px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-gray-900 leading-tight mb-5"
           >
@@ -278,7 +278,7 @@ export default function Services() {
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
             className="text-[16px] text-gray-500 leading-relaxed mb-10"
           >
@@ -289,7 +289,7 @@ export default function Services() {
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
           >
             <a

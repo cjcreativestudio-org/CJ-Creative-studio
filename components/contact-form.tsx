@@ -58,12 +58,14 @@ export default function ContactForm() {
           type="text"
           placeholder="Your name"
           autoComplete="name"
+          aria-invalid={state.errors?.name ? "true" : undefined}
+          aria-describedby={state.errors?.name ? "name-error" : undefined}
           className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white outline-none transition-all duration-200
             focus:ring-2 focus:ring-purple-300 focus:border-purple-300
             ${state.errors?.name ? "border-red-300 bg-red-50/40" : "border-gray-200 hover:border-gray-300"}`}
         />
         {state.errors?.name && (
-          <p className="text-[13px] text-red-500">{state.errors.name}</p>
+          <p id="name-error" role="alert" className="text-[13px] text-red-500">{state.errors.name}</p>
         )}
       </div>
 
@@ -78,12 +80,14 @@ export default function ContactForm() {
           type="email"
           placeholder="your@email.com"
           autoComplete="email"
+          aria-invalid={state.errors?.email ? "true" : undefined}
+          aria-describedby={state.errors?.email ? "email-error" : undefined}
           className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white outline-none transition-all duration-200
             focus:ring-2 focus:ring-purple-300 focus:border-purple-300
             ${state.errors?.email ? "border-red-300 bg-red-50/40" : "border-gray-200 hover:border-gray-300"}`}
         />
         {state.errors?.email && (
-          <p className="text-[13px] text-red-500">{state.errors.email}</p>
+          <p id="email-error" role="alert" className="text-[13px] text-red-500">{state.errors.email}</p>
         )}
       </div>
 
@@ -97,12 +101,14 @@ export default function ContactForm() {
           name="message"
           rows={4}
           placeholder="Tell us about your project — what you need, rough timeline, any references you like"
+          aria-invalid={state.errors?.message ? "true" : undefined}
+          aria-describedby={state.errors?.message ? "message-error" : undefined}
           className={`w-full rounded-xl border px-4 py-3 text-[15px] text-gray-900 placeholder-gray-400 bg-white outline-none transition-all duration-200 resize-none
             focus:ring-2 focus:ring-purple-300 focus:border-purple-300
             ${state.errors?.message ? "border-red-300 bg-red-50/40" : "border-gray-200 hover:border-gray-300"}`}
         />
         {state.errors?.message && (
-          <p className="text-[13px] text-red-500">{state.errors.message}</p>
+          <p id="message-error" role="alert" className="text-[13px] text-red-500">{state.errors.message}</p>
         )}
       </div>
 
