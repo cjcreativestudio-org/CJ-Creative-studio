@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import AnimatedButton from "./animated-button";
 
 const webDesignFeatures = [
   "Logo design and brand adaptation",
@@ -292,13 +293,9 @@ export default function Services() {
             viewport={{ once: true, amount: 0.1, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
           >
-            <a
-              href="/contact"
-              className="inline-block text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
-              style={{ background: "linear-gradient(90deg, #8a6cff, #4d7cff 52%, #27d7c4)" }}
-            >
+            <AnimatedButton href="/contact" variant="primary">
               Get a free quote
-            </a>
+            </AnimatedButton>
           </motion.div>
         </div>
       </section>
