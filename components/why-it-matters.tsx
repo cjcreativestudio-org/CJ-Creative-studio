@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useScroll, useTransform, motion, useReducedMotion } from "motion/react";
+import { useScroll, useTransform, motion, useReducedMotion, type MotionValue } from "motion/react";
 
 const slides = [
   {
@@ -78,6 +78,55 @@ const bodyStyle: React.CSSProperties = {
   margin: "clamp(20px,3vw,32px) 0 0",
 };
 
+interface SlidePanelProps {
+  slide: (typeof slides)[number];
+  scrollYProgress: MotionValue<number>;
+  index: number;
+  reduced: boolean | null;
+}
+
+function SlidePanel({ slide, scrollYProgress, index, reduced }: SlidePanelProps) {
+  const panelStart = index * 0.33;
+  const panelMid = panelStart + 0.25;
+  const headlineScale = useTransform(
+    scrollYProgress,
+    [panelStart, panelMid],
+    reduced ? [1, 1] : [0.94, 1]
+  );
+  const headlineY = useTransform(
+    scrollYProgress,
+    [panelStart, panelMid],
+    reduced ? [0, 0] : [24, 0]
+  );
+  const eyebrowX = useTransform(
+    scrollYProgress,
+    [panelStart, panelMid],
+    reduced ? [0, 0] : [-16, 0]
+  );
+
+  return (
+    <div
+      className={reduced
+        ? "w-full py-20 flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
+        : "w-screen h-screen flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
+      }
+    >
+      <motion.span
+        className="mb-8 uppercase"
+        style={{ ...eyebrowStyle, x: eyebrowX }}
+      >
+        {slide.eyebrow}
+      </motion.span>
+      <motion.h2
+        style={{ ...headingStyle, scale: headlineScale, y: headlineY, originX: 0 }}
+      >
+        {slide.headline}
+      </motion.h2>
+      <p style={bodyStyle}>{slide.body}</p>
+    </div>
+  );
+}
+
 export default function WhyItMatters() {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -148,49 +197,15 @@ export default function WhyItMatters() {
             className={prefersReducedMotion ? "flex flex-col w-full" : "flex w-[300vw] max-w-none"}
           >
             {/* Slides 1 & 2 */}
-            {slides.map((slide, i) => {
-              // Each panel occupies 0–0.5 and 0.33–0.66 of scroll progress
-              const panelStart = i * 0.33;
-              const panelMid = panelStart + 0.25;
-              const headlineScale = useTransform(
-                scrollYProgress,
-                [panelStart, panelMid],
-                prefersReducedMotion ? [1, 1] : [0.94, 1]
-              );
-              const headlineY = useTransform(
-                scrollYProgress,
-                [panelStart, panelMid],
-                prefersReducedMotion ? [0, 0] : [24, 0]
-              );
-              const eyebrowX = useTransform(
-                scrollYProgress,
-                [panelStart, panelMid],
-                prefersReducedMotion ? [0, 0] : [-16, 0]
-              );
-
-              return (
-                <div
-                  key={i}
-                  className={prefersReducedMotion
-                    ? "w-full py-20 flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
-                    : "w-screen h-screen flex flex-col justify-center px-[clamp(24px,8vw,120px)]"
-                  }
-                >
-                  <motion.span
-                    className="mb-8 uppercase"
-                    style={{ ...eyebrowStyle, x: eyebrowX }}
-                  >
-                    {slide.eyebrow}
-                  </motion.span>
-                  <motion.h2
-                    style={{ ...headingStyle, scale: headlineScale, y: headlineY, originX: 0 }}
-                  >
-                    {slide.headline}
-                  </motion.h2>
-                  <p style={bodyStyle}>{slide.body}</p>
-                </div>
-              );
-            })}
+            {slides.map((slide, i) => (
+              <SlidePanel
+                key={i}
+                slide={slide}
+                scrollYProgress={scrollYProgress}
+                index={i}
+                reduced={prefersReducedMotion}
+              />
+            ))}
 
             {/* Slide 3 — stats */}
             <div
