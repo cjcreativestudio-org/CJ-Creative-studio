@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Icosahedron, TorusKnot, Octahedron, Points, PointMaterial } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
@@ -12,26 +12,24 @@ function CameraRig({ scrollProgress }: { scrollProgress: React.MutableRefObject<
   const { camera } = useThree();
   const mouse = useRef([0, 0]);
 
-  useFrame(() => {
-    const p = scrollProgress.current;
-    const [mx, my] = mouse.current;
-    const targetZ = 5 - p * 3;
-    const targetY = -p * 1.5 + my * 0.4;
-    const targetX = mx * 0.5;
-    camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.04);
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetY, 0.04);
-    camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetX, 0.04);
-    camera.rotation.x = THREE.MathUtils.lerp(camera.rotation.x, p * 0.2 - my * 0.05, 0.04);
-  });
-
-  useFrame(() => {
+  useEffect(() => {
     const onMove = (e: MouseEvent) => {
       mouse.current = [
         (e.clientX / window.innerWidth - 0.5) * 2,
         -(e.clientY / window.innerHeight - 0.5) * 2,
       ];
     };
-    window.addEventListener("mousemove", onMove, { passive: true, once: true });
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
+  useFrame(() => {
+    const p = scrollProgress.current;
+    const [mx, my] = mouse.current;
+    camera.position.z = THREE.MathUtils.lerp(camera.position.z, 5 - p * 3, 0.04);
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, -p * 1.5 + my * 0.4, 0.04);
+    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mx * 0.5, 0.04);
+    camera.rotation.x = THREE.MathUtils.lerp(camera.rotation.x, p * 0.2 - my * 0.05, 0.04);
   });
 
   return null;
