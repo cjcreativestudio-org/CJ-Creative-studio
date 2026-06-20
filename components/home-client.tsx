@@ -152,7 +152,7 @@ export default function HomeClient() {
             className="text-white leading-[0.85] select-none uppercase"
             style={{
               fontFamily: "var(--font-archivo-black)",
-              fontSize: "clamp(4rem, 16.5vw, 16rem)",
+              fontSize: "clamp(3rem, 11vw, 13rem)",
             }}
           >
             CJ Creative
