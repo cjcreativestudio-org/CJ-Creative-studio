@@ -92,9 +92,7 @@ export default function HomeClient() {
               className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] text-right"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              A precise framework,
-              <br />
-              without the ceremony.
+              A precise framework, without the ceremony.
             </h2>
           </div>
 
@@ -131,9 +129,7 @@ export default function HomeClient() {
               className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] text-right"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              Case-study frames for
-              <br />
-              quiet, high-value launches.
+              Case-study frames for quiet, high-value launches.
             </h2>
           </div>
 
@@ -153,10 +149,10 @@ export default function HomeClient() {
       <footer className="bg-[#0a0a0a]" aria-label="Site footer">
         <div className="px-4 pt-10 overflow-hidden">
           <p
-            className="text-white leading-[0.85] select-none"
+            className="text-white leading-[0.85] select-none uppercase"
             style={{
               fontFamily: "var(--font-archivo-black)",
-              fontSize: "clamp(5rem, 20vw, 20rem)",
+              fontSize: "clamp(4rem, 16.5vw, 16rem)",
             }}
           >
             CJ Creative
