@@ -152,12 +152,11 @@ export default function HomeClient() {
             className="text-white leading-[0.85] select-none uppercase"
             style={{
               fontFamily: "var(--font-archivo-black)",
-              fontSize: "clamp(3rem, 11vw, 13rem)",
+              fontSize: "clamp(3rem, 14vw, 16rem)",
             }}
           >
-            CJ Creative
-            <br />
-            Studio
+            <span style={{ display: "block", whiteSpace: "nowrap" }}>CJ Creative</span>
+            <span style={{ display: "block", whiteSpace: "nowrap" }}>Studio</span>
           </p>
         </div>
         <div className="px-6 py-5 flex items-center justify-between border-t border-white/[0.08] mt-6">
