@@ -6,7 +6,6 @@ import { motion, useReducedMotion, useInView } from "motion/react";
 import EditorialNav from "@/components/editorial-nav";
 import EditorialFooter from "@/components/editorial-footer";
 import HeroMediaPlane from "@/components/hero-media-plane";
-import CapabilitiesGrid from "@/components/capabilities-grid";
 import PortfolioCarousel from "@/components/portfolio-carousel";
 
 // ease-out-expo — decisive, editorial
@@ -57,7 +56,6 @@ export default function HomeClient() {
       <EditorialNav />
 
       <HeroMediaPlane />
-      <CapabilitiesGrid />
       <PortfolioCarousel />
 
       <EditorialFooter />
