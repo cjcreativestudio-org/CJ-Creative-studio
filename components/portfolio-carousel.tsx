@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const projects = [
   {
@@ -83,7 +82,7 @@ export default function PortfolioCarousel() {
                 : "border-neutral-800 text-neutral-700 cursor-not-allowed",
             ].join(" ")}
           >
-            <ArrowLeft size={16} />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
           <button
             onClick={scrollNext}
@@ -96,7 +95,7 @@ export default function PortfolioCarousel() {
                 : "border-neutral-800 text-neutral-700 cursor-not-allowed",
             ].join(" ")}
           >
-            <ArrowRight size={16} />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
         </div>
       </div>
