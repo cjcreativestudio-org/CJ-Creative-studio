@@ -23,12 +23,12 @@ export default function HomeProblem() {
     <section className="bg-white px-6 py-24" aria-label="The problem">
       <div className="max-w-[1280px] mx-auto">
         {/* Header row */}
-        <div className="grid grid-cols-[auto_1fr] gap-x-8 items-start mb-16">
+        <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
           <span className="text-[10px] tracking-[0.22em] uppercase text-gray-400 mt-2 whitespace-nowrap">
             The Problem
           </span>
           <h2
-            className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] text-right"
+            className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
             style={{ fontFamily: "var(--font-archivo-black)" }}
           >
             An outdated site is
