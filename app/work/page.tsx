@@ -1,51 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import EditorialNav from "@/components/editorial-nav";
+import WorkGallery from "@/components/work-gallery";
 
 export const metadata: Metadata = {
   title: "Work — CJ Studio",
   description:
     "Selected case studies from CJ Studio — quiet, high-value launches for UK brands.",
 };
-
-const projects = [
-  {
-    index: "01",
-    name: "Maple & Co",
-    category: "Brand Identity",
-    descriptor: "Full identity system for a London-based lifestyle brand.",
-  },
-  {
-    index: "02",
-    name: "Northfield Law",
-    category: "Web Design",
-    descriptor: "Editorial website for a boutique UK law practice.",
-  },
-  {
-    index: "03",
-    name: "Bloom Studio",
-    category: "Digital Interface",
-    descriptor: "Product interface for an independent creative studio.",
-  },
-  {
-    index: "04",
-    name: "Project Four",
-    category: "Brand Identity",
-    descriptor: "Visual identity and launch system for an emerging brand.",
-  },
-  {
-    index: "05",
-    name: "Project Five",
-    category: "Web Design",
-    descriptor: "Premium marketing site for a high-growth SaaS product.",
-  },
-  {
-    index: "06",
-    name: "Project Six",
-    category: "Design Operations",
-    descriptor: "Component library and design governance for a scaling team.",
-  },
-];
 
 export default function WorkPage() {
   return (
@@ -104,42 +66,7 @@ export default function WorkPage() {
             </h2>
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
-            {projects.map((project) => (
-              <article
-                key={project.index}
-                className="bg-white flex flex-col group"
-                aria-label={`${project.name} — ${project.category}`}
-              >
-                {/* Image placeholder */}
-                <div
-                  className="bg-[#f0ece3] w-full relative overflow-hidden transition-[background-color] duration-[200ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#e5e0d6]"
-                  style={{ aspectRatio: "4/3" }}
-                >
-                  <span className="absolute top-4 left-5 text-[9px] tracking-[0.22em] uppercase text-gray-400">
-                    Project Image
-                  </span>
-                </div>
-
-                {/* Card content */}
-                <div className="p-6 flex flex-col gap-1 bg-white">
-                  <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
-                    {project.index}
-                  </span>
-                  <h3 className="font-serif italic font-bold text-[1.1rem] text-[#0d0d0d]">
-                    {project.name}
-                  </h3>
-                  <span className="text-[10px] tracking-[0.22em] uppercase text-gray-400">
-                    {project.category}
-                  </span>
-                  <p className="text-[13px] text-gray-500 mt-1 leading-[1.5]">
-                    {project.descriptor}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <WorkGallery />
         </div>
       </section>
 

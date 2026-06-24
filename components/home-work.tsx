@@ -1,25 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/reveal";
 
-// Illustrative placeholder case studies — swap for real client work later.
 const projects = [
   {
-    id: "01",
-    name: "Riverside Joinery",
+    slug: "range-shipping",
+    img: "/assets/work/range-shipping.png",
+    name: "Range Shipping",
+    category: "Logistics / Maritime",
+    outcome: "An institutional-grade site for a 47-year dry-bulk operator.",
+  },
+  {
+    slug: "la-roofing",
+    img: "/assets/work/la-roofing.png",
+    name: "LA Roofing",
     category: "Local Trades",
-    outcome: "Booking requests up — finally found on Google.",
+    outcome: "Instant quote calculator, paired with a 4.9-star reputation.",
   },
   {
-    id: "02",
-    name: "Marlowe & Finch",
-    category: "Retail",
-    outcome: "A site customers actually browse on their phones.",
-  },
-  {
-    id: "03",
-    name: "The Old Mill Kitchen",
-    category: "Hospitality",
-    outcome: "Online bookings replaced a phone-only waitlist.",
+    slug: "taste-of-portugal",
+    img: "/assets/work/taste-of-portugal.png",
+    name: "Taste of Portugal",
+    category: "Hospitality / Restaurant",
+    outcome: "One site, two identities — morning pastelaria, evening restaurant.",
   },
 ];
 
@@ -48,23 +51,27 @@ export default function HomeWork() {
 
         <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {projects.map(({ id, name, category, outcome }) => (
-              <div
-                key={id}
+            {projects.map(({ slug, img, name, category, outcome }) => (
+              <Link
+                key={slug}
+                href={`/work?project=${slug}`}
                 className="border border-gray-200 flex flex-col transition-[border-color] duration-[200ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:border-gray-400"
               >
                 <div
-                  className="bg-[#f0ece3] flex items-center justify-center"
+                  className="relative w-full overflow-hidden"
                   style={{ height: "180px" }}
-                  aria-hidden="true"
                 >
-                  <span className="text-[13px] tracking-[0.18em] uppercase text-gray-400">
-                    {category}
-                  </span>
+                  <Image
+                    src={img}
+                    alt={name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-8 flex flex-col gap-3">
                   <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
-                    {id}
+                    {category}
                   </span>
                   <h3 className="text-[20px] font-bold italic text-[#1a1a1a] font-serif">
                     {name}
@@ -73,7 +80,7 @@ export default function HomeWork() {
                     {outcome}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Reveal>

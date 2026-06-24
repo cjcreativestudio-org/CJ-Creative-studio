@@ -1,40 +1,24 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, X } from "@phosphor-icons/react";
+import { ArrowUpRight, X } from "@phosphor-icons/react";
 import { projects, type Project } from "@/lib/projects";
 
-export default function WorkGallery() {
+function WorkGalleryInner() {
   const [selected, setSelected] = useState<Project | null>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const trackRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const searchParams = useSearchParams();
 
-  const updateScrollState = useCallback(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-  }, []);
-
+  // Auto-open a project's case study when arriving with ?project=<slug>
   useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    updateScrollState();
-    el.addEventListener("scroll", updateScrollState, { passive: true });
-    window.addEventListener("resize", updateScrollState);
-    return () => {
-      el.removeEventListener("scroll", updateScrollState);
-      window.removeEventListener("resize", updateScrollState);
-    };
-  }, [updateScrollState]);
-
-  const scrollByAmount = (delta: number) => {
-    trackRef.current?.scrollBy({ left: delta, behavior: "smooth" });
-  };
+    const slug = searchParams.get("project");
+    if (!slug) return;
+    const match = projects.find((p) => p.slug === slug);
+    if (match) setSelected(match);
+  }, [searchParams]);
 
   // Escape key + focus trap
   useEffect(() => {
@@ -91,87 +75,46 @@ export default function WorkGallery() {
     : { type: "spring" as const, stiffness: 300, damping: 30 };
 
   return (
-    <section aria-label="Project portfolio">
-      {/* Section header */}
-      <div className="mb-10">
-        <span
-          className="text-[11px] uppercase tracking-[0.28em] text-white/40"
-          style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
-        >
-          Our work
-        </span>
-        <h2 className="mt-3 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.03em] text-white">
-          Selected projects
-        </h2>
-        <p className="mt-4 text-[16px] text-white/55 max-w-[48ch] leading-relaxed">
-          A handful of the businesses we&apos;ve helped look, feel, and perform
-          better online.
-        </p>
-      </div>
-
-      {/* Carousel */}
-      <div className="relative">
-        <div
-          ref={trackRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-        >
-          {projects.map((p) => (
-            <button
-              key={p.slug}
-              type="button"
-              onClick={() => setSelected(p)}
-              className="snap-start flex-shrink-0 w-[320px] md:w-[420px] text-left cursor-pointer rounded-2xl border border-white/[0.08] bg-white/[0.05] transition-colors hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+    <>
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
+        {projects.map((p) => (
+          <button
+            key={p.slug}
+            type="button"
+            onClick={() => setSelected(p)}
+            className="bg-white flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5b9fd6]"
+            aria-label={`${p.name} — ${p.type}`}
+          >
+            <div
+              className="relative w-full overflow-hidden"
+              style={{ aspectRatio: "4/3" }}
             >
-              {/* Image */}
-              <div
-                className={`relative h-48 rounded-xl overflow-hidden m-2 mb-0 bg-gradient-to-br ${p.color}`}
-              >
-                <Image
-                  src={p.img}
-                  alt={p.name}
-                  fill
-                  sizes="(max-width: 768px) 320px, 420px"
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src={p.img}
+                alt={p.name}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-[300ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
+              />
+            </div>
 
-              <div className="p-5">
-                <h3 className="text-[17px] font-semibold text-white">
-                  {p.name}
-                </h3>
-                <p className="text-[12px] uppercase tracking-widest text-white/40 mt-1">
-                  {p.type}
-                </p>
-                <p className="text-[14px] text-white/55 mt-2 leading-relaxed">
-                  {p.description.slice(0, 80)}…
-                </p>
-                <div className="mt-4 flex justify-end">
-                  <ArrowUpRight size={16} className="text-white/40" />
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Arrows */}
-        <button
-          type="button"
-          onClick={() => scrollByAmount(-440)}
-          disabled={!canScrollLeft}
-          aria-label="Previous projects"
-          className="absolute top-1/2 -translate-y-1/2 -left-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.08] transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/[0.14]"
-        >
-          <ArrowLeft size={18} className="text-white" />
-        </button>
-        <button
-          type="button"
-          onClick={() => scrollByAmount(440)}
-          disabled={!canScrollRight}
-          aria-label="Next projects"
-          className="absolute top-1/2 -translate-y-1/2 -right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.08] transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/[0.14]"
-        >
-          <ArrowRight size={18} className="text-white" />
-        </button>
+            <div className="p-6 flex flex-col gap-1 bg-white">
+              <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
+                {p.slug}
+              </span>
+              <h3 className="font-serif italic font-bold text-[1.1rem] text-[#0d0d0d]">
+                {p.name}
+              </h3>
+              <span className="text-[10px] tracking-[0.22em] uppercase text-gray-400">
+                {p.type}
+              </span>
+              <p className="text-[13px] text-gray-500 mt-1 leading-[1.5]">
+                {p.description.slice(0, 90)}&hellip;
+              </p>
+            </div>
+          </button>
+        ))}
       </div>
 
       {/* Expanded overlay */}
@@ -180,7 +123,7 @@ export default function WorkGallery() {
           <>
             <motion.div
               key="backdrop"
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -193,8 +136,7 @@ export default function WorkGallery() {
               role="dialog"
               aria-modal="true"
               aria-label={`${selected.name} case study`}
-              className="fixed inset-x-4 inset-y-8 md:inset-x-[10%] md:inset-y-[5%] z-50 rounded-3xl overflow-y-auto border border-white/[0.10]"
-              style={{ background: "#0c0e14" }}
+              className="fixed inset-x-4 inset-y-8 md:inset-x-[10%] md:inset-y-[5%] z-50 rounded-none overflow-y-auto border border-gray-200 bg-white"
               initial={panelInitial}
               animate={panelAnimate}
               exit={panelExit}
@@ -206,15 +148,13 @@ export default function WorkGallery() {
                 autoFocus
                 onClick={() => setSelected(null)}
                 aria-label="Close"
-                className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.08] backdrop-blur-sm hover:bg-white/[0.16] transition-colors"
+                className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors"
               >
-                <X size={24} className="text-white" />
+                <X size={20} className="text-[#0d0d0d]" />
               </button>
 
               {/* Image hero */}
-              <div
-                className={`relative h-56 md:h-72 bg-gradient-to-br ${selected.color}`}
-              >
+              <div className="relative h-56 md:h-72 bg-[#f0ece3]">
                 <Image
                   src={selected.img}
                   alt={selected.name}
@@ -226,13 +166,19 @@ export default function WorkGallery() {
 
               {/* Content */}
               <div className="p-8 md:p-12">
-                <h3 className="text-3xl font-bold text-white">
+                <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
+                  {selected.slug}
+                </span>
+                <h3
+                  className="text-3xl text-[#0d0d0d] mt-2"
+                  style={{ fontFamily: "var(--font-archivo-black)" }}
+                >
                   {selected.name}
                 </h3>
-                <p className="text-[13px] uppercase tracking-widest text-white/40 mt-1">
+                <p className="text-[12px] uppercase tracking-widest text-gray-400 mt-1">
                   {selected.type}
                 </p>
-                <p className="text-[16px] text-white/60 mt-4 leading-relaxed">
+                <p className="text-[16px] text-gray-600 mt-4 leading-relaxed font-serif">
                   {selected.description}
                 </p>
 
@@ -240,14 +186,8 @@ export default function WorkGallery() {
                 <ul className="mt-6 space-y-3 list-none p-0">
                   {selected.details.map((d) => (
                     <li key={d} className="flex gap-3">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[7px]"
-                        style={{
-                          background:
-                            "linear-gradient(135deg, #8a6cff, #27d7c4)",
-                        }}
-                      />
-                      <span className="text-[15px] text-white/60 leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[7px] bg-[#5b9fd6]" />
+                      <span className="text-[15px] text-gray-600 leading-relaxed">
                         {d}
                       </span>
                     </li>
@@ -256,11 +196,11 @@ export default function WorkGallery() {
 
                 {/* Quote */}
                 {selected.quote && (
-                  <blockquote className="mt-8 pt-6 border-t border-white/[0.10]">
-                    <p className="text-[17px] italic text-white/80 leading-relaxed">
+                  <blockquote className="mt-8 pt-6 border-t border-gray-200">
+                    <p className="text-[17px] italic text-gray-700 leading-relaxed font-serif">
                       &ldquo;{selected.quote.text}&rdquo;
                     </p>
-                    <footer className="text-[13px] text-white/40 mt-3">
+                    <footer className="text-[13px] text-gray-400 mt-3">
                       {selected.quote.author}
                     </footer>
                   </blockquote>
@@ -273,7 +213,7 @@ export default function WorkGallery() {
                       href={selected.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[14px] font-medium bg-white text-[#0c0e14] hover:bg-gray-100 transition-colors"
+                      className="inline-flex items-center gap-2 border border-[#0d0d0d] px-6 py-3 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
                     >
                       Visit site
                       <ArrowUpRight size={16} />
@@ -285,6 +225,14 @@ export default function WorkGallery() {
           </>
         )}
       </AnimatePresence>
-    </section>
+    </>
+  );
+}
+
+export default function WorkGallery() {
+  return (
+    <Suspense fallback={null}>
+      <WorkGalleryInner />
+    </Suspense>
   );
 }

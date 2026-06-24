@@ -12,10 +12,10 @@ CJ Studio is a UK web design agency co-founded by Ollie Jackson and Josh Carter.
 
 | | |
 |---|---|
-| **Production** | https://cj-studio-beta.vercel.app |
-| **GitHub** | https://github.com/ojackson27/cj-studio (main branch, public) |
+| **Production** | https://www.cjcreativestudio.com/ |
+| **GitHub** | https://github.com/cjcreativestudio-org/CJ-Creative-studio (main branch) |
 | **Vercel project** | https://vercel.com/ojackson27s-projects/cj-studio |
-| **Local** | `C:\Users\ollie\cj-studio` |
+| **Local** | `C:\Users\ollie\cj-websites\cj-creative-studio` |
 
 Deploy is automatic: push to `main` → Vercel builds and deploys.
 
@@ -66,7 +66,7 @@ Deploy is automatic: push to `main` → Vercel builds and deploys.
 ## Outstanding Items
 
 1. **Resend API key** — add `RESEND_API_KEY` to Vercel env vars (contact form broken without it)
-2. **Real domain** — cjstudio.co.uk; update `BASE_URL` in `layout.tsx` + `sitemap.ts` when live
+2. ~~**Real domain**~~ — live at cjcreativestudio.com; verify `BASE_URL` in `layout.tsx` + `sitemap.ts` matches
 3. **OG image** — replace `/assets/cj-logo-stacked.png` with a 1200×630 screenshot
 4. **Real founder photos** — founder cards currently show initials only
 5. **More projects** — add real client work to `lib/projects.ts`
