@@ -6,7 +6,7 @@
 
 **Architecture:** Generate static assets first via the `hf` CLI (Bash), save into `/public/assets/abstract/`, then build one new component (`HomeAbstractSection`) and two small accent additions to existing components. No backend/API changes — purely static assets + client components using the existing `motion/react` scroll patterns already in the codebase (see `laptop-zoom.tsx`, `why-it-matters.tsx`, `reveal.tsx`).
 
-**Tech Stack:** Next.js 16 App Router, Tailwind v4, `motion/react`, `hf` CLI (Higgsfield, model `z_image` for stills, `seedance_2_0` for video), TypeScript.
+**Tech Stack:** Next.js 16 App Router, Tailwind v4, `motion/react`, `hf` CLI (Higgsfield, model `nano_banana` for stills — covered by the Plus plan's 365-day unlimited perk, no credit cost — and `seedance_2_0` for video, ~36 credits per generation, negligible against the 959-credit balance), TypeScript.
 
 ---
 
@@ -21,7 +21,7 @@ hf generate create <model> --prompt "..." --aspect-ratio <ratio> --wait --wait-t
 hf generate get <job_id> --json                       # inspect a finished job, get result URL
 ```
 
-`z_image` params: `prompt` (required), `aspect_ratio` (`1:1,4:3,3:4,16:9,9:16`, default `1:1`).
+`nano_banana` params: `prompt` (required), `aspect_ratio` (`auto,1:1,3:2,2:3,4:3,3:4,4:5,5:4,9:16,16:9,21:9`, default `1:1`). Covered by the Plus plan's 365-day unlimited generation perk — does not draw down the credit balance.
 `seedance_2_0` params: `prompt` (required), `aspect_ratio` (default `16:9`), `duration` (default `5`), `resolution` (`480p,720p,1080p,4k`, default `720p`), `generate_audio` (default `true` — **must pass `--generate-audio false` for a silent loop**), `mode` (`std,fast`).
 
 ---
@@ -38,15 +38,15 @@ hf generate get <job_id> --json                       # inspect a finished job, 
 
 Run:
 ```bash
-hf generate cost z_image --prompt "abstract greyscale paper grain texture, soft directional light, minimalist editorial, no text, no people" --aspect-ratio 16:9
+hf generate cost nano_banana --prompt "abstract greyscale paper grain texture, soft directional light, minimalist editorial, no text, no people" --aspect-ratio 16:9
 ```
-Expected: a small credit number (e.g. `0.15 credits`) printed — confirms model/params are valid before spending credits on all 4.
+Expected: confirms the model/params are valid. Nano Banana is covered by the Plus plan's 365-day unlimited perk, so this should not draw down the credit balance — if the response shows a nonzero credit cost being charged to the balance, stop and re-check the unlimited entitlement before generating all 4.
 
 - [ ] **Step 2: Generate `hero-bg` (paper grain / soft directional shadow)**
 
 Run:
 ```bash
-hf generate create z_image \
+hf generate create nano_banana \
   --prompt "abstract greyscale paper grain texture with soft diagonal light and shadow, minimalist, desaturated, editorial photography, no text, no people, no logos" \
   --aspect-ratio 16:9 \
   --wait --wait-timeout 3m --json > /tmp/hero-bg.json
@@ -69,7 +69,7 @@ ls -la "C:\Users\ollie\cj-websites\cj-creative-studio\public\assets\abstract\her
 
 Run:
 ```bash
-hf generate create z_image \
+hf generate create nano_banana \
   --prompt "abstract greyscale fabric fold texture with subtle paper crease lines, soft studio lighting, minimalist, desaturated, editorial, no text, no people, no logos" \
   --aspect-ratio 4:3 \
   --wait --wait-timeout 3m --json > /tmp/problem-texture.json
@@ -81,8 +81,8 @@ Then download (same pattern as Step 3) to `public/assets/abstract/problem-textur
 
 Run twice with these prompts, downloading each to `public/assets/abstract/spare-1.jpg` and `public/assets/abstract/spare-2.jpg` (same create → wait → curl pattern as above):
 ```bash
-hf generate create z_image --prompt "abstract greyscale smoke drifting through soft light, minimalist, desaturated, editorial, no text, no people" --aspect-ratio 1:1 --wait --wait-timeout 3m --json
-hf generate create z_image --prompt "abstract greyscale light passing through textured glass, soft shadow lines, minimalist, desaturated, editorial, no text, no people" --aspect-ratio 1:1 --wait --wait-timeout 3m --json
+hf generate create nano_banana --prompt "abstract greyscale smoke drifting through soft light, minimalist, desaturated, editorial, no text, no people" --aspect-ratio 1:1 --wait --wait-timeout 3m --json
+hf generate create nano_banana --prompt "abstract greyscale light passing through textured glass, soft shadow lines, minimalist, desaturated, editorial, no text, no people" --aspect-ratio 1:1 --wait --wait-timeout 3m --json
 ```
 
 - [ ] **Step 6: Verify all 4 stills exist and are valid images**
