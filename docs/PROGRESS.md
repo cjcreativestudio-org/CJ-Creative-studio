@@ -45,7 +45,7 @@ Real client work replaced the fictional case studies on the homepage and `/work`
 
 ## Known gaps to fill in
 
-- **Real testimonials** — homepage "What Clients Say" still has 2 placeholder quotes (Riverside Joinery, Marlowe & Finch — fictional businesses, not the 4 real clients). Swap-ready data array.
+- **Real testimonials** — homepage "What Clients Say" still has 2 placeholder quotes (Riverside Joinery, Marlowe & Finch — fictional businesses, not the 4 real clients). Checked all 4 real clients' sites (2026-06-24): no quotes exist anywhere praising CJ Studio's web design work — only their own customers' Google reviews of roofing/food/shipping (e.g. LA Roofing's Stuart Kew, Taste of Portugal's Paula Hanmer). Repurposing those would misrepresent them as testimonials about CJ Studio. Blocked until a real client gives a quote about working with CJ Studio specifically.
 - **Real founder photos** — `/about` shows initials in a colored box instead of photos.
 - **Resend API key** — contact form won't actually deliver email until this is set in Vercel's environment variables.
 - **Pricing/tier accuracy on `/services`** — confirm the listed price points and deliverables are what we actually want to commit to publicly.
