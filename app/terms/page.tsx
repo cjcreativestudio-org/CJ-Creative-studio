@@ -28,7 +28,7 @@ export default function Terms() {
           <div className="space-y-10 text-[15px] leading-relaxed text-white/60">
 
             <Section title="1. About CJ Studio">
-              <p>CJ Studio is a web design and development business operated by Ollie Jackson and Josh Carter, trading in the United Kingdom. Contact: <a href="mailto:hello@cjstudio.co.uk" className="text-blue-400 underline hover:text-blue-300">hello@cjstudio.co.uk</a></p>
+              <p>CJ Studio is a web design and development business operated by Ollie Jackson and Josh Carter, trading in the United Kingdom. Contact: <a href="mailto:hello@cjcreativestudio.com" className="text-blue-400 underline hover:text-blue-300">hello@cjcreativestudio.com</a></p>
             </Section>
 
             <Section title="2. Services">
@@ -129,7 +129,7 @@ export default function Terms() {
             </Section>
 
             <Section title="10. Governing law">
-              <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales. We will always attempt to resolve disputes informally in the first instance - please contact us at <a href="mailto:hello@cjstudio.co.uk" className="text-blue-400 underline hover:text-blue-300">hello@cjstudio.co.uk</a>.</p>
+              <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales. We will always attempt to resolve disputes informally in the first instance - please contact us at <a href="mailto:hello@cjcreativestudio.com" className="text-blue-400 underline hover:text-blue-300">hello@cjcreativestudio.com</a>.</p>
             </Section>
 
             <Section title="11. Changes to these terms">
@@ -141,7 +141,7 @@ export default function Terms() {
           <div className="mt-16 pt-8 border-t border-white/[0.08] flex flex-wrap gap-4 text-[14px] text-white/40">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
             <Link href="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
-            <a href="mailto:hello@cjstudio.co.uk" className="hover:text-white/70 transition-colors">Contact</a>
+            <a href="mailto:hello@cjcreativestudio.com" className="hover:text-white/70 transition-colors">Contact</a>
           </div>
         </article>
       </main>

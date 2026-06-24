@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "hello@cjstudio.co.uk";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "hello@cjcreativestudio.com";
 
 function escapeHtml(str: string): string {
   return str
@@ -39,14 +39,14 @@ export async function sendEnquiry(_prev: FormState, formData: FormData): Promise
 
   try {
     await resend.emails.send({
-      from: "CJ Studio Website <noreply@cjstudio.co.uk>",
+      from: "CJ Studio Website <noreply@cjcreativestudio.com>",
       to: CONTACT_EMAIL,
       subject: `New project enquiry from ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; color: #111827;">
           <div style="border-bottom: 2px solid #f3f4f6; padding-bottom: 20px; margin-bottom: 24px;">
             <h1 style="margin: 0; font-size: 22px; font-weight: 700; color: #111827;">New project enquiry</h1>
-            <p style="margin: 4px 0 0; font-size: 14px; color: #6b7280;">via cjstudio.co.uk</p>
+            <p style="margin: 4px 0 0; font-size: 14px; color: #6b7280;">via cjcreativestudio.com</p>
           </div>
 
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">

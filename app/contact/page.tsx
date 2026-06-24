@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 const contacts = [
   {
     icon: EnvelopeSimple,
-    label: "hello@cjstudio.co.uk",
-    href: "mailto:hello@cjstudio.co.uk",
+    label: "hello@cjcreativestudio.com",
+    href: "mailto:hello@cjcreativestudio.com",
     sub: "Email us any time",
   },
   {

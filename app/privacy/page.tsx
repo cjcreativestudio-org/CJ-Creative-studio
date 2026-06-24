@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
 
             <Section title="1. Who we are">
               <p>CJ Studio is a web design and development business operated by Ollie Jackson and Josh Carter, based in the United Kingdom.</p>
-              <p className="mt-3"><strong className="text-white">Contact:</strong> hello@cjstudio.co.uk</p>
+              <p className="mt-3"><strong className="text-white">Contact:</strong> hello@cjcreativestudio.com</p>
               <p className="mt-1">We are the data controller for the personal information we collect about you. We are registered with the Information Commissioner&apos;s Office (ICO) as required by UK law.</p>
             </Section>
 
@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4">To exercise any of these rights, email us at <a href="mailto:hello@cjstudio.co.uk" className="text-purple-400 underline hover:text-purple-300">hello@cjstudio.co.uk</a>. We will respond within 30 days.</p>
+              <p className="mt-4">To exercise any of these rights, email us at <a href="mailto:hello@cjcreativestudio.com" className="text-purple-400 underline hover:text-purple-300">hello@cjcreativestudio.com</a>. We will respond within 30 days.</p>
             </Section>
 
             <Section title="7. Cookies">
@@ -158,7 +158,7 @@ export default function PrivacyPolicy() {
             </Section>
 
             <Section title="9. Complaints">
-              <p>If you are unhappy with how we have handled your personal data, please contact us in the first instance at <a href="mailto:hello@cjstudio.co.uk" className="text-purple-400 underline hover:text-purple-300">hello@cjstudio.co.uk</a>.</p>
+              <p>If you are unhappy with how we have handled your personal data, please contact us in the first instance at <a href="mailto:hello@cjcreativestudio.com" className="text-purple-400 underline hover:text-purple-300">hello@cjcreativestudio.com</a>.</p>
               <p className="mt-3">You also have the right to lodge a complaint with the Information Commissioner&apos;s Office (ICO) at <a href="https://ico.org.uk" className="text-purple-400 underline hover:text-purple-300" target="_blank" rel="noopener noreferrer">ico.org.uk</a> or by calling 0303 123 1113.</p>
             </Section>
 
@@ -170,7 +170,7 @@ export default function PrivacyPolicy() {
           <div className="mt-16 pt-8 border-t border-white/[0.08] flex flex-wrap gap-4 text-[14px] text-white/40">
             <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
             <Link href="/terms" className="hover:text-white/70 transition-colors">Terms of Service</Link>
-            <a href="mailto:hello@cjstudio.co.uk" className="hover:text-white/70 transition-colors">Contact</a>
+            <a href="mailto:hello@cjcreativestudio.com" className="hover:text-white/70 transition-colors">Contact</a>
           </div>
         </article>
       </main>

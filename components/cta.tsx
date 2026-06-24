@@ -71,7 +71,7 @@ export default function CTA() {
           >
             <AnimatedButton href="/contact" variant="primary">
               <EnvelopeSimple size={16} weight="bold" />
-              hello@cjstudio.co.uk
+              hello@cjcreativestudio.com
               {/* Arrow slides on group-hover (whole button), not just on arrow hover */}
               <span className="transition-transform duration-200 ease-out group-hover:translate-x-0.5">
                 <ArrowRight size={14} weight="bold" />

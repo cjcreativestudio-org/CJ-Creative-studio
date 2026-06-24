@@ -41,8 +41,8 @@ export default function ContactForm() {
         <div className="flex items-start gap-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-[14px]">
           <Warning size={18} weight="fill" className="shrink-0 mt-0.5" />
           Something went wrong — please email us directly at{" "}
-          <a href="mailto:hello@cjstudio.co.uk" className="underline font-medium">
-            hello@cjstudio.co.uk
+          <a href="mailto:hello@cjcreativestudio.com" className="underline font-medium">
+            hello@cjcreativestudio.com
           </a>
         </div>
       )}
