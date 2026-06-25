@@ -1,6 +1,11 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Reveal from "@/components/reveal";
+import { useInView, useReducedMotion, motion } from "motion/react";
+import MaskReveal from "@/components/mask-reveal";
+import { EXPO } from "@/lib/easing";
 
 const projects = [
   {
@@ -26,71 +31,125 @@ const projects = [
   },
 ];
 
+function ProjectCard({
+  slug,
+  img,
+  name,
+  category,
+  outcome,
+  fromLeft,
+}: {
+  slug: string;
+  img: string;
+  name: string;
+  category: string;
+  outcome: string;
+  fromLeft: boolean;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const inView = useInView(ref, { once: true, margin: "-80px 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={reduced ? false : { opacity: 0, x: fromLeft ? -80 : 80 }}
+      animate={reduced ? {} : inView ? { opacity: 1, x: 0 } : { opacity: 0, x: fromLeft ? -80 : 80 }}
+      transition={{ duration: 0.8, ease: EXPO }}
+    >
+      <Link
+        href={`/work?project=${slug}`}
+        className="group block"
+        aria-label={`View ${name} project`}
+      >
+        {/* Device frame */}
+        <div className="border border-[#e0e0e0] rounded-sm overflow-hidden transition-[box-shadow,transform] duration-300 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:shadow-xl [@media(hover:hover)_and_(pointer:fine)]:group-hover:-translate-y-1">
+          {/* Browser chrome */}
+          <div className="bg-[#f0f0f0] border-b border-[#e0e0e0] px-3 py-2 flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+          </div>
+          {/* Screenshot */}
+          <div className="relative w-full overflow-hidden" style={{ height: "220px" }}>
+            <Image
+              src={img}
+              alt={name}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover object-top"
+            />
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-[#0a0a0a] opacity-0 transition-opacity duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-20 flex items-center justify-center">
+              <span className="text-white text-[13px] tracking-[0.12em] uppercase opacity-0 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100 transition-opacity duration-300">
+                View project →
+              </span>
+            </div>
+          </div>
+        </div>
+        {/* Meta */}
+        <div className="pt-5 flex flex-col gap-1.5">
+          <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
+            {category}
+          </span>
+          <h3
+            className="text-[20px] font-bold italic text-[#0d0d0d] font-serif"
+          >
+            {name}
+          </h3>
+          <p className="text-[14px] leading-relaxed text-[#666]">{outcome}</p>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
 export default function HomeWork() {
   return (
     <section
       id="selected-work"
-      className="bg-white px-6 py-24"
+      className="bg-[#f5f5f5] px-6 py-24"
       aria-label="Selected work"
     >
       <div className="max-w-[1280px] mx-auto">
-        {/* Header row */}
         <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
-          <span className="text-[10px] tracking-[0.22em] uppercase text-gray-400 mt-2 whitespace-nowrap">
-            Selected Work
-          </span>
-          <h2
-            className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
-            style={{ fontFamily: "var(--font-archivo-black)" }}
-          >
-            Real businesses.
-            <br />
-            Real results.
-          </h2>
+          <MaskReveal>
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] mt-2 whitespace-nowrap">
+              Selected Work
+            </span>
+          </MaskReveal>
+          <MaskReveal delay={0.1}>
+            <h2
+              className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
+              style={{ fontFamily: "var(--font-archivo-black)" }}
+            >
+              Real businesses.
+              <br />
+              Real results.
+            </h2>
+          </MaskReveal>
         </div>
 
-        <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {projects.map(({ slug, img, name, category, outcome }) => (
-              <Link
-                key={slug}
-                href={`/work?project=${slug}`}
-                className="border border-gray-200 flex flex-col transition-[border-color] duration-[200ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:border-gray-400"
-              >
-                <div
-                  className="relative w-full overflow-hidden"
-                  style={{ height: "180px" }}
-                >
-                  <Image
-                    src={img}
-                    alt={name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-8 flex flex-col gap-3">
-                  <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
-                    {category}
-                  </span>
-                  <h3 className="text-[20px] font-bold italic text-[#1a1a1a] font-serif">
-                    {name}
-                  </h3>
-                  <p className="text-[14px] leading-relaxed text-gray-500">
-                    {outcome}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {projects.map(({ slug, img, name, category, outcome }, i) => (
+            <ProjectCard
+              key={slug}
+              slug={slug}
+              img={img}
+              name={name}
+              category={category}
+              outcome={outcome}
+              fromLeft={i % 2 === 0}
+            />
+          ))}
+        </div>
 
         <div className="flex justify-end">
           <Link
             href="/work"
             className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
           >
-            See full case study &rarr;
+            See full case study →
           </Link>
         </div>
       </div>
