@@ -49,8 +49,8 @@ export default function EditorialNav() {
       className={[
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/90 backdrop-blur-[24px] shadow-[0_1px_0_rgba(0,0,0,0.07)]"
-          : "bg-white/65 backdrop-blur-[12px] border-b border-gray-200/60",
+          ? "bg-[#0a0a0a]/90 backdrop-blur-[24px] shadow-[0_1px_0_rgba(255,255,255,0.05)]"
+          : "bg-transparent border-b border-[#f0f0f0]/10",
       ].join(" ")}
     >
       {/* Aurora accent line — visible when scrolled */}
@@ -71,7 +71,7 @@ export default function EditorialNav() {
         {/* Wordmark */}
         <Link
           href="/"
-          className="text-[11px] tracking-[0.18em] uppercase text-[#0c0e14] select-none hover:opacity-60 transition-opacity duration-180"
+          className="text-[11px] tracking-[0.18em] uppercase text-[#f0f0f0] select-none hover:opacity-60 transition-opacity duration-180"
           aria-label="CJ Creative Studio home"
         >
           CJ Creative Studio
@@ -89,8 +89,8 @@ export default function EditorialNav() {
                 className={[
                   "relative group text-[11px] tracking-[0.18em] uppercase py-1 transition-colors duration-180",
                   isActive
-                    ? "text-[#0c0e14]"
-                    : "text-[rgba(12,14,20,0.45)] hover:text-[#0c0e14]",
+                    ? "text-[#f0f0f0]"
+                    : "text-[rgba(240,240,240,0.45)] hover:text-[#f0f0f0]",
                 ].join(" ")}
               >
                 {label}
@@ -116,10 +116,10 @@ export default function EditorialNav() {
             href="/contact"
             className={[
               "hidden md:inline-flex items-center text-[11px] tracking-[0.18em] uppercase",
-              "rounded-full border border-[#0c0e14] px-5 py-2 text-[#0c0e14]",
+              "rounded-full border border-[#f0f0f0]/60 px-5 py-2 text-[#f0f0f0]",
               "transition-[background-color,color,transform] duration-160 ease-out",
               "active:scale-[0.97]",
-              "[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0c0e14] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white",
+              "[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a6cff] focus-visible:ring-offset-2",
             ].join(" ")}
           >
@@ -137,7 +137,7 @@ export default function EditorialNav() {
           >
             <span
               className={[
-                "block w-5 h-px bg-[#0c0e14] transition-transform duration-200",
+                "block w-5 h-px bg-[#f0f0f0] transition-transform duration-200",
                 menuOpen ? "translate-y-[6px] rotate-45" : "",
               ].join(" ")}
             />
@@ -149,7 +149,7 @@ export default function EditorialNav() {
             />
             <span
               className={[
-                "block w-5 h-px bg-[#0c0e14] transition-transform duration-200",
+                "block w-5 h-px bg-[#f0f0f0] transition-transform duration-200",
                 menuOpen ? "-translate-y-[6px] -rotate-45" : "",
               ].join(" ")}
             />
@@ -166,8 +166,8 @@ export default function EditorialNav() {
         aria-hidden={!menuOpen}
         className={[
           "md:hidden overflow-hidden transition-[max-height] duration-250 ease-out",
-          "bg-white/95 backdrop-blur-[12px]",
-          menuOpen ? "max-h-96 border-t border-gray-200/60" : "max-h-0",
+          "bg-[#0a0a0a]/95 backdrop-blur-[12px]",
+          menuOpen ? "max-h-96 border-t border-[#333]" : "max-h-0",
         ].join(" ")}
       >
         <nav className="flex flex-col px-6 py-4 gap-1">
@@ -180,10 +180,10 @@ export default function EditorialNav() {
                 tabIndex={menuOpen ? 0 : -1}
                 aria-current={isActive ? "page" : undefined}
                 className={[
-                  "text-[13px] tracking-[0.15em] uppercase py-3 border-b border-gray-100 last:border-b-0 transition-colors",
+                  "text-[13px] tracking-[0.15em] uppercase py-3 border-b border-[#222] last:border-b-0 transition-colors",
                   isActive
-                    ? "text-[#0c0e14] font-medium"
-                    : "text-[rgba(12,14,20,0.45)] hover:text-[#0c0e14]",
+                    ? "text-[#f0f0f0] font-medium"
+                    : "text-[rgba(240,240,240,0.45)] hover:text-[#f0f0f0]",
                 ].join(" ")}
               >
                 {label}
@@ -195,8 +195,8 @@ export default function EditorialNav() {
             tabIndex={menuOpen ? 0 : -1}
             className={[
               "mt-3 inline-flex items-center justify-center text-[11px] tracking-[0.18em] uppercase",
-              "rounded-full border border-[#0c0e14] px-5 py-3 text-[#0c0e14]",
-              "hover:bg-[#0c0e14] hover:text-white transition-colors duration-200",
+              "rounded-full border border-[#f0f0f0]/60 px-5 py-3 text-[#f0f0f0]",
+              "hover:bg-[#f0f0f0] hover:text-[#0a0a0a] transition-colors duration-200",
             ].join(" ")}
           >
             Contact
