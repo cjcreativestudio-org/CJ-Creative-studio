@@ -1,4 +1,9 @@
-import Reveal from "@/components/reveal";
+"use client";
+
+import { useRef } from "react";
+import { useInView, useReducedMotion, motion } from "motion/react";
+import MaskReveal from "@/components/mask-reveal";
+import { EXPO } from "@/lib/easing";
 
 const differentiators = [
   {
@@ -18,48 +23,95 @@ const differentiators = [
   },
 ];
 
-export default function HomeDifferentiators() {
+function DiffCard({
+  index,
+  title,
+  body,
+  i,
+}: {
+  index: string;
+  title: string;
+  body: string;
+  i: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
+
   return (
-    <section className="bg-[#f0ece3] px-6 py-24" aria-label="How we're different">
-      <div className="max-w-[1280px] mx-auto">
-        {/* Header row */}
-        <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
-          <span className="text-[10px] tracking-[0.22em] uppercase text-gray-400 mt-2 whitespace-nowrap">
-            How We&rsquo;re Different
-          </span>
-          <h2
-            className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
+    <div
+      ref={ref}
+      className="border border-[#333] p-8 md:p-10 flex flex-col justify-between min-h-[240px] backdrop-blur-sm bg-[rgba(10,10,10,0.6)]"
+    >
+      <MaskReveal delay={i * 0.12}>
+        <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
+          {index}
+        </span>
+      </MaskReveal>
+      <div className="flex flex-col gap-3 mt-auto">
+        <MaskReveal delay={i * 0.12 + 0.1}>
+          <h3
+            className="text-[clamp(1.8rem,3vw,3rem)] leading-[1] text-[#f0f0f0]"
             style={{ fontFamily: "var(--font-archivo-black)" }}
           >
-            Built for businesses,
-            <br />
-            not award shows.
-          </h2>
+            {title}
+          </h3>
+        </MaskReveal>
+        <motion.p
+          className="text-[14px] leading-[1.7] text-[#888] font-serif"
+          initial={reduced ? false : { opacity: 0, y: 10 }}
+          animate={reduced ? {} : inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.6, ease: EXPO, delay: i * 0.12 + 0.22 }}
+        >
+          {body}
+        </motion.p>
+      </div>
+    </div>
+  );
+}
+
+export default function HomeDifferentiators() {
+  return (
+    <section
+      className="relative bg-[#0a0a0a] text-[#f0f0f0] px-6 py-24 overflow-hidden"
+      aria-label="How we're different"
+    >
+      {/* Geometric video background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.12] pointer-events-none"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      >
+        <source src="/assets/video/geo-dark-loop.mp4" type="video/mp4" />
+      </video>
+
+      <div className="relative z-10 max-w-[1280px] mx-auto">
+        <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
+          <MaskReveal>
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666] mt-2 whitespace-nowrap">
+              How We&rsquo;re Different
+            </span>
+          </MaskReveal>
+          <MaskReveal delay={0.1}>
+            <h2
+              className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#f0f0f0] md:text-right"
+              style={{ fontFamily: "var(--font-archivo-black)" }}
+            >
+              Built for businesses,
+              <br />
+              not award shows.
+            </h2>
+          </MaskReveal>
         </div>
 
-        <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-300 bg-white">
-            {differentiators.map(({ index, title, body }) => (
-              <div
-                key={index}
-                className="border-b md:border-b-0 md:border-r border-gray-300 last:border-r-0 p-8 flex flex-col justify-between"
-                style={{ minHeight: "220px" }}
-              >
-                <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
-                  {index}
-                </span>
-                <div className="flex flex-col gap-2 mt-auto">
-                  <h3 className="text-[17px] font-bold italic text-[#1a1a1a] font-serif">
-                    {title}
-                  </h3>
-                  <p className="text-[14px] leading-relaxed text-gray-500">
-                    {body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#333]">
+          {differentiators.map(({ index, title, body }, i) => (
+            <DiffCard key={index} index={index} title={title} body={body} i={i} />
+          ))}
+        </div>
       </div>
     </section>
   );
