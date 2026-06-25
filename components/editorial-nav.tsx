@@ -143,7 +143,7 @@ export default function EditorialNav() {
             />
             <span
               className={[
-                "block w-5 h-px bg-[#0c0e14] transition-opacity duration-200",
+                "block w-5 h-px bg-[#f0f0f0] transition-opacity duration-200",
                 menuOpen ? "opacity-0" : "",
               ].join(" ")}
             />
