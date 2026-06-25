@@ -1,65 +1,105 @@
-import Reveal from "@/components/reveal";
+"use client";
 
-const symptoms = [
+import { useRef } from "react";
+import { useInView, useReducedMotion, motion } from "motion/react";
+import MaskReveal from "@/components/mask-reveal";
+import { EXPO } from "@/lib/easing";
+
+const problems = [
   {
     index: "01",
-    title: "Looks outdated on phones",
-    body: "Most visitors arrive on a phone. A site that wasn't built for one loses them in seconds.",
+    heading: "It doesn't work on mobile.",
+    body: "Over 60% of web traffic is mobile. If your site breaks on a phone, you're handing customers to your competitors.",
   },
   {
     index: "02",
-    title: "Hasn't changed in years",
-    body: "An old copyright date or a stale design tells visitors the business might not be active anymore.",
+    heading: "It looks like it was built in 2009.",
+    body: "An outdated site signals an inactive business. First impressions are made in milliseconds.",
   },
   {
     index: "03",
-    title: "Doesn't show up when people search",
-    body: "If your site can't be found, it doesn't matter how good it looks once someone gets there.",
+    heading: "Nobody can find it.",
+    body: "If you don't appear in local search, you don't exist to the people who need you most.",
   },
 ];
 
-export default function HomeProblem() {
+function ProblemItem({
+  index,
+  heading,
+  body,
+  i,
+}: {
+  index: string;
+  heading: string;
+  body: string;
+  i: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
+
   return (
-    <section className="bg-white px-6 py-24" aria-label="The problem">
-      <div className="max-w-[1280px] mx-auto">
-        {/* Header row */}
-        <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
-          <span className="text-[10px] tracking-[0.22em] uppercase text-gray-400 mt-2 whitespace-nowrap">
-            The Problem
-          </span>
-          <h2
-            className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
+    <div
+      ref={ref}
+      className="border-b border-[#ddd] py-10 grid grid-cols-[3rem_1fr] md:grid-cols-[6rem_1fr] gap-6 md:gap-12 items-start"
+    >
+      <MaskReveal delay={i * 0.12}>
+        <span
+          className="text-[13px] tracking-[0.18em] text-[#bbb]"
+          aria-hidden="true"
+        >
+          {index}
+        </span>
+      </MaskReveal>
+      <div className="flex flex-col gap-3">
+        <MaskReveal delay={i * 0.12 + 0.08}>
+          <h3
+            className="text-[clamp(1.4rem,3.5vw,2.8rem)] leading-[1.1] text-[#0d0d0d]"
             style={{ fontFamily: "var(--font-archivo-black)" }}
           >
-            An outdated site is
-            <br />
-            a closed sign on your door.
-          </h2>
-        </div>
+            {heading}
+          </h3>
+        </MaskReveal>
+        <motion.p
+          className="text-[15px] leading-[1.7] text-[#555] font-serif max-w-[520px]"
+          initial={reduced ? false : { opacity: 0, y: 10 }}
+          animate={reduced ? {} : inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.6, ease: EXPO, delay: i * 0.12 + 0.2 }}
+        >
+          {body}
+        </motion.p>
+      </div>
+    </div>
+  );
+}
 
-        <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-200">
-            {symptoms.map(({ index, title, body }) => (
-              <div
-                key={index}
-                className="border-b md:border-b-0 md:border-r border-gray-200 last:border-r-0 p-8 flex flex-col justify-between"
-                style={{ minHeight: "220px" }}
-              >
-                <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
-                  {index}
-                </span>
-                <div className="flex flex-col gap-2 mt-auto">
-                  <h3 className="text-[17px] font-bold italic text-[#1a1a1a] font-serif">
-                    {title}
-                  </h3>
-                  <p className="text-[14px] leading-relaxed text-gray-500">
-                    {body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+export default function HomeProblem() {
+  return (
+    <section
+      className="bg-[#f5f5f5] text-[#0d0d0d] px-6 py-24"
+      aria-label="The problem"
+    >
+      <div className="max-w-[1280px] mx-auto">
+        <div className="mb-12">
+          <MaskReveal>
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa]">
+              The Problem
+            </span>
+          </MaskReveal>
+          <MaskReveal delay={0.1}>
+            <h2
+              className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] mt-4"
+              style={{ fontFamily: "var(--font-archivo-black)" }}
+            >
+              Most small business
+              <br />
+              websites are broken.
+            </h2>
+          </MaskReveal>
+        </div>
+        {problems.map(({ index, heading, body }, i) => (
+          <ProblemItem key={index} index={index} heading={heading} body={body} i={i} />
+        ))}
       </div>
     </section>
   );
