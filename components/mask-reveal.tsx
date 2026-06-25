@@ -2,8 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
-
-const EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
+import { EXPO } from "@/lib/easing";
 
 export default function MaskReveal({
   children,
@@ -19,7 +18,7 @@ export default function MaskReveal({
   const inView = useInView(ref, { once: true, margin: "-60px 0px" });
 
   return (
-    <div ref={ref} className={`overflow-hidden ${className ?? ""}`}>
+    <div ref={ref} className={["overflow-hidden", className].filter(Boolean).join(" ")}>
       <motion.div
         initial={reduced ? false : { y: "110%" }}
         animate={reduced ? {} : inView ? { y: "0%" } : { y: "110%" }}
