@@ -65,8 +65,7 @@ export default function HomeHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EXPO, delay: 1.3 }}
           >
-            Fixed-price projects, delivered in weeks, built from scratch for
-            your business.
+            Fixed-price projects from £1,500, delivered in weeks, built from scratch for your business.
           </motion.p>
 
           <motion.div

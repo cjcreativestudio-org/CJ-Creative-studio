@@ -3,10 +3,6 @@
 :root {
   --background: #0c0e14;
   --foreground: #ffffff;
-  --purple: #8a6cff;
-  --blue: #4d7cff;
-  --teal: #27d7c4;
-
   /* Easing library — use these instead of CSS built-ins */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -420,7 +416,7 @@ body {
 
 @keyframes glowPulse {
   0%, 100% { text-shadow: none; }
-  50%       { text-shadow: 0 0 14px rgba(91, 159, 214, 0.18); }
+  50%       { text-shadow: 0 0 14px rgba(240, 240, 240, 0.15); }
 }
 
 .glow-pulse {

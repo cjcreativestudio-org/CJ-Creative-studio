@@ -13,7 +13,7 @@ const projects = [
     img: "/assets/work/la-roofing.png",
     name: "LA Roofing",
     category: "Local Trades",
-    outcome: "Instant quote calculator, paired with a 4.9-star reputation.",
+    outcome: "Went from word-of-mouth only to a site that closes leads. Quote calculator, 4.9-star reviews, page one locally.",
   },
   {
     slug: "taste-of-portugal",
@@ -28,7 +28,7 @@ const projects = [
     img: "/assets/work/range-shipping.png",
     name: "Range Shipping",
     category: "Logistics / Maritime",
-    outcome: "An institutional-grade site for a 47-year dry-bulk operator.",
+    outcome: "A 47-year operator with no web presence. Now landing enterprise enquiries online.",
   },
 ];
 

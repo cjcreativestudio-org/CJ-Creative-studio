@@ -15,7 +15,7 @@ const problems = [
   {
     index: "02",
     heading: "It looks like it was built in 2009.",
-    body: "An outdated site signals an inactive business. First impressions are made in milliseconds.",
+    body: "An outdated site signals an inactive business. A slow or dated site costs you before the visitor reads a single word.",
   },
   {
     index: "03",
