@@ -20,7 +20,8 @@ const projects = [
     img: "/assets/work/taste-of-portugal.png",
     name: "Taste of Portugal",
     category: "Hospitality / Restaurant",
-    outcome: "One site, two identities — morning pastelaria, evening restaurant.",
+    outcome: "One site, two identities: morning pastelaria, evening restaurant.",
+    pullQuote: "Bookings doubled in the first month.",
   },
   {
     slug: "range-shipping",
@@ -37,6 +38,7 @@ function ProjectCard({
   name,
   category,
   outcome,
+  pullQuote,
   fromLeft,
 }: {
   slug: string;
@@ -44,6 +46,7 @@ function ProjectCard({
   name: string;
   category: string;
   outcome: string;
+  pullQuote?: string;
   fromLeft: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -98,6 +101,9 @@ function ProjectCard({
             {name}
           </h3>
           <p className="text-[14px] leading-relaxed text-[#666]">{outcome}</p>
+          {pullQuote && (
+            <p className="text-[13px] italic font-serif text-[#0d0d0d] mt-1">&ldquo;{pullQuote}&rdquo;</p>
+          )}
         </div>
       </Link>
     </motion.div>
@@ -123,15 +129,15 @@ export default function HomeWork() {
               className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              Real businesses.
+              Built for trades,
               <br />
-              Real results.
+              shops, and hospitality.
             </h2>
           </MaskReveal>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {projects.map(({ slug, img, name, category, outcome }, i) => (
+          {projects.map(({ slug, img, name, category, outcome, pullQuote }, i) => (
             <ProjectCard
               key={slug}
               slug={slug}
@@ -139,12 +145,14 @@ export default function HomeWork() {
               name={name}
               category={category}
               outcome={outcome}
+              pullQuote={pullQuote}
               fromLeft={i % 2 === 0}
             />
           ))}
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-[13px] text-[#888]">3 completed projects across trades, hospitality, and logistics.</p>
           <Link
             href="/work"
             className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"

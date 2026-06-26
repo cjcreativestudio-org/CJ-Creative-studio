@@ -19,7 +19,7 @@ const differentiators = [
   {
     index: "03",
     title: "Built for You",
-    body: "Every site is written from scratch for your business. No page builders, no themes, no other client's layout with your logo on it.",
+    body: "Every site is written from scratch for your business. No page builders, no themes, no other client's layout with your logo on it. And for 30 days after launch, we're on hand for questions and fixes at no extra cost.",
   },
 ];
 

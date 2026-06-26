@@ -90,7 +90,7 @@ function TestimonialItem({
         transition={{ duration: 0.6, ease: EXPO, delay: delay + lines.length * 0.1 + 0.1 }}
       >
         <cite className="not-italic text-[13px] tracking-[0.08em] text-[#f0f0f0] font-medium">
-          {name} &mdash; {business}
+          {name}, {business}
         </cite>
         <span className="text-[11px] tracking-[0.12em] uppercase text-[#555]">
           {location}
