@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import Nav from "@/components/nav";
+import EditorialNav from "@/components/editorial-nav";
+import EditorialFooter from "@/components/editorial-footer";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -12,23 +13,21 @@ const updated = "30 May 2026";
 export default function Terms() {
   return (
     <>
-      <Nav onLight={false} />
-      <main className="min-h-[100dvh]" id="main-content">
+      <EditorialNav />
+      <main className="min-h-[100dvh] bg-[#0a0a0a]" id="main-content">
         <article className="max-w-3xl mx-auto px-6 pt-28 pb-16">
           <header className="mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[12px] font-medium mb-4">
-              Legal
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight text-white mb-4">Terms of Service</h1>
-            <p className="text-white/55 text-[15px] leading-relaxed">
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666] block mb-6">Legal</span>
+            <h1 className="text-4xl font-bold tracking-tight text-[#f0f0f0] mb-4">Terms of Service</h1>
+            <p className="text-[#888] text-[15px] leading-relaxed">
               These terms govern the relationship between CJ Studio (&quot;we&quot;, &quot;us&quot;) and you (&quot;the Client&quot;) when you engage us to design, build, or maintain a website. Please read them carefully before placing an order.
             </p>
           </header>
 
-          <div className="space-y-10 text-[15px] leading-relaxed text-white/60">
+          <div className="space-y-10 text-[15px] leading-relaxed text-[#888]">
 
             <Section title="1. About CJ Studio">
-              <p>CJ Studio is a web design and development business operated by Ollie Jackson and Josh Carter, trading in the United Kingdom. Contact: <a href="mailto:hello@cjcreativestudio.com" className="text-blue-400 underline hover:text-blue-300">hello@cjcreativestudio.com</a></p>
+              <p>CJ Studio is a web design and development business operated by Ollie Jackson and Josh Carter, trading in the United Kingdom. Contact: <a href="mailto:hello@cjcreativestudio.com" className="text-[#5b9fd6] underline hover:text-[#5b9fd6]">hello@cjcreativestudio.com</a></p>
             </Section>
 
             <Section title="2. Services">
@@ -41,7 +40,7 @@ export default function Terms() {
                   "Minor content changes and bug fixes",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#5b9fd6] shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -51,29 +50,29 @@ export default function Terms() {
 
             <Section title="3. Payment terms">
               <div className="space-y-3">
-                <p><strong className="text-white">Build projects:</strong> Payment is split 50% upfront (deposit) before work begins and 50% on completion before the website goes live. We will not publish or transfer the website until final payment has been received in full.</p>
-                <p><strong className="text-white">Monthly retainer:</strong> Billed automatically each month via Stripe. The retainer is charged on the same date each month from the start date agreed.</p>
-                <p><strong className="text-white">Payment methods:</strong> Bank transfer or card payment via Stripe payment link.</p>
-                <p><strong className="text-white">Late payment:</strong> Invoices unpaid after 14 days may incur interest at 8% above the Bank of England base rate in accordance with the Late Payment of Commercial Debts (Interest) Act 1998.</p>
-                <p><strong className="text-white">Quotes:</strong> All quotes are valid for 30 days from the date issued.</p>
+                <p><strong className="text-[#f0f0f0]">Build projects:</strong> Payment is split 50% upfront (deposit) before work begins and 50% on completion before the website goes live. We will not publish or transfer the website until final payment has been received in full.</p>
+                <p><strong className="text-[#f0f0f0]">Monthly retainer:</strong> Billed automatically each month via Stripe. The retainer is charged on the same date each month from the start date agreed.</p>
+                <p><strong className="text-[#f0f0f0]">Payment methods:</strong> Bank transfer or card payment via Stripe payment link.</p>
+                <p><strong className="text-[#f0f0f0]">Late payment:</strong> Invoices unpaid after 14 days may incur interest at 8% above the Bank of England base rate in accordance with the Late Payment of Commercial Debts (Interest) Act 1998.</p>
+                <p><strong className="text-[#f0f0f0]">Quotes:</strong> All quotes are valid for 30 days from the date issued.</p>
               </div>
             </Section>
 
             <Section title="4. Intellectual property">
               <div className="space-y-3">
-                <p><strong className="text-white">Ownership on full payment:</strong> Upon receipt of full payment for the build, the Client owns the final website design and source code outright.</p>
-                <p><strong className="text-white">Before full payment:</strong> All work-in-progress designs, code, and assets remain the property of CJ Studio until the final invoice is settled.</p>
-                <p><strong className="text-white">Third-party assets:</strong> Any third-party fonts, images, icons, or libraries used in the project are subject to their own licences. We will only use assets that permit commercial use, and we will inform the Client of any assets that require a separate licence.</p>
-                <p><strong className="text-white">Portfolio:</strong> We reserve the right to feature the completed website in our portfolio and marketing materials unless the Client requests otherwise in writing.</p>
+                <p><strong className="text-[#f0f0f0]">Ownership on full payment:</strong> Upon receipt of full payment for the build, the Client owns the final website design and source code outright.</p>
+                <p><strong className="text-[#f0f0f0]">Before full payment:</strong> All work-in-progress designs, code, and assets remain the property of CJ Studio until the final invoice is settled.</p>
+                <p><strong className="text-[#f0f0f0]">Third-party assets:</strong> Any third-party fonts, images, icons, or libraries used in the project are subject to their own licences. We will only use assets that permit commercial use, and we will inform the Client of any assets that require a separate licence.</p>
+                <p><strong className="text-[#f0f0f0]">Portfolio:</strong> We reserve the right to feature the completed website in our portfolio and marketing materials unless the Client requests otherwise in writing.</p>
               </div>
             </Section>
 
             <Section title="5. Website hosting and maintenance">
               <div className="space-y-3">
-                <p><strong className="text-white">Hosting infrastructure:</strong> Client websites are hosted on Vercel. Hosting is included as part of the monthly maintenance retainer while the retainer is active.</p>
-                <p><strong className="text-white">First 30 days:</strong> We provide free bug fixes for the first 30 calendar days after a website goes live. A bug is defined as a technical fault in the code we delivered. Design changes or new features requested after launch are not covered.</p>
-                <p><strong className="text-white">Monthly retainer:</strong> The retainer covers minor updates, content changes, security updates, and ongoing hosting. Major new features or redesigns will be quoted separately.</p>
-                <p><strong className="text-white">Cancellation:</strong> Either party may cancel the monthly retainer with 30 days&apos; written notice. On cancellation, we will provide the Client with a full copy of the website source code within 7 days. The Client is then responsible for arranging alternative hosting.</p>
+                <p><strong className="text-[#f0f0f0]">Hosting infrastructure:</strong> Client websites are hosted on Vercel. Hosting is included as part of the monthly maintenance retainer while the retainer is active.</p>
+                <p><strong className="text-[#f0f0f0]">First 30 days:</strong> We provide free bug fixes for the first 30 calendar days after a website goes live. A bug is defined as a technical fault in the code we delivered. Design changes or new features requested after launch are not covered.</p>
+                <p><strong className="text-[#f0f0f0]">Monthly retainer:</strong> The retainer covers minor updates, content changes, security updates, and ongoing hosting. Major new features or redesigns will be quoted separately.</p>
+                <p><strong className="text-[#f0f0f0]">Cancellation:</strong> Either party may cancel the monthly retainer with 30 days&apos; written notice. On cancellation, we will provide the Client with a full copy of the website source code within 7 days. The Client is then responsible for arranging alternative hosting.</p>
               </div>
             </Section>
 
@@ -88,7 +87,7 @@ export default function Terms() {
                   "Manage their own domain registration and DNS settings (we will provide clear instructions)",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/30 shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#5b9fd6] shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -108,7 +107,7 @@ export default function Terms() {
                     "Indirect or consequential losses of any kind",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400/60 shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#5b9fd6] shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -123,13 +122,13 @@ export default function Terms() {
 
             <Section title="9. Termination">
               <div className="space-y-3">
-                <p><strong className="text-white">Termination by Client:</strong> If the Client cancels a build project after work has begun, they forfeit the deposit. Any work completed to date may be invoiced proportionally.</p>
-                <p><strong className="text-white">Termination by CJ Studio:</strong> We reserve the right to terminate a project if the Client acts abusively, fails to pay, or repeatedly fails to meet their obligations. In this case, we will refund any fees paid for work not yet completed.</p>
+                <p><strong className="text-[#f0f0f0]">Termination by Client:</strong> If the Client cancels a build project after work has begun, they forfeit the deposit. Any work completed to date may be invoiced proportionally.</p>
+                <p><strong className="text-[#f0f0f0]">Termination by CJ Studio:</strong> We reserve the right to terminate a project if the Client acts abusively, fails to pay, or repeatedly fails to meet their obligations. In this case, we will refund any fees paid for work not yet completed.</p>
               </div>
             </Section>
 
             <Section title="10. Governing law">
-              <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales. We will always attempt to resolve disputes informally in the first instance - please contact us at <a href="mailto:hello@cjcreativestudio.com" className="text-blue-400 underline hover:text-blue-300">hello@cjcreativestudio.com</a>.</p>
+              <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales. We will always attempt to resolve disputes informally in the first instance - please contact us at <a href="mailto:hello@cjcreativestudio.com" className="text-[#5b9fd6] underline hover:text-[#5b9fd6]">hello@cjcreativestudio.com</a>.</p>
             </Section>
 
             <Section title="11. Changes to these terms">
@@ -138,12 +137,13 @@ export default function Terms() {
             </Section>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-white/[0.08] flex flex-wrap gap-4 text-[14px] text-white/40">
-            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
-            <Link href="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
-            <a href="mailto:hello@cjcreativestudio.com" className="hover:text-white/70 transition-colors">Contact</a>
+          <div className="mt-16 pt-8 border-t border-[#333] flex flex-wrap gap-4 text-[14px] text-[#666]">
+            <Link href="/" className="hover:text-[#888] transition-colors">Home</Link>
+            <Link href="/privacy" className="hover:text-[#888] transition-colors">Privacy Policy</Link>
+            <a href="mailto:hello@cjcreativestudio.com" className="hover:text-[#888] transition-colors">Contact</a>
           </div>
         </article>
+        <EditorialFooter />
       </main>
     </>
   );
@@ -152,7 +152,7 @@ export default function Terms() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-[18px] font-semibold text-white mb-3">{title}</h2>
+      <h2 className="text-[18px] font-semibold text-[#f0f0f0] mb-3">{title}</h2>
       {children}
     </section>
   );

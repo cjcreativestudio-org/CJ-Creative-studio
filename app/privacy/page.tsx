@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import Nav from "@/components/nav";
+import EditorialNav from "@/components/editorial-nav";
+import EditorialFooter from "@/components/editorial-footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -12,24 +13,22 @@ const updated = "30 May 2026";
 export default function PrivacyPolicy() {
   return (
     <>
-      <Nav onLight={false} />
-      <main id="main-content" className="min-h-[100dvh]">
+      <EditorialNav />
+      <main id="main-content" className="min-h-[100dvh] bg-[#0a0a0a]">
         <article className="max-w-3xl mx-auto px-6 pt-28 pb-16">
           <header className="mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-[12px] font-medium mb-4">
-              Legal
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight text-white mb-4">Privacy Policy</h1>
-            <p className="text-white/55 text-[15px] leading-relaxed">
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666] block mb-6">Legal</span>
+            <h1 className="text-4xl font-bold tracking-tight text-[#f0f0f0] mb-4">Privacy Policy</h1>
+            <p className="text-[#888] text-[15px] leading-relaxed">
               This policy explains how CJ Studio collects, uses, and protects your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
             </p>
           </header>
 
-          <div className="space-y-10 text-[15px] leading-relaxed text-white/60">
+          <div className="space-y-10 text-[15px] leading-relaxed text-[#888]">
 
             <Section title="1. Who we are">
               <p>CJ Studio is a web design and development business operated by Ollie Jackson and Josh Carter, based in the United Kingdom.</p>
-              <p className="mt-3"><strong className="text-white">Contact:</strong> hello@cjcreativestudio.com</p>
+              <p className="mt-3"><strong className="text-[#f0f0f0]">Contact:</strong> hello@cjcreativestudio.com</p>
               <p className="mt-1">We are the data controller for the personal information we collect about you. We are registered with the Information Commissioner&apos;s Office (ICO) as required by UK law.</p>
             </Section>
 
@@ -46,7 +45,7 @@ export default function PrivacyPolicy() {
                   "Technical data such as IP address and browser type when you visit our website (via standard server logs)",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#5b9fd6] shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -57,12 +56,12 @@ export default function PrivacyPolicy() {
               <p>We use your personal data for the following purposes:</p>
               <table className="mt-4 w-full text-[14px] border-collapse">
                 <thead>
-                  <tr className="border-b border-white/10">
+                  <tr className="border-b border-[#333]">
                     <th className="text-left py-2 pr-4 font-semibold text-white w-1/2">Purpose</th>
                     <th className="text-left py-2 font-semibold text-white">Legal basis</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/[0.06]">
+                <tbody className="divide-y divide-[#333]">
                   {[
                     ["Responding to your enquiry", "Legitimate interests"],
                     ["Providing web design and development services", "Performance of a contract"],
@@ -73,7 +72,7 @@ export default function PrivacyPolicy() {
                   ].map(([purpose, basis]) => (
                     <tr key={purpose}>
                       <td className="py-2.5 pr-4 text-white/60">{purpose}</td>
-                      <td className="py-2.5 text-white/50">{basis}</td>
+                      <td className="py-2.5 text-[#888]">{basis}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -92,7 +91,7 @@ export default function PrivacyPolicy() {
                 ].map((t) => (
                   <li key={t.name} className="flex items-start gap-3">
                     <span className="mt-0.5 text-[13px] font-semibold text-white min-w-[72px]">{t.name}</span>
-                    <span className="text-white/50 text-[14px]">{t.detail}</span>
+                    <span className="text-[#888] text-[14px]">{t.detail}</span>
                   </li>
                 ))}
               </ul>
@@ -108,7 +107,7 @@ export default function PrivacyPolicy() {
                   "Website server logs: 90 days",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#5b9fd6] shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -128,12 +127,12 @@ export default function PrivacyPolicy() {
                   "Right to object: Object to processing based on legitimate interests.",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#5b9fd6] shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-4">To exercise any of these rights, email us at <a href="mailto:hello@cjcreativestudio.com" className="text-purple-400 underline hover:text-purple-300">hello@cjcreativestudio.com</a>. We will respond within 30 days.</p>
+              <p className="mt-4">To exercise any of these rights, email us at <a href="mailto:hello@cjcreativestudio.com" className="text-[#5b9fd6] underline hover:text-[#5b9fd6]">hello@cjcreativestudio.com</a>. We will respond within 30 days.</p>
             </Section>
 
             <Section title="7. Cookies">
@@ -150,7 +149,7 @@ export default function PrivacyPolicy() {
                   "Email secured via Google Workspace",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/30 shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#5b9fd6] shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -158,8 +157,8 @@ export default function PrivacyPolicy() {
             </Section>
 
             <Section title="9. Complaints">
-              <p>If you are unhappy with how we have handled your personal data, please contact us in the first instance at <a href="mailto:hello@cjcreativestudio.com" className="text-purple-400 underline hover:text-purple-300">hello@cjcreativestudio.com</a>.</p>
-              <p className="mt-3">You also have the right to lodge a complaint with the Information Commissioner&apos;s Office (ICO) at <a href="https://ico.org.uk" className="text-purple-400 underline hover:text-purple-300" target="_blank" rel="noopener noreferrer">ico.org.uk</a> or by calling 0303 123 1113.</p>
+              <p>If you are unhappy with how we have handled your personal data, please contact us in the first instance at <a href="mailto:hello@cjcreativestudio.com" className="text-[#5b9fd6] underline hover:text-[#5b9fd6]">hello@cjcreativestudio.com</a>.</p>
+              <p className="mt-3">You also have the right to lodge a complaint with the Information Commissioner&apos;s Office (ICO) at <a href="https://ico.org.uk" className="text-[#5b9fd6] underline hover:text-[#5b9fd6]" target="_blank" rel="noopener noreferrer">ico.org.uk</a> or by calling 0303 123 1113.</p>
             </Section>
 
             <Section title="10. Changes to this policy">
@@ -167,12 +166,13 @@ export default function PrivacyPolicy() {
             </Section>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-white/[0.08] flex flex-wrap gap-4 text-[14px] text-white/40">
-            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
-            <Link href="/terms" className="hover:text-white/70 transition-colors">Terms of Service</Link>
-            <a href="mailto:hello@cjcreativestudio.com" className="hover:text-white/70 transition-colors">Contact</a>
+          <div className="mt-16 pt-8 border-t border-[#333] flex flex-wrap gap-4 text-[14px] text-[#666]">
+            <Link href="/" className="hover:text-[#888] transition-colors">Home</Link>
+            <Link href="/terms" className="hover:text-[#888] transition-colors">Terms of Service</Link>
+            <a href="mailto:hello@cjcreativestudio.com" className="hover:text-[#888] transition-colors">Contact</a>
           </div>
         </article>
+        <EditorialFooter />
       </main>
     </>
   );
@@ -181,7 +181,7 @@ export default function PrivacyPolicy() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-[18px] font-semibold text-white mb-3">{title}</h2>
+      <h2 className="text-[18px] font-semibold text-[#f0f0f0] mb-3">{title}</h2>
       {children}
     </section>
   );
