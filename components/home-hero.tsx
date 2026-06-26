@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import CharReveal from "@/components/char-reveal";
+import GlowHeadline from "@/components/glow-headline";
 import MaskReveal from "@/components/mask-reveal";
 import { motion, useReducedMotion } from "motion/react";
 import { EXPO } from "@/lib/easing";
@@ -29,26 +29,26 @@ export default function HomeHero() {
           </MaskReveal>
         </div>
 
-        {/* Display heading — character stagger */}
+        {/* Display heading */}
         <div
           className="text-[clamp(3.2rem,8.5vw,8.5rem)] leading-[0.9] mb-12"
           style={{ fontFamily: "var(--font-archivo-black)" }}
         >
-          <CharReveal
+          <GlowHeadline
             text="Your website should"
             as="h1"
             delay={0.2}
             charDelay={0.018}
             className="block"
           />
-          <CharReveal
+          <GlowHeadline
             text="win you customers."
             as="h1"
             delay={0.55}
             charDelay={0.018}
             className="block"
           />
-          <CharReveal
+          <GlowHeadline
             text="Not lose them."
             as="h1"
             delay={0.85}
