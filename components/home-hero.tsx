@@ -65,8 +65,8 @@ export default function HomeHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EXPO, delay: 1.3 }}
           >
-            We rebuild outdated, broken, and missing websites for small and
-            medium businesses — fast, reliable, handcrafted.
+            Fixed-price projects, delivered in weeks, built from scratch for
+            your business.
           </motion.p>
 
           <motion.div
