@@ -11,7 +11,7 @@ export default function HomeHero() {
 
   return (
     <section
-      className="bg-[#0a0a0a] text-[#f0f0f0] min-h-svh flex flex-col justify-center px-6 pt-20 pb-16"
+      className="bg-transparent text-[#f0f0f0] min-h-svh flex flex-col justify-center px-6 pt-20 pb-16"
       aria-label="Homepage hero"
     >
       <div className="max-w-[1280px] mx-auto w-full">
