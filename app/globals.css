@@ -415,3 +415,33 @@ body {
   height: 1px;
   background: rgba(255, 255, 255, 0.22);
 }
+
+/* ── GLOW HEADLINE ──────────────────────────────────── */
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: none; }
+  50%       { text-shadow: 0 0 14px rgba(91, 159, 214, 0.18); }
+}
+
+.glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse { animation: none; }
+}
+
+/* ── LIGHT SECTION TEXTURE ──────────────────────────── */
+
+@keyframes dotGridDrift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(28px, 28px); }
+}
+
+.dot-grid-animate {
+  animation: dotGridDrift 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot-grid-animate { animation: none; }
+}
