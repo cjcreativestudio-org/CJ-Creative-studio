@@ -1,18 +1,95 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion, useInView } from "motion/react";
 import { ArrowUpRight, X } from "@phosphor-icons/react";
 import { projects, type Project } from "@/lib/projects";
+import { EXPO } from "@/lib/easing";
+
+function ProjectCard({
+  project,
+  index,
+  onSelect,
+}: {
+  project: Project;
+  index: number;
+  onSelect: (p: Project) => void;
+}) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
+  const prefersReducedMotion = useReducedMotion();
+
+  return (
+    <motion.button
+      ref={ref}
+      type="button"
+      onClick={() => onSelect(project)}
+      className="bg-[#111] flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5b9fd6] border border-[#1e1e1e] hover:border-[#333] transition-colors duration-300"
+      aria-label={`${project.name} — ${project.type}`}
+      initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+      animate={
+        inView
+          ? { opacity: 1, y: 0 }
+          : prefersReducedMotion
+          ? { opacity: 0 }
+          : { opacity: 0, y: 24 }
+      }
+      transition={
+        prefersReducedMotion
+          ? { duration: 0.15 }
+          : { duration: 0.6, ease: EXPO, delay: (index % 3) * 0.08 }
+      }
+    >
+      {/* Browser chrome frame */}
+      <div className="w-full bg-[#1a1a1a] border-b border-[#222] px-3 py-2 flex items-center gap-1.5 flex-shrink-0">
+        <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+        <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+        <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+        <div className="ml-3 flex-1 h-5 bg-[#222] rounded-sm" />
+      </div>
+
+      {/* Screenshot */}
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
+        <Image
+          src={project.img}
+          alt={project.name}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover transition-transform duration-500 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.04]"
+        />
+        <div className="absolute inset-0 bg-[#0a0a0a]/0 [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#0a0a0a]/40 transition-colors duration-300 flex items-center justify-center">
+          <span className="text-[#f0f0f0] text-[11px] tracking-[0.2em] uppercase opacity-0 translate-y-2 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100 [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-y-0 transition-[opacity,transform] duration-300">
+            View project →
+          </span>
+        </div>
+      </div>
+
+      {/* Info */}
+      <div className="p-6 flex flex-col gap-1.5">
+        <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6] uppercase">
+          {project.slug}
+        </span>
+        <h3 className="font-serif italic font-bold text-[1.05rem] text-[#f0f0f0]">
+          {project.name}
+        </h3>
+        <span className="text-[10px] tracking-[0.22em] uppercase text-[#555]">
+          {project.type}
+        </span>
+        <p className="text-[13px] text-[#666] mt-1 leading-[1.6]">
+          {project.description.slice(0, 90)}&hellip;
+        </p>
+      </div>
+    </motion.button>
+  );
+}
 
 function WorkGalleryInner() {
   const [selected, setSelected] = useState<Project | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const searchParams = useSearchParams();
 
-  // Auto-open a project's case study when arriving with ?project=<slug>
   useEffect(() => {
     const slug = searchParams.get("project");
     if (!slug) return;
@@ -20,7 +97,6 @@ function WorkGalleryInner() {
     if (match) setSelected(match);
   }, [searchParams]);
 
-  // Escape key + focus trap
   useEffect(() => {
     if (!selected) return;
     const onKey = (e: KeyboardEvent) => {
@@ -49,7 +125,6 @@ function WorkGalleryInner() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selected]);
 
-  // Lock body scroll when overlay open
   useEffect(() => {
     document.body.style.overflow = selected ? "hidden" : "";
     return () => {
@@ -57,19 +132,10 @@ function WorkGalleryInner() {
     };
   }, [selected]);
 
-  const backdropTransition = prefersReducedMotion
-    ? { duration: 0.15 }
-    : { duration: 0.2 };
-
-  const panelInitial = prefersReducedMotion
-    ? { opacity: 0 }
-    : { opacity: 0, y: 40, scale: 0.96 };
-  const panelAnimate = prefersReducedMotion
-    ? { opacity: 1 }
-    : { opacity: 1, y: 0, scale: 1 };
-  const panelExit = prefersReducedMotion
-    ? { opacity: 0 }
-    : { opacity: 0, y: 20, scale: 0.98 };
+  const backdropTransition = prefersReducedMotion ? { duration: 0.15 } : { duration: 0.2 };
+  const panelInitial = prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.97 };
+  const panelAnimate = prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 };
+  const panelExit = prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.98 };
   const panelTransition = prefersReducedMotion
     ? { duration: 0.15 }
     : { type: "spring" as const, stiffness: 300, damping: 30 };
@@ -77,53 +143,19 @@ function WorkGalleryInner() {
   return (
     <>
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
-        {projects.map((p) => (
-          <button
-            key={p.slug}
-            type="button"
-            onClick={() => setSelected(p)}
-            className="bg-white flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5b9fd6]"
-            aria-label={`${p.name} — ${p.type}`}
-          >
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ aspectRatio: "4/3" }}
-            >
-              <Image
-                src={p.img}
-                alt={p.name}
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-[300ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
-              />
-            </div>
-
-            <div className="p-6 flex flex-col gap-1 bg-white">
-              <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
-                {p.slug}
-              </span>
-              <h3 className="font-serif italic font-bold text-[1.1rem] text-[#0d0d0d]">
-                {p.name}
-              </h3>
-              <span className="text-[10px] tracking-[0.22em] uppercase text-gray-400">
-                {p.type}
-              </span>
-              <p className="text-[13px] text-gray-500 mt-1 leading-[1.5]">
-                {p.description.slice(0, 90)}&hellip;
-              </p>
-            </div>
-          </button>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#0d0d0d]">
+        {projects.map((p, i) => (
+          <ProjectCard key={p.slug} project={p} index={i} onSelect={setSelected} />
         ))}
       </div>
 
-      {/* Expanded overlay */}
+      {/* Case study overlay */}
       <AnimatePresence>
         {selected && (
           <>
             <motion.div
               key="backdrop"
-              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -136,84 +168,80 @@ function WorkGalleryInner() {
               role="dialog"
               aria-modal="true"
               aria-label={`${selected.name} case study`}
-              className="fixed inset-x-4 inset-y-8 md:inset-x-[10%] md:inset-y-[5%] z-50 rounded-none overflow-y-auto border border-gray-200 bg-white"
+              className="fixed inset-x-4 inset-y-8 md:inset-x-[10%] md:inset-y-[5%] z-50 overflow-y-auto bg-[#0a0a0a] border border-[#2a2a2a]"
               initial={panelInitial}
               animate={panelAnimate}
               exit={panelExit}
               transition={panelTransition}
             >
-              {/* Close button */}
+              {/* Close */}
               <button
                 type="button"
                 autoFocus
                 onClick={() => setSelected(null)}
                 aria-label="Close"
-                className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors"
+                className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center bg-[#111] border border-[#333] hover:border-[#555] transition-colors duration-200"
               >
-                <X size={20} className="text-[#0d0d0d]" />
+                <X size={18} className="text-[#f0f0f0]" />
               </button>
 
-              {/* Image hero */}
-              <div className="relative h-56 md:h-72 bg-[#f0ece3]">
+              {/* Hero image */}
+              <div className="relative h-56 md:h-72 bg-[#111]">
                 <Image
                   src={selected.img}
                   alt={selected.name}
                   fill
                   sizes="(max-width: 768px) 92vw, 80vw"
-                  className="object-cover"
+                  className="object-cover opacity-90"
                 />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0a0a]/60" />
               </div>
 
               {/* Content */}
               <div className="p-8 md:p-12">
-                <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
+                <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6] uppercase">
                   {selected.slug}
                 </span>
                 <h3
-                  className="text-3xl text-[#0d0d0d] mt-2"
+                  className="text-3xl text-[#f0f0f0] mt-2"
                   style={{ fontFamily: "var(--font-archivo-black)" }}
                 >
                   {selected.name}
                 </h3>
-                <p className="text-[12px] uppercase tracking-widest text-gray-400 mt-1">
+                <p className="text-[11px] uppercase tracking-widest text-[#444] mt-1">
                   {selected.type}
                 </p>
-                <p className="text-[16px] text-gray-600 mt-4 leading-relaxed font-serif">
+                <p className="text-[16px] text-[#888] mt-4 leading-relaxed font-serif">
                   {selected.description}
                 </p>
 
-                {/* Details */}
                 <ul className="mt-6 space-y-3 list-none p-0">
                   {selected.details.map((d) => (
                     <li key={d} className="flex gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[7px] bg-[#5b9fd6]" />
-                      <span className="text-[15px] text-gray-600 leading-relaxed">
-                        {d}
-                      </span>
+                      <span className="w-1.5 h-1.5 flex-shrink-0 mt-[9px] bg-[#5b9fd6]" />
+                      <span className="text-[15px] text-[#888] leading-relaxed">{d}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Quote */}
                 {selected.quote && (
-                  <blockquote className="mt-8 pt-6 border-t border-gray-200">
-                    <p className="text-[17px] italic text-gray-700 leading-relaxed font-serif">
+                  <blockquote className="mt-8 pt-6 border-t border-[#1e1e1e]">
+                    <p className="text-[17px] italic text-[#aaa] leading-relaxed font-serif">
                       &ldquo;{selected.quote.text}&rdquo;
                     </p>
-                    <footer className="text-[13px] text-gray-400 mt-3">
+                    <footer className="text-[13px] text-[#444] mt-3">
                       {selected.quote.author}
                     </footer>
                   </blockquote>
                 )}
 
-                {/* Visit site */}
                 {selected.url && (
                   <div className="mt-8">
                     <a
                       href={selected.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-[#0d0d0d] px-6 py-3 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
+                      className="inline-flex items-center gap-2 border border-[#f0f0f0] px-6 py-3 text-[13px] tracking-[0.12em] uppercase text-[#f0f0f0] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]"
                     >
                       Visit site
                       <ArrowUpRight size={16} />
