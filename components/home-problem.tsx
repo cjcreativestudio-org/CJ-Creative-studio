@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useInView, useReducedMotion, motion } from "motion/react";
 import MaskReveal from "@/components/mask-reveal";
+import LightSectionTexture from "@/components/light-section-texture";
 import { EXPO } from "@/lib/easing";
 
 const problems = [
@@ -76,10 +77,11 @@ function ProblemItem({
 export default function HomeProblem() {
   return (
     <section
-      className="bg-[#f5f5f5] text-[#0d0d0d] px-6 py-24"
+      className="relative overflow-hidden bg-[#f5f5f5] text-[#0d0d0d] px-6 py-24"
       aria-label="The problem"
     >
-      <div className="max-w-[1280px] mx-auto">
+      <LightSectionTexture />
+      <div className="relative z-10 max-w-[1280px] mx-auto">
         <div className="mb-12">
           <MaskReveal>
             <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa]">
