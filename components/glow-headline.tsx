@@ -37,12 +37,10 @@ export default function GlowHeadline({
       const radius = 200;
       if (dist < radius) {
         const strength = 1 - dist / radius;
-        const glow = Math.round(strength * 20);
-        const alpha = (strength * 0.9).toFixed(2);
-        el.style.textShadow = `0 0 ${glow}px rgba(91,159,214,${alpha})`;
-        el.style.color = `rgba(255,255,255,${(0.7 + strength * 0.3).toFixed(2)})`;
+        el.style.color = strength > 0.15
+          ? `color-mix(in srgb, #5b9fd6 ${Math.round(strength * 100)}%, #f0f0f0)`
+          : "";
       } else {
-        el.style.textShadow = "";
         el.style.color = "";
       }
     });
@@ -51,7 +49,6 @@ export default function GlowHeadline({
   const handleMouseLeave = useCallback(() => {
     charRefs.current.forEach((el) => {
       if (!el) return;
-      el.style.textShadow = "";
       el.style.color = "";
     });
   }, []);
@@ -72,7 +69,7 @@ export default function GlowHeadline({
   return (
     <MotionTag
       ref={wrapperRef as React.RefObject<HTMLSpanElement>}
-      className={`${className ?? ""} ${reduced ? "" : "glow-pulse"}`}
+      className={className ?? ""}
       aria-label={text}
     >
       {reduced
@@ -90,7 +87,7 @@ export default function GlowHeadline({
                 <motion.span
                   ref={(el: HTMLSpanElement | null) => { charRefs.current[i] = el; }}
                   className="inline-block"
-                  style={{ transition: "text-shadow 80ms ease-out, color 80ms ease-out" }}
+                  style={{ transition: "color 120ms ease-out" }}
                   initial={{ y: "110%", opacity: 0 }}
                   animate={inView ? { y: "0%", opacity: 1 } : { y: "110%", opacity: 0 }}
                   transition={{ duration: 0.6, ease: EXPO, delay: delay + i * charDelay }}
