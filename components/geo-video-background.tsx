@@ -1,7 +1,7 @@
 export default function GeoVideoBackground() {
   return (
     <video
-      className="fixed inset-0 w-full h-full object-cover -z-10 pointer-events-none opacity-[0.20] brightness-[0.85] contrast-[1.1]"
+      className="fixed inset-0 w-full h-full object-cover z-[2] pointer-events-none mix-blend-screen opacity-[0.55]"
       autoPlay
       muted
       loop

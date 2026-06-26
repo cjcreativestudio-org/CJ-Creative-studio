@@ -11,23 +11,10 @@ export default function HomeHero() {
 
   return (
     <section
-      className="relative bg-[#0a0a0a] text-[#f0f0f0] min-h-svh flex flex-col justify-center px-6 pt-20 pb-16 overflow-hidden"
+      className="bg-[#0a0a0a] text-[#f0f0f0] min-h-svh flex flex-col justify-center px-6 pt-20 pb-16"
       aria-label="Homepage hero"
     >
-      {/* Higgsfield geometric video background */}
-      {!reduced && (
-        <video
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.45] pointer-events-none"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-        >
-          <source src="/assets/video/geo-bg.mp4" type="video/mp4" />
-        </video>
-      )}
-      <div className="relative z-10 max-w-[1280px] mx-auto w-full">
+      <div className="max-w-[1280px] mx-auto w-full">
         {/* Kicker */}
         <div className="flex items-center justify-between mb-12">
           <MaskReveal delay={0.1}>
