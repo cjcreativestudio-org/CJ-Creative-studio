@@ -85,7 +85,7 @@ export default function HomeDifferentiators() {
         playsInline
         aria-hidden="true"
       >
-        <source src="/assets/video/geo-dark-loop.mp4" type="video/mp4" />
+        <source src="/assets/video/geo-bg.mp4" type="video/mp4" />
       </video>
 
       <div className="relative z-10 max-w-[1280px] mx-auto">
