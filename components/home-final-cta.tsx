@@ -41,7 +41,7 @@ export default function HomeFinalCta() {
         {/* Price anchor — resolves cost anxiety before the ask */}
         <MaskReveal delay={0.44}>
           <p className="text-[14px] text-[#555] mb-10 max-w-[44ch] leading-[1.7]">
-            Fixed-fee projects. No retainers, no surprises. Most projects start from £1,500. First conversation is free and no-obligation.
+            Fixed-fee projects. No retainers, no surprises. A standard business site starts from £1,500 — e-commerce and bespoke builds quoted separately. First conversation is free.
           </p>
         </MaskReveal>
 
