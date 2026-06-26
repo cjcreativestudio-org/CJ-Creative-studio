@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV = [
   { label: "Work",     href: "/work" },
@@ -10,7 +11,6 @@ const NAV = [
   { label: "Privacy",  href: "/privacy" },
 ];
 
-/* Simplified London skyline silhouette — Tower Bridge + skyline */
 function LondonSkyline() {
   return (
     <svg
@@ -22,7 +22,7 @@ function LondonSkyline() {
       style={{ display: "block", height: "clamp(60px, 10vw, 140px)" }}
     >
       <path
-        fill="rgba(255,255,255,0.07)"
+        fill="rgba(255,255,255,0.10)"
         d="
           M0,160
           L0,110 L30,110 L30,90 L50,90 L50,70 L60,70 L60,50 L70,50 L70,70 L80,70 L80,90 L100,90 L100,110
@@ -56,31 +56,31 @@ export default function EditorialFooter() {
         <LondonSkyline />
       </div>
 
-      {/* Editorial split */}
-      <div className="max-w-6xl mx-auto px-6 pt-8 pb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-        {/* Left — stacked wordmark */}
-        <p
-          className="text-white select-none uppercase leading-[0.85] shrink-0"
-          style={{
-            fontFamily: "var(--font-archivo-black)",
-            fontSize: "clamp(3.5rem, 9vw, 9rem)",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          <span style={{ display: "block" }}>CJ</span>
-          <span style={{ display: "block" }}>Creative</span>
-          <span style={{ display: "block" }}>Studio</span>
-        </p>
+      {/* 3-column content row */}
+      <div className="border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 md:items-start">
 
-        {/* Right — tagline + nav */}
-        <div className="flex flex-col gap-6 md:pb-2">
-          <p
-            className="text-white/30 text-[11px] tracking-[0.18em] uppercase"
-            style={{ fontFamily: "var(--font-jetbrains-mono)" }}
-          >
-            UK Web Design Agency
-          </p>
-          <div className="w-12 h-px bg-white/10" />
+          {/* Left — logo + tagline */}
+          <div className="flex flex-col gap-3">
+            <Image
+              src="/assets/cj-logo-horizontal.png"
+              alt="CJ Studio"
+              width={130}
+              height={33}
+              style={{ filter: "brightness(0) invert(1)", opacity: 0.82 }}
+            />
+            <p
+              className="text-[10px] tracking-[0.20em] uppercase"
+              style={{
+                fontFamily: "var(--font-jetbrains-mono)",
+                color: "rgba(255,255,255,0.28)",
+              }}
+            >
+              UK Web Design Agency
+            </p>
+          </div>
+
+          {/* Centre — nav */}
           <nav className="flex flex-col gap-3" aria-label="Footer navigation">
             {NAV.map(({ label, href }) => (
               <Link
@@ -92,7 +92,14 @@ export default function EditorialFooter() {
               </Link>
             ))}
           </nav>
-          <p className="text-[11px] text-white/20 mt-2">© {new Date().getFullYear()} CJ Studio</p>
+
+          {/* Right — copyright */}
+          <div className="flex flex-col justify-end md:items-end">
+            <p className="text-[11px] text-white/20">
+              © {new Date().getFullYear()} CJ Studio
+            </p>
+          </div>
+
         </div>
       </div>
     </footer>
