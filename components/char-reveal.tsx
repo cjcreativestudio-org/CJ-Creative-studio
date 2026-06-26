@@ -30,24 +30,28 @@ export default function CharReveal({
       {reduced
         ? text
         : chars.map((char, i) => (
-            <span key={i} className="inline-block overflow-hidden">
-              <motion.span
-                className="inline-block"
-                initial={{ y: "110%", opacity: 0 }}
-                animate={
-                  inView
-                    ? { y: "0%", opacity: 1 }
-                    : { y: "110%", opacity: 0 }
-                }
-                transition={{
-                  duration: 0.6,
-                  ease: EXPO,
-                  delay: delay + i * charDelay,
-                }}
-              >
-                {char === " " ? " " : char}
-              </motion.span>
-            </span>
+            char === " " ? (
+              <span key={i} className="inline-block" style={{ width: "0.28em" }} aria-hidden="true" />
+            ) : (
+              <span key={i} className="inline-block overflow-hidden">
+                <motion.span
+                  className="inline-block"
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={
+                    inView
+                      ? { y: "0%", opacity: 1 }
+                      : { y: "110%", opacity: 0 }
+                  }
+                  transition={{
+                    duration: 0.6,
+                    ease: EXPO,
+                    delay: delay + i * charDelay,
+                  }}
+                >
+                  {char}
+                </motion.span>
+              </span>
+            )
           ))}
     </MotionTag>
   );

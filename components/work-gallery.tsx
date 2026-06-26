@@ -26,7 +26,7 @@ function ProjectCard({
       ref={ref}
       type="button"
       onClick={() => onSelect(project)}
-      className="bg-[#111] flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5b9fd6] border border-[#1e1e1e] hover:border-[#333] transition-colors duration-300"
+      className="bg-[#161616] flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5b9fd6] border border-[#242424] hover:border-[#3a3a3a] transition-colors duration-300"
       aria-label={`${project.name} — ${project.type}`}
       initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
       animate={
@@ -127,6 +127,11 @@ function WorkGalleryInner() {
 
   useEffect(() => {
     document.body.style.overflow = selected ? "hidden" : "";
+    if (selected) {
+      // Reset modal scroll to top when a new project is opened
+      const panel = document.querySelector<HTMLElement>('[role="dialog"]');
+      if (panel) panel.scrollTop = 0;
+    }
     return () => {
       document.body.style.overflow = "";
     };
@@ -143,7 +148,7 @@ function WorkGalleryInner() {
   return (
     <>
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#0d0d0d]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#111]">
         {projects.map((p, i) => (
           <ProjectCard key={p.slug} project={p} index={i} onSelect={setSelected} />
         ))}
@@ -168,7 +173,7 @@ function WorkGalleryInner() {
               role="dialog"
               aria-modal="true"
               aria-label={`${selected.name} case study`}
-              className="fixed inset-x-4 inset-y-8 md:inset-x-[10%] md:inset-y-[5%] z-50 overflow-y-auto bg-[#0a0a0a] border border-[#2a2a2a]"
+              className="fixed inset-x-4 inset-y-8 md:inset-x-[10%] md:inset-y-[5%] z-50 overflow-y-auto bg-[#141414] border border-[#2a2a2a]"
               initial={panelInitial}
               animate={panelAnimate}
               exit={panelExit}
