@@ -93,7 +93,7 @@ function TestimonialItem({
           {name} &mdash; {business}
         </cite>
         <span className="text-[11px] tracking-[0.12em] uppercase text-[#555]">
-          {location} &middot; Verified client
+          {location}
         </span>
       </motion.footer>
     </blockquote>

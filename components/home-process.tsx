@@ -9,17 +9,17 @@ const steps = [
   {
     number: "1",
     title: "Discovery",
-    body: "We learn your business, your audience, and what success looks like before touching a single pixel.",
+    body: "A 30-minute call. We ask about your business, your customers, and what a good result looks like. You get a fixed quote before anything else happens.",
   },
   {
     number: "2",
     title: "Design",
-    body: "Handcrafted to your brand. You see it before it's built — no surprises.",
+    body: "We build to your brand. You see the full design before a line of code is written, and nothing moves forward until you approve it.",
   },
   {
     number: "3",
     title: "Launch",
-    body: "Live in weeks, not months. We handle the technical handoff and stay on call.",
+    body: "Most projects go live within 2 to 4 weeks of kickoff. After launch, we're available for 30 days for any questions or small fixes, at no extra cost.",
   },
 ];
 
