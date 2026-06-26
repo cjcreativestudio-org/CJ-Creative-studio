@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono, Inter, Archivo_Black 
 import "./globals.css";
 import LenisProvider from "@/components/lenis-provider";
 import ShaderBackground from "@/components/shader-background";
+import GeoVideoBackground from "@/components/geo-video-background";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -82,6 +83,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <ShaderBackground />
+        <GeoVideoBackground />
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
