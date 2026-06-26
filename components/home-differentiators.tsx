@@ -8,18 +8,18 @@ import { EXPO } from "@/lib/easing";
 const differentiators = [
   {
     index: "01",
-    title: "Fast",
-    body: "A turnaround you can plan around — no open-ended timelines, no disappearing for months.",
+    title: "Fixed Price",
+    body: "We agree on a number before work starts. It does not change. No retainers, no scope creep, no surprise invoices at the end.",
   },
   {
     index: "02",
-    title: "Reliable",
-    body: "Fixed scope, fixed price. What we agree on at the start is what you get at the end.",
+    title: "Live in Weeks",
+    body: "Most projects complete in 2 to 4 weeks. You get a timeline on day one and a finished site by the end of it.",
   },
   {
     index: "03",
-    title: "Handcrafted",
-    body: "Boutique design, built for your business — not a template with your logo dropped in.",
+    title: "Built for You",
+    body: "Every site is written from scratch for your business. No page builders, no themes, no other client's layout with your logo on it.",
   },
 ];
 
