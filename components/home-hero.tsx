@@ -17,7 +17,7 @@ export default function HomeHero() {
       {/* Higgsfield geometric video background */}
       {!reduced && (
         <video
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.20] brightness-[0.85] contrast-[1.1] pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.45] pointer-events-none"
           autoPlay
           muted
           loop
