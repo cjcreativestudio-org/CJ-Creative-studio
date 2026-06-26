@@ -107,6 +107,11 @@ export default function HomeTestimonials() {
       aria-label="Client testimonials"
     >
       <div className="max-w-[1280px] mx-auto">
+        <MaskReveal>
+          <span className="text-[10px] tracking-[0.22em] uppercase text-[#555] block mb-12">
+            In their words
+          </span>
+        </MaskReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-16">
           {testimonials.map(({ lines, quote, name, business, location }, i) => (
             <TestimonialItem

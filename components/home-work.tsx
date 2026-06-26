@@ -9,13 +9,6 @@ import { EXPO } from "@/lib/easing";
 
 const projects = [
   {
-    slug: "range-shipping",
-    img: "/assets/work/range-shipping.png",
-    name: "Range Shipping",
-    category: "Logistics / Maritime",
-    outcome: "An institutional-grade site for a 47-year dry-bulk operator.",
-  },
-  {
     slug: "la-roofing",
     img: "/assets/work/la-roofing.png",
     name: "LA Roofing",
@@ -28,6 +21,13 @@ const projects = [
     name: "Taste of Portugal",
     category: "Hospitality / Restaurant",
     outcome: "One site, two identities — morning pastelaria, evening restaurant.",
+  },
+  {
+    slug: "range-shipping",
+    img: "/assets/work/range-shipping.png",
+    name: "Range Shipping",
+    category: "Logistics / Maritime",
+    outcome: "An institutional-grade site for a 47-year dry-bulk operator.",
   },
 ];
 
@@ -58,7 +58,7 @@ function ProjectCard({
       transition={{ duration: 0.8, ease: EXPO }}
     >
       <Link
-        href={`/work?project=${slug}`}
+        href="/work"
         className="group block"
         aria-label={`View ${name} project`}
       >
@@ -89,7 +89,7 @@ function ProjectCard({
         </div>
         {/* Meta */}
         <div className="pt-5 flex flex-col gap-1.5">
-          <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
+          <span className="text-[10px] tracking-[0.22em] text-[#555]">
             {category}
           </span>
           <h3
@@ -149,7 +149,7 @@ export default function HomeWork() {
             href="/work"
             className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
           >
-            See full case study →
+            View all work →
           </Link>
         </div>
       </div>

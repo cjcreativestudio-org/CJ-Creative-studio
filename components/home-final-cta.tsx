@@ -40,8 +40,8 @@ export default function HomeFinalCta() {
 
         {/* Price anchor — resolves cost anxiety before the ask */}
         <MaskReveal delay={0.44}>
-          <p className="text-[14px] text-[#555] mb-10 max-w-[36ch] leading-[1.7]">
-            Fixed-fee projects. No retainers, no surprises. First conversation is free and no-obligation.
+          <p className="text-[14px] text-[#555] mb-10 max-w-[44ch] leading-[1.7]">
+            Fixed-fee projects. No retainers, no surprises. Most projects start from £1,500. First conversation is free and no-obligation.
           </p>
         </MaskReveal>
 

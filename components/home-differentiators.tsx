@@ -44,7 +44,7 @@ function DiffCard({
       className="border border-[#333] p-8 md:p-10 flex flex-col justify-between min-h-[240px] backdrop-blur-sm bg-[rgba(10,10,10,0.6)]"
     >
       <MaskReveal delay={i * 0.12}>
-        <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6]">
+        <span className="text-[10px] tracking-[0.22em] text-[#555]">
           {index}
         </span>
       </MaskReveal>
