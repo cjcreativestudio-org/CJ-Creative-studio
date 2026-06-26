@@ -59,6 +59,9 @@ export default function HomeFinalCta() {
             </Link>
           </motion.div>
         </div>
+        <p className="mt-6 text-[13px] text-[#555]">
+          Or email us: <a href="mailto:hello@cjcreativestudio.com" className="underline underline-offset-2 transition-colors duration-150 hover:text-[#f0f0f0]">hello@cjcreativestudio.com</a>
+        </p>
       </div>
     </section>
   );
