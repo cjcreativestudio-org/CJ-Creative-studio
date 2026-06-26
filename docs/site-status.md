@@ -3,7 +3,7 @@
 **Live URL:** https://www.cjcreativestudio.com/
 **Vercel project:** https://vercel.com/ojackson27s-projects/cj-studio
 **GitHub:** https://github.com/cjcreativestudio-org/CJ-Creative-studio (`main` branch)
-**Last updated:** 2026-06-26
+**Last updated:** 2026-06-26 (session 2)
 
 ---
 
@@ -32,7 +32,7 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 - **useInView** — scroll triggers with `once: true, margin: "-60px 0px"`
 - **useReducedMotion** — respected everywhere, all animations skip when set
 - **ScrollRiver** — fixed left-edge vertical progress line (md+ screens only)
-- **GeoVideoBackground** — geometric dark loop video, fixed `z-10`, `opacity-[0.07]`, shown on all non-homepage pages
+- **GeoVideoBackground** — Higgsfield-generated abstract geometric MP4 (`/assets/video/geo-bg.mp4`), `position: fixed`, `z-index: 2`, `mix-blend-mode: screen`, `opacity-[0.55]`. Covers the full page on all routes. Screen blend means it glows on dark sections and becomes near-invisible on light/white sections — adaptive brightness effect.
 
 ---
 
@@ -52,8 +52,9 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 
 ## Known Issues / Next Tasks
 
-- [ ] **Hero word spacing** — just fixed (2026-06-26); verify Archivo Black display text reads correctly at all viewport widths
-- [ ] **Work modal scroll** — fixed (2026-06-26); modal now opens at top of case study
+- [x] **Hero word spacing** — verified fixed
+- [x] **Work modal scroll** — verified fixed
+- [x] **Higgsfield video background** — shipped 2026-06-26; `geo-bg.mp4` replaces old `geo-dark-loop.mp4`; screen blend adapts to section brightness across whole page
 - [ ] **Contact form** — broken until `RESEND_API_KEY` is added to Vercel environment variables
 - [ ] **OG image** — `/assets/cj-logo-stacked.png` is a logo, not a 1200×630 social card
 - [ ] **Founder photos** — founder cards show initials only; replace with real photos
