@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { motion, useReducedMotion, useInView } from "motion/react";
 import MaskReveal from "@/components/mask-reveal";
 import { EXPO } from "@/lib/easing";
 
 export default function HomeFinalCta() {
   const reduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px 0px" });
 
   return (
     <section
@@ -21,7 +24,7 @@ export default function HomeFinalCta() {
         </MaskReveal>
 
         <div
-          className="text-[clamp(4rem,10vw,11rem)] leading-[0.88] mb-14"
+          className="text-[clamp(4rem,10vw,6rem)] leading-[0.88] mb-10"
           style={{ fontFamily: "var(--font-archivo-black)" }}
         >
           <MaskReveal delay={0.1}>
@@ -35,18 +38,27 @@ export default function HomeFinalCta() {
           </MaskReveal>
         </div>
 
-        <motion.div
-          initial={reduced ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EXPO, delay: 0.7 }}
-        >
-          <Link
-            href="/contact"
-            className="inline-block border border-[#f0f0f0] px-10 py-5 text-[14px] tracking-[0.14em] uppercase text-[#f0f0f0] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]"
+        {/* Price anchor — resolves cost anxiety before the ask */}
+        <MaskReveal delay={0.44}>
+          <p className="text-[14px] text-[#555] mb-10 max-w-[36ch] leading-[1.7]">
+            Fixed-fee projects. No retainers, no surprises. First conversation is free and no-obligation.
+          </p>
+        </MaskReveal>
+
+        <div ref={ref}>
+          <motion.div
+            initial={reduced ? false : { opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.7, ease: EXPO, delay: 0.1 }}
           >
-            Start a project →
-          </Link>
-        </motion.div>
+            <Link
+              href="/contact"
+              className="inline-block bg-[#f0f0f0] text-[#0a0a0a] px-10 py-5 text-[14px] tracking-[0.14em] uppercase font-medium transition-[background-color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-white"
+            >
+              Start a project →
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
