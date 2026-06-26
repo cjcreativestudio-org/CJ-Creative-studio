@@ -116,14 +116,15 @@ export default function EditorialNav() {
             href="/contact"
             className={[
               "hidden md:inline-flex items-center text-[11px] tracking-[0.18em] uppercase",
-              "rounded-full border border-[#f0f0f0]/60 px-5 py-2 text-[#f0f0f0]",
-              "transition-[background-color,color,transform] duration-160 ease-out",
-              "active:scale-[0.97]",
-              "[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]",
+              "px-5 py-2 active:scale-[0.97]",
+              "transition-[background-color,color,border-color,transform] duration-200 ease-out",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a6cff] focus-visible:ring-offset-2",
+              scrolled
+                ? "bg-[#f0f0f0] text-[#0a0a0a] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-white"
+                : "rounded-full border border-[#f0f0f0]/60 text-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]",
             ].join(" ")}
           >
-            Contact
+            Start a project →
           </Link>
 
           {/* Hamburger — mobile only */}

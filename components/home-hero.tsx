@@ -31,7 +31,7 @@ export default function HomeHero() {
 
         {/* Display heading */}
         <div
-          className="text-[clamp(3.2rem,8.5vw,8.5rem)] leading-[0.9] mb-12"
+          className="text-[clamp(3.2rem,8.5vw,6rem)] leading-[0.9] mb-12"
           style={{ fontFamily: "var(--font-archivo-black)" }}
         >
           <GlowHeadline

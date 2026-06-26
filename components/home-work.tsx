@@ -152,7 +152,7 @@ export default function HomeWork() {
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-[13px] text-[#888]">3 completed projects across trades, hospitality, and logistics.</p>
+          <p className="text-[13px] text-[#888]">{projects.length} completed projects across trades, hospitality, and logistics.</p>
           <Link
             href="/work"
             className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
