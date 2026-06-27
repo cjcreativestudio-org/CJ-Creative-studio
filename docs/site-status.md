@@ -3,7 +3,7 @@
 **Live URL:** https://www.cjcreativestudio.com/
 **Vercel project:** https://vercel.com/ojackson27s-projects/cj-studio
 **GitHub:** https://github.com/cjcreativestudio-org/CJ-Creative-studio (`main` branch)
-**Last updated:** 2026-06-26 (session 2)
+**Last updated:** 2026-06-27 (session 3)
 
 ---
 
@@ -55,6 +55,7 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 - [x] **Hero word spacing** — verified fixed
 - [x] **Work modal scroll** — verified fixed
 - [x] **Higgsfield video background** — shipped 2026-06-26; `geo-bg.mp4` replaces old `geo-dark-loop.mp4`; screen blend adapts to section brightness across whole page
+- [x] **Homepage loading screen** — shipped 2026-06-27; white overlay with inline SVG triangle mark + "CJ Creative Studio." in Archivo Black, pulses for 2s then fades out; homepage only (`components/home-loading-screen.tsx`)
 - [ ] **Contact form** — broken until `RESEND_API_KEY` is added to Vercel environment variables
 - [ ] **OG image** — `/assets/cj-logo-stacked.png` is a logo, not a 1200×630 social card
 - [ ] **Founder photos** — founder cards show initials only; replace with real photos
