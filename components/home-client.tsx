@@ -9,10 +9,12 @@ import HomeTestimonials from "@/components/home-testimonials";
 import HomeFinalCta from "@/components/home-final-cta";
 import ScrollRiver from "@/components/scroll-river";
 import MobileStickyCta from "@/components/mobile-sticky-cta";
+import HomeLoadingScreen from "@/components/home-loading-screen";
 
 export default function HomeClient() {
   return (
     <div>
+      <HomeLoadingScreen />
       <ScrollRiver />
       <EditorialNav />
       <MobileStickyCta />
