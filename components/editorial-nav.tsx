@@ -71,6 +71,12 @@ export default function EditorialNav() {
         {/* Wordmark */}
         <Link
           href="/"
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
           className="text-[11px] tracking-[0.18em] uppercase text-[#f0f0f0] select-none hover:opacity-60 transition-opacity duration-180"
           aria-label="CJ Creative Studio home"
         >
