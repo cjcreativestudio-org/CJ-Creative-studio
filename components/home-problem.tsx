@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { useInView, useReducedMotion, motion } from "motion/react";
@@ -9,18 +9,18 @@ import { EXPO } from "@/lib/easing";
 const problems = [
   {
     index: "01",
-    heading: "It doesn't work on mobile.",
-    body: "Over 60% of web traffic is mobile. If your site breaks on a phone, you're handing customers to your competitors.",
+    heading: "Your digital presence is your first pitch.",
+    body: "For operators in maritime logistics, trades, and hospitality, an outdated site doesn't just look stale — it actively costs you enterprise enquiries before a conversation begins.",
   },
   {
     index: "02",
-    heading: "It looks like it was built in 2009.",
-    body: "An outdated site signals an inactive business. A slow or dated site costs you before the visitor reads a single word.",
+    heading: "Discoverability is a commercial asset.",
+    body: "If your operation doesn't surface in relevant searches, you are invisible to the buyers who matter. Local and sector-specific visibility is infrastructure, not a marketing afterthought.",
   },
   {
     index: "03",
-    heading: "Nobody can find it.",
-    body: "If you don't appear in local search, you don't exist to the people who need you most.",
+    heading: "Your site should work as hard as your team.",
+    body: "Every hour your digital platform fails to convert, qualify, or inform a prospect is margin left on the table. We build systems that close the gap between operational quality and online presence.",
   },
 ];
 
@@ -78,14 +78,14 @@ export default function HomeProblem() {
   return (
     <section
       className="relative overflow-hidden bg-[#f5f5f5] text-[#0d0d0d] px-6 py-24"
-      aria-label="The problem"
+      aria-label="The opportunity"
     >
       <LightSectionTexture />
       <div className="relative z-10 max-w-[1280px] mx-auto">
         <div className="mb-12">
           <MaskReveal>
             <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa]">
-              The Problem
+              The Opportunity
             </span>
           </MaskReveal>
           <MaskReveal delay={0.1}>
@@ -93,9 +93,9 @@ export default function HomeProblem() {
               className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] mt-4"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              Most small business
+              Your digital infrastructure
               <br />
-              websites are broken.
+              should match your operational standard.
             </h2>
           </MaskReveal>
         </div>

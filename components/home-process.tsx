@@ -1,9 +1,13 @@
-"use client";
+﻿"use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useInView, useReducedMotion, motion } from "motion/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MaskReveal from "@/components/mask-reveal";
 import { EXPO } from "@/lib/easing";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
@@ -27,20 +31,14 @@ function ProcessStep({
   number,
   title,
   body,
-  delay,
 }: {
   number: string;
   title: string;
   body: string;
-  delay: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
-  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
-
   return (
-    <div ref={ref} className="flex flex-col gap-4">
-      <MaskReveal delay={delay}>
+    <div className="flex flex-col gap-4">
+      <MaskReveal>
         <span
           className="text-[clamp(3rem,5vw,5rem)] leading-[1] text-[#ddd]"
           style={{ fontFamily: "var(--font-archivo-black)" }}
@@ -49,29 +47,49 @@ function ProcessStep({
           {number}
         </span>
       </MaskReveal>
-      <MaskReveal delay={delay + 0.1}>
+      <MaskReveal delay={0.1}>
         <h3
           className="text-[22px] font-bold italic text-[#0d0d0d] font-serif"
         >
           {title}
         </h3>
       </MaskReveal>
-      <motion.p
-        className="text-[14px] leading-[1.7] text-[#666] font-serif"
-        initial={reduced ? false : { opacity: 0, y: 8 }}
-        animate={reduced ? {} : inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-        transition={{ duration: 0.6, ease: EXPO, delay: delay + 0.22 }}
-      >
+      <p className="text-[14px] leading-[1.7] text-[#666] font-serif">
         {body}
-      </motion.p>
+      </p>
     </div>
   );
 }
 
 export default function HomeProcess() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const inView = useInView(sectionRef, { once: true, margin: "-80px 0px" });
+
+  useEffect(() => {
+    if (reduced) return;
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const tween = gsap.from(grid.children, {
+      opacity: 0,
+      y: 40,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: grid,
+        start: "top 80%",
+        once: true,
+      },
+    });
+
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
+  }, [reduced]);
 
   return (
     <section
@@ -120,14 +138,13 @@ export default function HomeProcess() {
           </svg>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-          {steps.map(({ number, title, body }, i) => (
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          {steps.map(({ number, title, body }) => (
             <ProcessStep
               key={number}
               number={number}
               title={title}
               body={body}
-              delay={0.3 + i * 0.2}
             />
           ))}
         </div>

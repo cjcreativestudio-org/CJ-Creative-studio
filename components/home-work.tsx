@@ -80,7 +80,7 @@ function ProjectCard({
               alt={name}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover object-top"
+              className="object-cover object-top transition-[transform,filter] duration-500 ease-out brightness-[0.92] saturate-[0.85] [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.02] [@media(hover:hover)_and_(pointer:fine)]:group-hover:brightness-100 [@media(hover:hover)_and_(pointer:fine)]:group-hover:saturate-100"
             />
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-[#0a0a0a] opacity-0 transition-opacity duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-20 flex items-center justify-center">
@@ -166,3 +166,4 @@ export default function HomeWork() {
     </section>
   );
 }
+
