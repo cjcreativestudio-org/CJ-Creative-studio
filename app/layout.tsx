@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono, Inter, Archivo_Black } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/lenis-provider";
 import ShaderBackground from "@/components/shader-background";
 import GeoVideoBackground from "@/components/geo-video-background";
+import FilmGrain from "@/components/film-grain";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -84,8 +85,10 @@ export default function RootLayout({
         </a>
         <ShaderBackground />
         <GeoVideoBackground />
+        <FilmGrain />
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );
 }
+

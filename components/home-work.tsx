@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import Image from "next/image";
@@ -85,7 +85,7 @@ function ProjectCard({
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-[#0a0a0a] opacity-0 transition-opacity duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-20 flex items-center justify-center">
               <span className="text-white text-[13px] tracking-[0.12em] uppercase opacity-0 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100 transition-opacity duration-300">
-                See all work →
+                See all work &rarr;
               </span>
             </div>
           </div>
@@ -114,51 +114,53 @@ export default function HomeWork() {
   return (
     <section
       id="selected-work"
-      className="bg-[#f5f5f5] px-6 py-24"
+      className="relative bg-[#f5f5f5] px-6 pb-24 pt-0"
       aria-label="Selected work"
     >
-      <div className="max-w-[1280px] mx-auto">
-        <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
-          <MaskReveal>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] mt-2 whitespace-nowrap">
-              Selected Work
-            </span>
-          </MaskReveal>
-          <MaskReveal delay={0.1}>
-            <h2
-              className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
-              style={{ fontFamily: "var(--font-archivo-black)" }}
+      <div className="relative z-10">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
+            <MaskReveal>
+              <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] mt-2 whitespace-nowrap">
+                Selected Work
+              </span>
+            </MaskReveal>
+            <MaskReveal delay={0.1}>
+              <h2
+                className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
+                style={{ fontFamily: "var(--font-archivo-black)" }}
+              >
+                Built for trades,
+                <br />
+                shops, and hospitality.
+              </h2>
+            </MaskReveal>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 -mt-16 md:-mt-24">
+            {projects.map(({ slug, img, name, category, outcome, pullQuote }, i) => (
+              <ProjectCard
+                key={slug}
+                slug={slug}
+                img={img}
+                name={name}
+                category={category}
+                outcome={outcome}
+                pullQuote={pullQuote}
+                fromLeft={i % 2 === 0}
+              />
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p className="text-[13px] text-[#888]">{projects.length} completed projects across trades, hospitality, and logistics.</p>
+            <Link
+              href="/work"
+              className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
             >
-              Built for trades,
-              <br />
-              shops, and hospitality.
-            </h2>
-          </MaskReveal>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {projects.map(({ slug, img, name, category, outcome, pullQuote }, i) => (
-            <ProjectCard
-              key={slug}
-              slug={slug}
-              img={img}
-              name={name}
-              category={category}
-              outcome={outcome}
-              pullQuote={pullQuote}
-              fromLeft={i % 2 === 0}
-            />
-          ))}
-        </div>
-
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-[13px] text-[#888]">{projects.length} completed projects across trades, hospitality, and logistics.</p>
-          <Link
-            href="/work"
-            className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
-          >
-            View all work →
-          </Link>
+              View all work &rarr;
+            </Link>
+          </div>
         </div>
       </div>
     </section>
