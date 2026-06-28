@@ -26,7 +26,7 @@ function ProjectCard({
       ref={ref}
       type="button"
       onClick={() => onSelect(project)}
-      className="bg-[#161616] flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5b9fd6] border border-[#242424] hover:border-[#3a3a3a] transition-colors duration-300"
+      className="bg-[#161616] flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A2540] border border-[#242424] hover:border-[#3a3a3a] transition-colors duration-300"
       aria-label={`${project.name} — ${project.type}`}
       initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
       animate={
@@ -68,7 +68,7 @@ function ProjectCard({
 
       {/* Info */}
       <div className="p-6 flex flex-col gap-1.5">
-        <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6] uppercase">
+        <span className="text-[10px] tracking-[0.22em] text-[#0A2540] uppercase">
           {project.slug}
         </span>
         <h3 className="font-serif italic font-bold text-[1.05rem] text-[#f0f0f0]">
@@ -204,7 +204,7 @@ function WorkGalleryInner() {
 
               {/* Content */}
               <div className="p-8 md:p-12">
-                <span className="text-[10px] tracking-[0.22em] text-[#5b9fd6] uppercase">
+                <span className="text-[10px] tracking-[0.22em] text-[#0A2540] uppercase">
                   {selected.slug}
                 </span>
                 <h3
@@ -223,7 +223,7 @@ function WorkGalleryInner() {
                 <ul className="mt-6 space-y-3 list-none p-0">
                   {selected.details.map((d) => (
                     <li key={d} className="flex gap-3">
-                      <span className="w-1.5 h-1.5 flex-shrink-0 mt-[9px] bg-[#5b9fd6]" />
+                      <span className="w-1.5 h-1.5 flex-shrink-0 mt-[9px] bg-[#0A2540]" />
                       <span className="text-[15px] text-[#888] leading-relaxed">{d}</span>
                     </li>
                   ))}

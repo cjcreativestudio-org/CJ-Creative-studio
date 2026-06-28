@@ -76,7 +76,7 @@ export default function HomeHero() {
             >
               <Link
                 href="/contact"
-                className="inline-block bg-[#f0f0f0] text-[#0a0a0a] px-8 py-4 text-[13px] tracking-[0.12em] uppercase font-medium transition-[background-color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-white"
+                className="inline-block bg-[#f0f0f0] text-[#0a0a0a] px-8 py-4 text-[13px] tracking-[0.12em] uppercase font-medium transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0A2540] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
               >
                 Start a project →
               </Link>

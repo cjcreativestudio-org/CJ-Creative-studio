@@ -83,7 +83,7 @@ function ProjectCard({
               className="object-cover object-top transition-[transform,filter] duration-500 ease-out brightness-[0.92] saturate-[0.85] [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.02] [@media(hover:hover)_and_(pointer:fine)]:group-hover:brightness-100 [@media(hover:hover)_and_(pointer:fine)]:group-hover:saturate-100"
             />
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-[#0a0a0a] opacity-0 transition-opacity duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-20 flex items-center justify-center">
+            <div className="absolute inset-0 bg-[#0A2540] opacity-0 transition-opacity duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-30 flex items-center justify-center">
               <span className="text-white text-[13px] tracking-[0.12em] uppercase opacity-0 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100 transition-opacity duration-300">
                 See all work &rarr;
               </span>
