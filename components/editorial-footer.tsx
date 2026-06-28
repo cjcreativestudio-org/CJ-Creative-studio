@@ -20,7 +20,7 @@ export default function EditorialFooter() {
               className="text-white text-[1.35rem] tracking-[-0.02em] leading-none"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              CJ Studio
+              CJ Creative Studio
             </span>
             <p
               className="text-[10px] tracking-[0.2em] uppercase mt-1"
@@ -91,7 +91,7 @@ export default function EditorialFooter() {
             className="text-[10px] tracking-[0.14em] uppercase text-white/18"
             style={{ fontFamily: "var(--font-jetbrains-mono)", color: "rgba(255,255,255,0.18)" }}
           >
-            © {new Date().getFullYear()} CJ Studio. All rights reserved.
+            © {new Date().getFullYear()} CJ Creative Studio. All rights reserved.
           </p>
         </div>
 
