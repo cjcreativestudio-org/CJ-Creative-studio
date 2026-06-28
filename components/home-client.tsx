@@ -6,7 +6,6 @@ import HomeDifferentiators from "@/components/home-differentiators";
 import HomeWork from "@/components/home-work";
 import HomeProcess from "@/components/home-process";
 import HomeTestimonials from "@/components/home-testimonials";
-import HomeFinalCta from "@/components/home-final-cta";
 import ScrollRiver from "@/components/scroll-river";
 import MobileStickyCta from "@/components/mobile-sticky-cta";
 import HomeLoadingScreen from "@/components/home-loading-screen";
@@ -24,7 +23,6 @@ export default function HomeClient() {
       <HomeWork />
       <HomeProcess />
       <HomeTestimonials />
-      <HomeFinalCta />
       <EditorialFooter />
     </div>
   );
