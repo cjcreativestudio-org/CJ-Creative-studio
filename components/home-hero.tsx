@@ -18,12 +18,12 @@ export default function HomeHero() {
         {/* Kicker */}
         <div className="flex items-center justify-between mb-12">
           <MaskReveal delay={0.1}>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666]">
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#0A2540]">
               Web Design Studio
             </span>
           </MaskReveal>
           <MaskReveal delay={0.15}>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666]">
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#0A2540]">
               CJ Creative Studio
             </span>
           </MaskReveal>
@@ -76,13 +76,13 @@ export default function HomeHero() {
             >
               <Link
                 href="/contact"
-                className="inline-block bg-[#f0f0f0] text-[#0a0a0a] px-8 py-4 text-[13px] tracking-[0.12em] uppercase font-medium transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0A2540] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
+                className="inline-block bg-[#0A2540] text-white px-8 py-4 text-[13px] tracking-[0.12em] uppercase font-medium transition-[background-color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d3060]"
               >
                 Start a project →
               </Link>
               <Link
                 href="#selected-work"
-                className="inline-block border border-[#f0f0f0]/40 px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#f0f0f0]/70 transition-[background-color,color,border-color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:border-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#f0f0f0]"
+                className="inline-block border border-[#0A2540] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0A2540] transition-[background-color,color,border-color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0A2540] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
               >
                 View our work →
               </Link>

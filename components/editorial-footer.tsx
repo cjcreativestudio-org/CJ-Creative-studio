@@ -33,7 +33,7 @@ export default function EditorialFooter() {
           {/* CTA */}
           <Link
             href="/contact"
-            className="inline-block border border-white/20 px-6 py-3 text-[11px] tracking-[0.18em] uppercase text-white/70 transition-[background-color,color,border-color] duration-[160ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:bg-white [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a] [@media(hover:hover)_and_(pointer:fine)]:hover:border-white w-fit"
+            className="inline-block bg-[#0A2540] px-6 py-3 text-[11px] tracking-[0.18em] uppercase text-white transition-[background-color] duration-[160ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d3060] w-fit"
             style={{ fontFamily: "var(--font-jetbrains-mono)" }}
           >
             Start a project →
@@ -51,21 +51,21 @@ export default function EditorialFooter() {
           >
             Let&apos;s build something
             <br />
-            <span className="text-white/40">precise.</span>
+            <span className="text-[#0A2540]">precise.</span>
           </h2>
 
           {/* Contact block */}
           <div className="flex flex-col gap-2">
             <a
               href="mailto:hello@cjcreativestudio.com"
-              className="text-[12px] tracking-[0.1em] text-white/45 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-white/80"
+              className="text-[12px] tracking-[0.1em] text-white/45 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0A2540]"
               style={{ fontFamily: "var(--font-jetbrains-mono)" }}
             >
               hello@cjcreativestudio.com
             </a>
             <a
               href="tel:+447577483891"
-              className="text-[12px] tracking-[0.1em] text-white/45 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-white/80"
+              className="text-[12px] tracking-[0.1em] text-white/45 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0A2540]"
               style={{ fontFamily: "var(--font-jetbrains-mono)" }}
             >
               07577 483 891
@@ -80,7 +80,7 @@ export default function EditorialFooter() {
               <Link
                 key={label}
                 href={href}
-                className="text-[10px] tracking-[0.16em] uppercase text-white/25 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-white/60"
+                className="text-[10px] tracking-[0.16em] uppercase text-white/25 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0A2540]"
                 style={{ fontFamily: "var(--font-jetbrains-mono)" }}
               >
                 {label}

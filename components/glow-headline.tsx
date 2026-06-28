@@ -40,9 +40,9 @@ export default function GlowHeadline({
         const strength = 1 - dist / radius;
         el.style.transition = "color 45ms ease-out, text-shadow 45ms ease-out";
         el.style.color = strength > 0.08
-          ? `color-mix(in srgb, #0A2540 ${Math.round(strength * 30)}%, #f0f0f0)`
+          ? `color-mix(in srgb, #0A2540 ${Math.round(strength * 50)}%, #f0f0f0)`
           : "";
-        el.style.textShadow = `0 0 28px rgba(91,159,214,${(strength * 0.18).toFixed(2)})`;
+        el.style.textShadow = `0 0 32px rgba(10,37,64,${(strength * 0.35).toFixed(2)})`;
       } else {
         el.style.transition = "color 45ms ease-out, text-shadow 45ms ease-out";
         el.style.color = "";
