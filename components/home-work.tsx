@@ -119,20 +119,20 @@ export default function HomeWork() {
     >
       <div className="relative z-10">
         <div className="max-w-[1280px] mx-auto">
-          <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-24">
+          <div className="flex flex-col gap-4 mb-32">
             <MaskReveal>
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] mt-2 whitespace-nowrap">
+              <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] whitespace-nowrap">
                 Selected Work
               </span>
             </MaskReveal>
             <MaskReveal delay={0.1}>
               <h2
-                className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] md:text-right"
+                className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d]"
                 style={{ fontFamily: "var(--font-archivo-black)" }}
               >
-                Built for trades,
+                Digital systems engineered
                 <br />
-                shops, and hospitality.
+                for scale and performance.
               </h2>
             </MaskReveal>
           </div>
