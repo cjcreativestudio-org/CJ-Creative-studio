@@ -119,7 +119,7 @@ export default function HomeWork() {
     >
       <div className="relative z-10">
         <div className="max-w-[1280px] mx-auto">
-          <div className="flex flex-col gap-4 mb-32">
+          <div className="flex flex-col items-center gap-4 mb-32 text-center mx-auto">
             <MaskReveal>
               <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] whitespace-nowrap">
                 Selected Work
