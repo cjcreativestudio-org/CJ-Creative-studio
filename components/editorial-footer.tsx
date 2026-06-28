@@ -4,71 +4,97 @@ const NAV = [
   { label: "Work",     href: "/work" },
   { label: "Services", href: "/services" },
   { label: "About",    href: "/about" },
-  { label: "Contact",  href: "/contact" },
   { label: "Privacy",  href: "/privacy" },
 ];
 
 export default function EditorialFooter() {
   return (
-    <footer className="bg-[#0a0a0a]" aria-label="Site footer">
-      {/* Top rule */}
-      <div className="border-t border-white/[0.06]" />
+    <footer className="bg-[#0a0a0a] border-t border-white/[0.06]" aria-label="Site footer">
+      <div className="max-w-[1280px] mx-auto px-6 py-14">
 
-      {/* Massive CTA wordmark */}
-      <div className="max-w-[1280px] mx-auto px-6 pt-16 pb-8">
-        <p
-          className="text-[10px] tracking-[0.28em] uppercase mb-6"
-          style={{ fontFamily: "var(--font-jetbrains-mono)", color: "rgba(255,255,255,0.28)" }}
-        >
-          CJ Studio — UK Web Design Agency
-        </p>
-        <h2
-          className="text-[clamp(3.5rem,10vw,9rem)] leading-[0.88] text-white/90 mb-16"
-          style={{ fontFamily: "var(--font-archivo-black)" }}
-        >
-          Let&apos;s build
-          <br />
-          something
-          <br />
-          precise.
-        </h2>
-
-        {/* Grid: nav left, cta right */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-3 gap-x-8 mb-16 border-t border-white/[0.06] pt-10">
-          {NAV.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-[12px] tracking-[0.14em] uppercase text-white/35 transition-[color] duration-[180ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:text-white/80 w-fit"
-              style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+        {/* Top row: logo + CTA button */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-10">
+          {/* Wordmark logo */}
+          <div>
+            <span
+              className="text-white text-[1.35rem] tracking-[-0.02em] leading-none"
+              style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              {label}
-            </Link>
-          ))}
+              CJ Studio
+            </span>
+            <p
+              className="text-[10px] tracking-[0.2em] uppercase mt-1"
+              style={{ fontFamily: "var(--font-jetbrains-mono)", color: "rgba(255,255,255,0.25)" }}
+            >
+              UK Web Design Agency
+            </p>
+          </div>
+
+          {/* CTA */}
           <Link
             href="/contact"
-            className="text-[12px] tracking-[0.14em] uppercase text-[#5b9fd6]/70 transition-[color] duration-[180ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#5b9fd6] w-fit"
+            className="inline-block border border-white/20 px-6 py-3 text-[11px] tracking-[0.18em] uppercase text-white/70 transition-[background-color,color,border-color] duration-[160ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:bg-white [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a] [@media(hover:hover)_and_(pointer:fine)]:hover:border-white w-fit"
             style={{ fontFamily: "var(--font-jetbrains-mono)" }}
           >
             Start a project →
           </Link>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-t border-white/[0.04] pt-6">
+        {/* Divider */}
+        <div className="border-t border-white/[0.06] mb-10" />
+
+        {/* Mid row: headline + contact */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-10">
+          <h2
+            className="text-[clamp(1.6rem,4vw,2.8rem)] leading-[1.05] text-white/90"
+            style={{ fontFamily: "var(--font-archivo-black)" }}
+          >
+            Let&apos;s build something
+            <br />
+            <span className="text-white/40">precise.</span>
+          </h2>
+
+          {/* Contact block */}
+          <div className="flex flex-col gap-2">
+            <a
+              href="mailto:hello@cjcreativestudio.com"
+              className="text-[12px] tracking-[0.1em] text-white/45 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-white/80"
+              style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+            >
+              hello@cjcreativestudio.com
+            </a>
+            <a
+              href="tel:+447577483891"
+              className="text-[12px] tracking-[0.1em] text-white/45 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-white/80"
+              style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+            >
+              07577 483 891
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom bar: nav + legal */}
+        <div className="border-t border-white/[0.04] pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer navigation">
+            {NAV.map(({ label, href }) => (
+              <Link
+                key={label}
+                href={href}
+                className="text-[10px] tracking-[0.16em] uppercase text-white/25 transition-colors duration-150 [@media(hover:hover)_and_(pointer:fine)]:hover:text-white/60"
+                style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
           <p
-            className="text-[10px] tracking-[0.16em] uppercase text-white/20"
-            style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+            className="text-[10px] tracking-[0.14em] uppercase text-white/18"
+            style={{ fontFamily: "var(--font-jetbrains-mono)", color: "rgba(255,255,255,0.18)" }}
           >
             © {new Date().getFullYear()} CJ Studio. All rights reserved.
           </p>
-          <p
-            className="text-[10px] tracking-[0.16em] uppercase text-white/20"
-            style={{ fontFamily: "var(--font-jetbrains-mono)" }}
-          >
-            Exeter, Devon, UK
-          </p>
         </div>
+
       </div>
     </footer>
   );
