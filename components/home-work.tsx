@@ -119,7 +119,7 @@ export default function HomeWork() {
     >
       <div className="relative z-10">
         <div className="max-w-[1280px] mx-auto">
-          <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
+          <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-24">
             <MaskReveal>
               <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] mt-2 whitespace-nowrap">
                 Selected Work
@@ -137,7 +137,7 @@ export default function HomeWork() {
             </MaskReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 -mt-16 md:-mt-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {projects.map(({ slug, img, name, category, outcome, pullQuote }, i) => (
               <ProjectCard
                 key={slug}
