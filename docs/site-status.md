@@ -3,7 +3,7 @@
 **Live URL:** https://www.cjcreativestudio.com/
 **Vercel project:** https://vercel.com/ojackson27s-projects/cj-studio
 **GitHub:** https://github.com/cjcreativestudio-org/CJ-Creative-studio (`main` branch)
-**Last updated:** 2026-06-27 (session 3 — 4 items shipped)
+**Last updated:** 2026-06-28 (session 4 — layout fixes, footer redesign, 80/20 navy color system)
 
 ---
 
@@ -22,7 +22,7 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 | Text (dark) | `#f0f0f0` | Headings on dark |
 | Text (light) | `#0d0d0d` | Headings on light |
 | Body muted | `#888` | Body copy on dark |
-| Accent | `#5b9fd6` | Category labels only |
+| Accent | `#0A2540` (Navy) | Buttons, kickers, hovers, glows — 80/20 ratio |
 | Easing | `[0.16, 1, 0.3, 1]` | All transitions (expo out) |
 
 ### Animation System
@@ -58,6 +58,11 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 - [x] **Homepage loading screen** — shipped 2026-06-27; white overlay with inline SVG triangle mark + "CJ Creative Studio." in Archivo Black, pulses for 2s then fades out; homepage only (`components/home-loading-screen.tsx`)
 - [x] **Hero redesign (session 3)** — shipped 2026-06-27; headline constrained to `max-w-[56rem]`, copy + CTAs grouped left below headline, font size reduced ~25% with looser leading/tracking, new copy ("Digital platforms engineered for precision."), subtext in slate `#7a7a8a`, glow effect softened (color-mix 30%, shadow blur 28px at 0.18 opacity)
 - [x] **Nav wordmark scroll-to-top** — shipped 2026-06-27; clicking "CJ Creative Studio" smooth-scrolls to top when already on `/`, navigates normally from other pages
+- [x] **Selected Work layout fix** — shipped 2026-06-28; removed negative margins pulling cards into heading; header now `flex-col items-center text-center mx-auto mb-32`
+- [x] **Heading copy update** — shipped 2026-06-28; "Built for trades, shops, and hospitality" → "Digital systems engineered for scale and performance."
+- [x] **Footer redesign** — shipped 2026-06-28; compact layout with CJ Creative Studio wordmark, contact details (email + phone), solid navy CTA button, reduced headline size
+- [x] **Duplicate footer fix** — shipped 2026-06-28; removed `HomeFinalCta` component (duplicate dark CTA block); `EditorialFooter` is the single termination point
+- [x] **80/20 navy color system** — shipped 2026-06-28; accent color changed from `#5b9fd6` to `#0A2540`; solid navy primary buttons, navy kicker labels, stronger hero aura, navy accents in footer
 - [ ] **Contact form** — broken until `RESEND_API_KEY` is added to Vercel environment variables
 - [ ] **OG image** — `/assets/cj-logo-stacked.png` is a logo, not a 1200×630 social card
 - [ ] **Founder photos** — founder cards show initials only; replace with real photos
