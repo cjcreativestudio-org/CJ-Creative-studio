@@ -53,16 +53,16 @@ export default function WorkPage() {
       </section>
 
       {/* ── Project Grid ─────────────────────────────────────── */}
-      <section className="bg-[#f5f5f5] py-24" aria-label="All projects">
+      <section className="bg-[#0a0a0a] py-24" aria-label="All projects">
         <div className="px-6">
           {/* Section label + heading */}
           <div className="flex items-start justify-between mb-14">
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] mt-1">
+            <span className="text-[12px] tracking-[0.18em] uppercase text-[#555] mt-1">
               All Projects
             </span>
             <MaskReveal className="text-right max-w-[480px]">
               <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-[#0d0d0d]"
+                className="text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-[#f0f0f0]"
                 style={{ fontFamily: "var(--font-archivo-black)" }}
               >
                 Every project,
@@ -76,40 +76,52 @@ export default function WorkPage() {
         </div>
       </section>
 
+      {/* ── Video ────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden" style={{ height: "60vh" }} aria-hidden="true">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/assets/video/geo-bg.mp4" type="video/mp4" />
+        </video>
+      </section>
+
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="bg-[#0a0a0a] py-24" aria-label="Start a project">
         <div className="px-6">
           <div className="flex items-start justify-between mb-12">
-            <span className="text-[12px] tracking-[0.18em] uppercase text-[#666] mt-1">
-              Start a Project
-            </span>
-            <div className="text-right max-w-[520px]">
+            <div className="max-w-[520px]">
               <MaskReveal>
                 <h2
                   className="text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-[#f0f0f0]"
                   style={{ fontFamily: "var(--font-archivo-black)" }}
                 >
-                  Got a project in mind?
+                  Let&apos;s build something
                 </h2>
               </MaskReveal>
               <MaskReveal delay={0.1}>
                 <h2
-                  className="text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-[#f0f0f0]"
+                  className="text-[clamp(2rem,4vw,3.5rem)] leading-[0.95] text-[#0A2540]"
                   style={{ fontFamily: "var(--font-archivo-black)" }}
                 >
-                  Let&apos;s talk.
+                  precise.
                 </h2>
               </MaskReveal>
             </div>
-          </div>
-
-          <div className="flex justify-end">
-            <Link
-              href="/contact"
-              className="border border-[#f0f0f0] px-6 py-3 text-[11px] tracking-widest uppercase text-[#f0f0f0] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]"
-            >
-              Get in touch →
-            </Link>
+            <div className="flex flex-col items-end justify-between gap-8 text-right max-w-[340px]">
+              <p className="text-[15px] leading-[1.65] text-[#888] font-serif">
+                Got a project in mind? Let&apos;s talk.
+              </p>
+              <Link
+                href="/contact"
+                className="border border-[#f0f0f0] px-6 py-3 text-[11px] tracking-widest uppercase text-[#f0f0f0] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]"
+              >
+                Get in touch →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
