@@ -40,7 +40,7 @@ export default function ContactPage() {
           {/* Header */}
           <div className="mb-16">
             <MaskReveal>
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#666] block mb-6">
+              <span className="text-[12px] tracking-[0.18em] uppercase text-[#666] block mb-6">
                 Get in touch
               </span>
             </MaskReveal>

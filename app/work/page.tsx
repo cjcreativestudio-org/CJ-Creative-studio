@@ -21,10 +21,10 @@ export default function WorkPage() {
         <div className="px-6 pt-12 pb-14">
           {/* Kicker row */}
           <div className="flex items-center justify-between mb-10">
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666]">
+            <span className="text-[12px] tracking-[0.18em] uppercase text-[#666]">
               Selected Work
             </span>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666]">
+            <span className="text-[12px] tracking-[0.18em] uppercase text-[#666]">
               CJ Creative Studio
             </span>
           </div>
@@ -80,7 +80,7 @@ export default function WorkPage() {
       <section className="bg-[#0a0a0a] py-24" aria-label="Start a project">
         <div className="px-6">
           <div className="flex items-start justify-between mb-12">
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666] mt-1">
+            <span className="text-[12px] tracking-[0.18em] uppercase text-[#666] mt-1">
               Start a Project
             </span>
             <div className="text-right max-w-[520px]">
