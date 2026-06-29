@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <div id="main-content" className="bg-[#0a0a0a]">
+    <div id="main-content" className="bg-[#0a0a0a] isolate">
       <EditorialNav />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
@@ -53,7 +53,7 @@ export default function WorkPage() {
       </section>
 
       {/* ── Project Grid ─────────────────────────────────────── */}
-      <section className="relative z-[3] bg-[#0a0a0a] py-24" aria-label="All projects">
+      <section className="bg-[#0a0a0a] py-24" aria-label="All projects">
         <div className="px-6">
           {/* Section label + heading */}
           <div className="flex items-start justify-between mb-14">
