@@ -53,10 +53,10 @@ export default function AboutPage() {
           <div className="px-6 pt-12 pb-16">
             {/* Kicker row */}
             <div className="flex items-center justify-between mb-10">
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#666]">
+              <span className="text-[12px] tracking-[0.18em] uppercase text-[#666]">
                 About Us
               </span>
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#666]">
+              <span className="text-[12px] tracking-[0.18em] uppercase text-[#666]">
                 CJ Creative Studio
               </span>
             </div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
           <div className="max-w-[1280px] mx-auto">
             {/* Header row */}
             <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] mt-2 whitespace-nowrap">
+              <span className="text-[12px] tracking-[0.18em] uppercase text-[#aaa] mt-2 whitespace-nowrap">
                 The Founders
               </span>
               <MaskReveal className="md:text-right">
@@ -162,7 +162,7 @@ export default function AboutPage() {
           <div className="max-w-[1280px] mx-auto">
             {/* Header row */}
             <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#666] mt-2 whitespace-nowrap">
+              <span className="text-[12px] tracking-[0.18em] uppercase text-[#666] mt-2 whitespace-nowrap">
                 How We Work
               </span>
               <MaskReveal className="md:text-right">
