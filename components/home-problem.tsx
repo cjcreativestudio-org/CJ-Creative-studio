@@ -62,7 +62,7 @@ function ProblemItem({
           </h3>
         </MaskReveal>
         <motion.p
-          className="text-[15px] leading-[1.7] text-[#555] font-serif max-w-[520px]"
+          className="text-[15px] leading-[1.7] text-[#555] max-w-[520px]"
           initial={reduced ? false : { opacity: 0, y: 10 }}
           animate={reduced ? {} : inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.6, ease: EXPO, delay: i * 0.12 + 0.2 }}

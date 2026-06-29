@@ -51,7 +51,7 @@ function StepCard({ number, title, body }: { number: string; title: string; body
         >
           {title}
         </h3>
-        <p className="text-[15px] leading-[1.7] text-[#888] font-serif">
+        <p className="text-[15px] leading-[1.7] text-[#888]">
           {body}
         </p>
       </div>

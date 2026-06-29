@@ -59,7 +59,7 @@ function DiffCard({
         </MaskReveal>
       </div>
       <motion.p
-        className="text-[14px] leading-[1.7] text-[#888] font-serif mt-auto"
+        className="text-[14px] leading-[1.7] text-[#888] mt-auto"
         initial={reduced ? false : { opacity: 0, y: 10 }}
         animate={reduced ? {} : inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.6, ease: EXPO, delay: i * 0.12 + 0.22 }}

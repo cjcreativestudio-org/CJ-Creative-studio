@@ -96,13 +96,13 @@ function ProjectCard({
             {category}
           </span>
           <h3
-            className="text-[20px] font-bold italic text-[#0d0d0d] font-serif"
+            className="text-[20px] font-bold italic text-[#0d0d0d]"
           >
             {name}
           </h3>
           <p className="text-[14px] leading-relaxed text-[#666]">{outcome}</p>
           {pullQuote && (
-            <p className="text-[13px] italic font-serif text-[#0d0d0d] mt-1">&ldquo;{pullQuote}&rdquo;</p>
+            <p className="text-[13px] italic text-[#0d0d0d] mt-1">&ldquo;{pullQuote}&rdquo;</p>
           )}
         </div>
       </Link>
@@ -119,7 +119,7 @@ export default function HomeWork() {
     >
       <div className="relative z-10">
         <div className="max-w-[1280px] mx-auto">
-          <div className="flex flex-col items-center gap-4 mb-32 text-center mx-auto">
+          <div className="flex flex-col items-center gap-4 mb-16 text-center mx-auto">
             <MaskReveal>
               <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] whitespace-nowrap">
                 Selected Work
@@ -134,7 +134,7 @@ export default function HomeWork() {
               </h2>
             </MaskReveal>
             <MaskReveal delay={0.18}>
-              <p className="text-[15px] leading-[1.7] text-[#888] font-serif">
+              <p className="text-[15px] leading-[1.7] text-[#888]">
                 Recent projects built for operators who value efficiency and results.
               </p>
             </MaskReveal>
