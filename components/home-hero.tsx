@@ -16,7 +16,7 @@ export default function HomeHero() {
     >
       <div className="max-w-[1280px] mx-auto w-full">
         {/* Kicker */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex items-center justify-between mb-6">
           <MaskReveal delay={0.1}>
             <span className="text-[10px] tracking-[0.22em] uppercase text-[#0A2540]">
               Web Design Studio
@@ -32,7 +32,7 @@ export default function HomeHero() {
         {/* Display heading + grouped body/CTA */}
         <div className="max-w-[56rem]">
           <div
-            className="text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.08] tracking-[0.01em] mb-10"
+            className="text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.08] tracking-[-0.025em] mb-8"
             style={{ fontFamily: "var(--font-archivo-black)" }}
           >
             <GlowHeadline
@@ -60,7 +60,7 @@ export default function HomeHero() {
 
           <div className="flex flex-col gap-6">
             <motion.p
-              className="max-w-[480px] text-[15px] leading-[1.75] text-[#7a7a8a] font-serif"
+              className="max-w-[480px] text-[15px] leading-[1.75] text-[#7a7a8a]"
               initial={reduced ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EXPO, delay: 1.3 }}
