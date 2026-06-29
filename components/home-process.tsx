@@ -36,8 +36,6 @@ function StepCard({ number, title, body }: { number: string; title: string; body
   return (
     <div
       className="w-[85vw] md:w-[40vw] flex-shrink-0 flex flex-col gap-6 bg-[#161616] border border-[#2a2a2a] p-10 md:p-14 h-full"
-      role="tabpanel"
-      aria-label={`Step ${number}: ${title}`}
     >
       <span
         className="text-[clamp(3rem,5vw,5rem)] leading-[1] text-[#0A2540]"
@@ -65,19 +63,15 @@ function Dot({
   scrollYProgress,
   start,
   end,
-  label,
 }: {
   scrollYProgress: MotionValue<number>;
   start: number;
   end: number;
-  label: string;
 }) {
   const opacity = useTransform(scrollYProgress, [start, end], [0.3, 1]);
   const scale = useTransform(scrollYProgress, [start, end], [1, 1.3]);
   return (
     <motion.span
-      role="tab"
-      aria-label={label}
       style={{ opacity, scale }}
       className="block w-2 h-2 rounded-full bg-[#0A2540]"
     />
@@ -86,14 +80,13 @@ function Dot({
 
 function ProgressDots({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   return (
-    <div className="flex items-center gap-3 mt-10" role="tablist" aria-label="Step progress">
+    <div className="flex items-center gap-3 mt-10" aria-hidden="true">
       {steps.map((step, i) => (
         <Dot
           key={step.number}
           scrollYProgress={scrollYProgress}
           start={i / steps.length}
           end={(i + 1) / steps.length}
-          label={`Step ${step.number}`}
         />
       ))}
     </div>
@@ -112,7 +105,7 @@ export default function HomeProcess() {
   const xAnimated = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0vw", "-400vw"]
+    ["0vw", "-160vw"]
   );
 
   return (
@@ -120,7 +113,7 @@ export default function HomeProcess() {
       {/* ── MOBILE layout (vertical stack) ── */}
       <section
         className="md:hidden bg-[#0a0a0a] px-6 py-24"
-        aria-label="Project timeline"
+        aria-hidden="true"
       >
         <div className="mb-12">
           <MaskReveal>
@@ -180,7 +173,7 @@ export default function HomeProcess() {
           <div className="overflow-hidden">
             <motion.div
               style={{ x: reduced ? "0vw" : xAnimated }}
-              className={reduced ? "flex flex-col gap-6" : "flex gap-6 w-[500vw]"}
+              className={reduced ? "flex flex-col gap-6" : "flex gap-6 w-max"}
             >
               {steps.map(({ number, title, body }) => (
                 <StepCard key={number} number={number} title={title} body={body} />
