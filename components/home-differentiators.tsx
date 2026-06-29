@@ -8,18 +8,18 @@ import { EXPO } from "@/lib/easing";
 const differentiators = [
   {
     index: "01",
-    title: "Fixed Price",
-    body: "We agree on a number before work starts. It does not change. No retainers, no scope creep, no surprise invoices at the end.",
+    title: "Priced for what you actually need.",
+    body: "We do not charge you for flashy animations or complex features if your business does not need them. You get a custom, fixed price based strictly on what will drive results for you, with flexible installment options to protect your cash flow.",
   },
   {
     index: "02",
-    title: "Live in Weeks",
-    body: "Most projects complete in 2 to 4 weeks. You get a timeline on day one and a finished site by the end of it.",
+    title: "Fast delivery and full ownership.",
+    body: "Typical agencies take months to build a site and then trap you in expensive hosting contracts. We can launch your site in as little as one week. When it is done, you own the asset completely—we will even hand over the code if you want to host it yourself.",
   },
   {
     index: "03",
-    title: "Built for You",
-    body: "Every site is written from scratch for your business. No page builders, no themes, no other client's layout with your logo on it. We're on hand for 30 days after launch — questions and fixes, no extra cost.",
+    title: "Direct access and zero radio silence.",
+    body: "You will never be passed off to an account manager. You have a direct line to the founders, guaranteed 24-hour response times, and a commitment that we will keep tweaking the design until it perfectly supports your day-to-day operations.",
   },
 ];
 
@@ -91,19 +91,22 @@ export default function HomeDifferentiators() {
       <div className="relative z-10 max-w-[1280px] mx-auto">
         <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
           <MaskReveal>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#666] mt-2 whitespace-nowrap">
+            <span className="text-[13px] tracking-[0.22em] uppercase text-[#666] mt-2 whitespace-nowrap">
               How We&rsquo;re Different
             </span>
           </MaskReveal>
           <MaskReveal delay={0.1}>
             <h2
-              className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#f0f0f0] md:text-right"
+              className="text-[clamp(2rem,4vw,4rem)] leading-[0.9] text-[#f0f0f0] md:text-right"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              Built for businesses,
-              <br />
-              not award shows.
+              Built differently.
             </h2>
+          </MaskReveal>
+          <MaskReveal delay={0.18}>
+            <p className="text-[15px] leading-[1.7] text-[#888] font-serif md:text-right max-w-[44ch] md:ml-auto">
+              We stripped out the agency bloat to focus on what actually matters to your business.
+            </p>
           </MaskReveal>
         </div>
 
