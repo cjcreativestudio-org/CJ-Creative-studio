@@ -1,154 +1,197 @@
-﻿"use client";
+"use client";
 
-import { useRef, useEffect } from "react";
-import { useInView, useReducedMotion, motion } from "motion/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { useScroll, useTransform, motion, useReducedMotion, MotionValue } from "motion/react";
 import MaskReveal from "@/components/mask-reveal";
-import { EXPO } from "@/lib/easing";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
-    number: "1",
-    title: "Discovery",
-    body: "A 30-minute call. We ask about your business, your customers, and what a good result looks like. You get a fixed quote before anything else happens.",
+    number: "01",
+    title: "The Kickoff Call",
+    body: "A quick introduction to answer your questions, understand your business goals, and gather the details we need to start building your initial demo site.",
   },
   {
-    number: "2",
-    title: "Design",
-    body: "We build to your brand. You see the full design before a line of code is written, and nothing moves forward until you approve it.",
+    number: "02",
+    title: "The Demo Walkthrough",
+    body: "We jump on a video call to show you a working, structural demo of your new site. We review the layout together and gather your feedback for the official draft.",
   },
   {
-    number: "3",
-    title: "Launch",
-    body: "Most projects go live within 2 to 4 weeks of kickoff. After launch, we're available for 30 days for any questions or small fixes, at no extra cost.",
+    number: "03",
+    title: "Refinement & Strategy",
+    body: "We implement your changes, add any specific features you need, and map out the logistics like hosting. We don't move to the final stage until the design is exactly what you want.",
+  },
+  {
+    number: "04",
+    title: "Final Polish",
+    body: "By this stage, the site is practically finished. We do a comprehensive walkthrough of every page with you to catch any last-minute tweaks before we prepare for deployment.",
+  },
+  {
+    number: "05",
+    title: "Launch & Handover",
+    body: "We launch the site and sign the final paperwork. This ensures that you have 100% legal ownership of the website and all of its assets. A perfectly smooth transaction.",
   },
 ];
 
-function ProcessStep({
-  number,
-  title,
-  body,
-}: {
-  number: string;
-  title: string;
-  body: string;
-}) {
+function StepCard({ number, title, body }: { number: string; title: string; body: string }) {
   return (
-    <div className="flex flex-col gap-4">
-      <MaskReveal>
-        <span
-          className="text-[clamp(3rem,5vw,5rem)] leading-[1] text-[#ddd]"
-          style={{ fontFamily: "var(--font-archivo-black)" }}
-          aria-hidden="true"
-        >
-          {number}
-        </span>
-      </MaskReveal>
-      <MaskReveal delay={0.1}>
+    <div
+      className="w-[85vw] md:w-[40vw] flex-shrink-0 flex flex-col gap-6 bg-[#161616] border border-[#2a2a2a] p-10 md:p-14 h-full"
+      role="tabpanel"
+      aria-label={`Step ${number}: ${title}`}
+    >
+      <span
+        className="text-[clamp(3rem,5vw,5rem)] leading-[1] text-[#0A2540]"
+        style={{ fontFamily: "var(--font-archivo-black)" }}
+        aria-hidden="true"
+      >
+        {number}
+      </span>
+      <div className="flex flex-col gap-4 flex-1">
         <h3
-          className="text-[22px] font-bold italic text-[#0d0d0d] font-serif"
+          className="text-[clamp(1.4rem,2.5vw,2rem)] leading-[1.1] text-[#f0f0f0]"
+          style={{ fontFamily: "var(--font-archivo-black)" }}
         >
           {title}
         </h3>
-      </MaskReveal>
-      <p className="text-[14px] leading-[1.7] text-[#666] font-serif">
-        {body}
-      </p>
+        <p className="text-[15px] leading-[1.7] text-[#888] font-serif">
+          {body}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Dot({
+  scrollYProgress,
+  start,
+  end,
+  label,
+}: {
+  scrollYProgress: MotionValue<number>;
+  start: number;
+  end: number;
+  label: string;
+}) {
+  const opacity = useTransform(scrollYProgress, [start, end], [0.3, 1]);
+  const scale = useTransform(scrollYProgress, [start, end], [1, 1.3]);
+  return (
+    <motion.span
+      role="tab"
+      aria-label={label}
+      style={{ opacity, scale }}
+      className="block w-2 h-2 rounded-full bg-[#0A2540]"
+    />
+  );
+}
+
+function ProgressDots({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
+  return (
+    <div className="flex items-center gap-3 mt-10" role="tablist" aria-label="Step progress">
+      {steps.map((step, i) => (
+        <Dot
+          key={step.number}
+          scrollYProgress={scrollYProgress}
+          start={i / steps.length}
+          end={(i + 1) / steps.length}
+          label={`Step ${step.number}`}
+        />
+      ))}
     </div>
   );
 }
 
 export default function HomeProcess() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
-  const inView = useInView(sectionRef, { once: true, margin: "-80px 0px" });
 
-  useEffect(() => {
-    if (reduced) return;
-    const grid = gridRef.current;
-    if (!grid) return;
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
 
-    const tween = gsap.from(grid.children, {
-      opacity: 0,
-      y: 40,
-      stagger: 0.2,
-      duration: 0.8,
-      ease: "expo.out",
-      scrollTrigger: {
-        trigger: grid,
-        start: "top 80%",
-        once: true,
-      },
-    });
-
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
-  }, [reduced]);
+  const xAnimated = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0vw", "-400vw"]
+  );
 
   return (
-    <section
-      className="bg-[#f5f5f5] px-6 py-24"
-      aria-label="Our process"
-    >
-      <div className="max-w-[1280px] mx-auto">
-        <div className="mb-16">
+    <>
+      {/* ── MOBILE layout (vertical stack) ── */}
+      <section
+        className="md:hidden bg-[#0a0a0a] px-6 py-24"
+        aria-label="Project timeline"
+      >
+        <div className="mb-12">
           <MaskReveal>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa]">
-              How It Works
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#555]">
+              Project Timeline
             </span>
           </MaskReveal>
           <MaskReveal delay={0.1}>
             <h2
-              className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] mt-4"
+              className="text-[clamp(2.4rem,8vw,4rem)] leading-[0.95] text-[#f0f0f0] mt-4"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              Three steps.
+              A transparent, step-by-step process
               <br />
-              No surprises.
+              with zero guesswork.
             </h2>
           </MaskReveal>
         </div>
-
-        {/* SVG connector — desktop only */}
-        <div className="hidden md:block mb-12" ref={sectionRef} aria-hidden="true">
-          <svg width="100%" height="2" viewBox="0 0 1 1" preserveAspectRatio="none">
-            <path
-              d="M0,0.5 L1,0.5"
-              stroke="#ccc"
-              strokeWidth="0.002"
-              fill="none"
-              vectorEffect="non-scaling-stroke"
-            />
-            <motion.path
-              d="M0,0.5 L1,0.5"
-              stroke="#0d0d0d"
-              strokeWidth="0.002"
-              fill="none"
-              vectorEffect="non-scaling-stroke"
-              initial={reduced ? false : { pathLength: 0 }}
-              animate={reduced ? {} : inView ? { pathLength: 1 } : { pathLength: 0 }}
-              transition={{ duration: 1.2, ease: EXPO }}
-            />
-          </svg>
-        </div>
-
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <div className="flex flex-col gap-6">
           {steps.map(({ number, title, body }) => (
-            <ProcessStep
-              key={number}
-              number={number}
-              title={title}
-              body={body}
-            />
+            <StepCard key={number} number={number} title={title} body={body} />
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ── DESKTOP layout (scroll-jacked horizontal) ── */}
+      <section
+        ref={sectionRef}
+        aria-label="Project timeline"
+        className={`hidden md:block bg-[#0a0a0a] ${reduced ? "relative" : "relative h-[500vh]"}`}
+      >
+        <div
+          className={
+            reduced
+              ? "px-6 py-24 flex flex-col"
+              : "sticky top-0 h-screen overflow-hidden flex flex-col justify-center px-[clamp(24px,6vw,100px)] py-16"
+          }
+        >
+          {/* Section header */}
+          <div className="mb-12">
+            <MaskReveal>
+              <span className="text-[10px] tracking-[0.22em] uppercase text-[#555]">
+                Project Timeline
+              </span>
+            </MaskReveal>
+            <MaskReveal delay={0.1}>
+              <h2
+                className="text-[clamp(2.8rem,5vw,5rem)] leading-[0.95] text-[#f0f0f0] mt-3"
+                style={{ fontFamily: "var(--font-archivo-black)" }}
+              >
+                A transparent, step-by-step process with zero guesswork.
+              </h2>
+            </MaskReveal>
+          </div>
+
+          {/* Horizontal card track */}
+          <div className="overflow-hidden">
+            <motion.div
+              style={{ x: reduced ? "0vw" : xAnimated }}
+              className={reduced ? "flex flex-col gap-6" : "flex gap-6 w-[500vw]"}
+            >
+              {steps.map(({ number, title, body }) => (
+                <StepCard key={number} number={number} title={title} body={body} />
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Progress dots */}
+          {!reduced && <ProgressDots scrollYProgress={scrollYProgress} />}
+        </div>
+      </section>
+    </>
   );
 }
