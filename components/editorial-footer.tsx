@@ -12,23 +12,16 @@ export default function EditorialFooter() {
     <footer className="bg-[#0a0a0a] border-t border-white/[0.06]" aria-label="Site footer">
       <div className="max-w-[1280px] mx-auto px-6 py-14">
 
-        {/* Top row: logo + CTA button */}
+        {/* Top row: headline + CTA button */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-10">
-          {/* Wordmark logo */}
-          <div>
-            <span
-              className="text-white text-[1.35rem] tracking-[-0.02em] leading-none"
-              style={{ fontFamily: "var(--font-archivo-black)" }}
-            >
-              CJ Creative Studio
-            </span>
-            <p
-              className="text-[10px] tracking-[0.2em] uppercase mt-1"
-              style={{ fontFamily: "var(--font-jetbrains-mono)", color: "rgba(255,255,255,0.25)" }}
-            >
-              UK Web Design Agency
-            </p>
-          </div>
+          <h2
+            className="text-[clamp(1.6rem,4vw,2.8rem)] leading-[1.05] text-white/90"
+            style={{ fontFamily: "var(--font-archivo-black)" }}
+          >
+            Let&apos;s build something
+            <br />
+            <span className="text-[#0A2540]">precise.</span>
+          </h2>
 
           {/* CTA */}
           <Link
@@ -43,16 +36,22 @@ export default function EditorialFooter() {
         {/* Divider */}
         <div className="border-t border-white/[0.06] mb-10" />
 
-        {/* Mid row: headline + contact */}
+        {/* Mid row: wordmark + contact */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-10">
-          <h2
-            className="text-[clamp(1.6rem,4vw,2.8rem)] leading-[1.05] text-white/90"
-            style={{ fontFamily: "var(--font-archivo-black)" }}
-          >
-            Let&apos;s build something
-            <br />
-            <span className="text-[#0A2540]">precise.</span>
-          </h2>
+          <div>
+            <span
+              className="text-white text-[1.35rem] tracking-[-0.02em] leading-none"
+              style={{ fontFamily: "var(--font-archivo-black)" }}
+            >
+              CJ Creative Studio
+            </span>
+            <p
+              className="text-[10px] tracking-[0.2em] uppercase mt-1"
+              style={{ fontFamily: "var(--font-jetbrains-mono)", color: "rgba(255,255,255,0.25)" }}
+            >
+              UK Web Design Agency
+            </p>
+          </div>
 
           {/* Contact block */}
           <div className="flex flex-col gap-2">
