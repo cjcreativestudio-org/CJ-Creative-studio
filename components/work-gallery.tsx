@@ -26,7 +26,7 @@ function ProjectCard({
       ref={ref}
       type="button"
       onClick={() => onSelect(project)}
-      className="bg-[#161616] flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A2540] border border-[#242424] hover:border-[#3a3a3a] transition-colors duration-300"
+      className="bg-white flex flex-col group text-left cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A2540] border border-[#e0e0e0] hover:border-[#bbb] transition-colors duration-300"
       aria-label={`${project.name} — ${project.type}`}
       initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
       animate={
@@ -43,11 +43,11 @@ function ProjectCard({
       }
     >
       {/* Browser chrome frame */}
-      <div className="w-full bg-[#1a1a1a] border-b border-[#222] px-3 py-2 flex items-center gap-1.5 flex-shrink-0">
+      <div className="w-full bg-[#f0f0f0] border-b border-[#e0e0e0] px-3 py-2 flex items-center gap-1.5 flex-shrink-0">
         <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-        <div className="ml-3 flex-1 h-5 bg-[#222] rounded-sm" />
+        <div className="ml-3 flex-1 h-5 bg-[#ddd] rounded-sm" />
       </div>
 
       {/* Screenshot */}
@@ -71,7 +71,7 @@ function ProjectCard({
         <span className="text-[10px] tracking-[0.22em] text-[#0A2540] uppercase">
           {project.slug}
         </span>
-        <h3 className="font-serif italic font-bold text-[1.05rem] text-[#f0f0f0]">
+        <h3 className="font-serif italic font-bold text-[1.05rem] text-[#0d0d0d]">
           {project.name}
         </h3>
         <span className="text-[10px] tracking-[0.22em] uppercase text-[#555]">
