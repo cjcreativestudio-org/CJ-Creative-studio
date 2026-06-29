@@ -43,12 +43,12 @@ function DiffCard({
       ref={ref}
       className="border border-[#333] p-8 md:p-10 flex flex-col justify-between min-h-[240px] backdrop-blur-sm bg-[rgba(10,10,10,0.6)]"
     >
-      <MaskReveal delay={i * 0.12}>
-        <span className="text-[10px] tracking-[0.22em] text-[#555]">
-          {index}
-        </span>
-      </MaskReveal>
-      <div className="flex flex-col gap-3 mt-auto">
+      <div className="flex flex-col gap-3">
+        <MaskReveal delay={i * 0.12}>
+          <span className="text-[10px] tracking-[0.22em] text-[#555]">
+            {index}
+          </span>
+        </MaskReveal>
         <MaskReveal delay={i * 0.12 + 0.1}>
           <h3
             className="text-[clamp(1.8rem,3vw,3rem)] leading-[1] text-[#f0f0f0]"
@@ -57,15 +57,15 @@ function DiffCard({
             {title}
           </h3>
         </MaskReveal>
-        <motion.p
-          className="text-[14px] leading-[1.7] text-[#888] font-serif"
-          initial={reduced ? false : { opacity: 0, y: 10 }}
-          animate={reduced ? {} : inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          transition={{ duration: 0.6, ease: EXPO, delay: i * 0.12 + 0.22 }}
-        >
-          {body}
-        </motion.p>
       </div>
+      <motion.p
+        className="text-[14px] leading-[1.7] text-[#888] font-serif mt-auto"
+        initial={reduced ? false : { opacity: 0, y: 10 }}
+        animate={reduced ? {} : inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+        transition={{ duration: 0.6, ease: EXPO, delay: i * 0.12 + 0.22 }}
+      >
+        {body}
+      </motion.p>
     </div>
   );
 }
