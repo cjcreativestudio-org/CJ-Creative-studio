@@ -158,7 +158,7 @@ export default function HomeWork() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <Link
               href="/work"
-              className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
+              className="inline-block border border-[#0A2540] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0A2540] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0A2540] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
             >
               View all work &rarr;
             </Link>

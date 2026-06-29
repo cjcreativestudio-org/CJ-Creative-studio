@@ -45,7 +45,7 @@ function DiffCard({
     >
       <div className="flex flex-col gap-3">
         <MaskReveal delay={i * 0.12}>
-          <span className="text-[10px] tracking-[0.22em] text-[#555]">
+          <span className="text-[10px] tracking-[0.22em] text-[#0A2540]">
             {index}
           </span>
         </MaskReveal>

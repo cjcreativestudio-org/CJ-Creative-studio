@@ -46,7 +46,7 @@ function ProblemItem({
     >
       <MaskReveal delay={i * 0.12}>
         <span
-          className="text-[13px] tracking-[0.18em] text-[#bbb]"
+          className="text-[13px] tracking-[0.18em] text-[#0A2540]"
           aria-hidden="true"
         >
           {index}
@@ -84,7 +84,7 @@ export default function HomeProblem() {
       <div className="relative z-10 max-w-[1280px] mx-auto">
         <div className="mb-12">
           <MaskReveal>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa]">
+            <span className="text-[10px] tracking-[0.22em] uppercase text-[#0A2540]">
               The Standard
             </span>
           </MaskReveal>
