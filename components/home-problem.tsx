@@ -78,7 +78,7 @@ export default function HomeProblem() {
   return (
     <section
       className="relative overflow-hidden bg-[#f5f5f5] text-[#0d0d0d] px-6 py-24"
-      aria-label="The opportunity"
+      aria-label="The standard"
     >
       <LightSectionTexture />
       <div className="relative z-10 max-w-[1280px] mx-auto">
