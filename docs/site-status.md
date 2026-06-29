@@ -3,7 +3,7 @@
 **Live URL:** https://www.cjcreativestudio.com/
 **Vercel project:** https://vercel.com/ojackson27s-projects/cj-studio
 **GitHub:** https://github.com/cjcreativestudio-org/CJ-Creative-studio (`main` branch)
-**Last updated:** 2026-06-28 (session 4 — layout fixes, footer redesign, 80/20 navy color system)
+**Last updated:** 2026-06-29 (session 5 — homepage copy refresh, How It Works carousel, Testimonials removal)
 
 ---
 
@@ -18,7 +18,7 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 | Dark bg | `#0a0a0a` | Hero sections, CTA, nav, footer |
 | Card bg | `#161616` | Work gallery cards |
 | Modal bg | `#141414` | Case study overlay |
-| Light bg | `#f5f5f5` | Problem, Work, Process sections |
+| Light bg | `#f5f5f5` | Problem, Work sections |
 | Text (dark) | `#f0f0f0` | Headings on dark |
 | Text (light) | `#0d0d0d` | Headings on light |
 | Body muted | `#888` | Body copy on dark |
@@ -33,6 +33,7 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 - **useReducedMotion** — respected everywhere, all animations skip when set
 - **ScrollRiver** — fixed left-edge vertical progress line (md+ screens only)
 - **GeoVideoBackground** — Higgsfield-generated abstract geometric MP4 (`/assets/video/geo-bg.mp4`), `position: fixed`, `z-index: 2`, `mix-blend-mode: screen`, `opacity-[0.55]`. Covers the full page on all routes. Screen blend means it glows on dark sections and becomes near-invisible on light/white sections — adaptive brightness effect.
+- **HomeProcess carousel** — 5-step scroll-jacked horizontal carousel (`h-[500vh]` sticky, `useScroll`/`useTransform`, `-160vw` translation end). Mobile: vertical stack. Progress dots (decorative, `aria-hidden`). Reduced motion: no scroll-jacking.
 
 ---
 
@@ -63,6 +64,8 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 - [x] **Footer redesign** — shipped 2026-06-28; compact layout with CJ Creative Studio wordmark, contact details (email + phone), solid navy CTA button, reduced headline size
 - [x] **Duplicate footer fix** — shipped 2026-06-28; removed `HomeFinalCta` component (duplicate dark CTA block); `EditorialFooter` is the single termination point
 - [x] **80/20 navy color system** — shipped 2026-06-28; accent color changed from `#5b9fd6` to `#0A2540`; solid navy primary buttons, navy kicker labels, stronger hero aura, navy accents in footer
+- [x] **Homepage copy refresh (session 5)** — shipped 2026-06-29; Opportunity section humanized ("The Standard" kicker, new 3-item copy); How We're Different new header "Built differently." + new 3-box copy + heading alignment fix (index+title pinned to top); Selected Work header → "Proven work." with subtext, project count removed; Testimonials section removed entirely
+- [x] **How It Works → Project Timeline carousel** — shipped 2026-06-29; replaced 3-step GSAP grid with 5-step scroll-jacked dark horizontal carousel (`components/home-process.tsx`); progress dots; mobile vertical stack
 - [ ] **Contact form** — broken until `RESEND_API_KEY` is added to Vercel environment variables
 - [ ] **OG image** — `/assets/cj-logo-stacked.png` is a logo, not a 1200×630 social card
 - [ ] **Founder photos** — founder cards show initials only; replace with real photos
