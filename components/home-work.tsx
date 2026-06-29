@@ -130,10 +130,13 @@ export default function HomeWork() {
                 className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d]"
                 style={{ fontFamily: "var(--font-archivo-black)" }}
               >
-                Digital systems engineered
-                <br />
-                for scale and performance.
+                Proven work.
               </h2>
+            </MaskReveal>
+            <MaskReveal delay={0.18}>
+              <p className="text-[15px] leading-[1.7] text-[#888] font-serif">
+                Recent projects built for operators who value efficiency and results.
+              </p>
             </MaskReveal>
           </div>
 
@@ -153,7 +156,6 @@ export default function HomeWork() {
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <p className="text-[13px] text-[#888]">{projects.length} completed projects across trades, hospitality, and logistics.</p>
             <Link
               href="/work"
               className="inline-block border border-[#0d0d0d] px-8 py-4 text-[13px] tracking-[0.12em] uppercase text-[#0d0d0d] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d0d0d] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
