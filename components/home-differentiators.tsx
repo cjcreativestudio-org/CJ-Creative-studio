@@ -103,11 +103,7 @@ export default function HomeDifferentiators() {
               Built differently.
             </h2>
           </MaskReveal>
-          <MaskReveal delay={0.18}>
-            <p className="text-[15px] leading-[1.7] text-[#888] font-serif md:text-right max-w-[44ch] md:ml-auto">
-              We stripped out the agency bloat to focus on what actually matters to your business.
-            </p>
-          </MaskReveal>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#333]">
