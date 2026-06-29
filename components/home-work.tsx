@@ -121,7 +121,7 @@ export default function HomeWork() {
         <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-col items-center gap-4 mb-16 text-center mx-auto">
             <MaskReveal>
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa] whitespace-nowrap">
+              <span className="text-[12px] tracking-[0.18em] uppercase text-[#aaa] whitespace-nowrap">
                 Selected Work
               </span>
             </MaskReveal>

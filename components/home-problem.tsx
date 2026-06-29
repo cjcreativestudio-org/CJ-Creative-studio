@@ -84,7 +84,7 @@ export default function HomeProblem() {
       <div className="relative z-10 max-w-[1280px] mx-auto">
         <div className="mb-12">
           <MaskReveal>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#0A2540]">
+            <span className="text-[12px] tracking-[0.18em] uppercase text-[#0A2540]">
               The Standard
             </span>
           </MaskReveal>

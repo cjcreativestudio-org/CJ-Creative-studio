@@ -91,7 +91,7 @@ export default function HomeDifferentiators() {
       <div className="relative z-10 max-w-[1280px] mx-auto">
         <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
           <MaskReveal>
-            <span className="text-[13px] tracking-[0.22em] uppercase text-[#666] mt-2 whitespace-nowrap">
+            <span className="text-[12px] tracking-[0.18em] uppercase text-[#666] mt-2 whitespace-nowrap">
               How We&rsquo;re Different
             </span>
           </MaskReveal>

@@ -117,7 +117,7 @@ export default function HomeProcess() {
       >
         <div className="mb-12">
           <MaskReveal>
-            <span className="text-[10px] tracking-[0.22em] uppercase text-[#555]">
+            <span className="text-[12px] tracking-[0.18em] uppercase text-[#555]">
               Project Timeline
             </span>
           </MaskReveal>
@@ -155,7 +155,7 @@ export default function HomeProcess() {
           {/* Section header */}
           <div className="mb-12">
             <MaskReveal>
-              <span className="text-[10px] tracking-[0.22em] uppercase text-[#555]">
+              <span className="text-[12px] tracking-[0.18em] uppercase text-[#555]">
                 Project Timeline
               </span>
             </MaskReveal>
