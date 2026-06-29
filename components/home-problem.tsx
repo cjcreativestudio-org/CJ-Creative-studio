@@ -9,18 +9,18 @@ import { EXPO } from "@/lib/easing";
 const problems = [
   {
     index: "01",
-    heading: "Your digital presence is your first pitch.",
-    body: "For operators in maritime logistics, trades, and hospitality, an outdated site doesn't just look stale — it actively costs you enterprise enquiries before a conversation begins.",
+    heading: "People judge you before they call.",
+    body: "If you run a serious operation, a slow or outdated website doesn't just look bad—it actively kills your credibility. You lose the contract before you even get to the table.",
   },
   {
     index: "02",
-    heading: "Discoverability is a commercial asset.",
-    body: "If your operation doesn't surface in relevant searches, you are invisible to the buyers who matter. Local and sector-specific visibility is infrastructure, not a marketing afterthought.",
+    heading: "If they can't find you, you lose the job.",
+    body: "It doesn't matter how good your service is if your competitors are the ones ranking on page one. We build sites that actually show up when your ideal clients are looking for a solution.",
   },
   {
     index: "03",
-    heading: "Your site should work as hard as your team.",
-    body: "Every hour your digital platform fails to convert, qualify, or inform a prospect is margin left on the table. We build systems that close the gap between operational quality and online presence.",
+    heading: "Your site needs to pull its weight.",
+    body: "A website shouldn't just be a digital brochure sitting there doing nothing. It should be actively answering questions, filtering out bad leads, and driving real revenue while you focus on the business.",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function HomeProblem() {
         <div className="mb-12">
           <MaskReveal>
             <span className="text-[10px] tracking-[0.22em] uppercase text-[#aaa]">
-              The Opportunity
+              The Standard
             </span>
           </MaskReveal>
           <MaskReveal delay={0.1}>
@@ -93,9 +93,9 @@ export default function HomeProblem() {
               className="text-[clamp(2.8rem,6.5vw,6rem)] leading-[0.9] text-[#0d0d0d] mt-4"
               style={{ fontFamily: "var(--font-archivo-black)" }}
             >
-              Your digital infrastructure
+              Your digital presence should be as sharp
               <br />
-              should match your operational standard.
+              as your actual operation.
             </h2>
           </MaskReveal>
         </div>
