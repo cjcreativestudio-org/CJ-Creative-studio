@@ -52,6 +52,7 @@ export default function EditorialFooter() {
             fontWeight: 900,
             fontSize: "clamp(3rem, 10.33vw, 124px)",
             letterSpacing: "-0.06em",
+            lineHeight: 1,
           }}
         >
           CJ Creative Studio
@@ -59,14 +60,13 @@ export default function EditorialFooter() {
       </div>
 
       {/*
-        White bottom bar — z-index 1, pulled up by ~23% of the wordmark font size
-        so the bottom of the letters sits on the white bar (white-on-white = invisible).
-        At 124px font: 29px overlap = 2.4vw.
+        White bar — z:1, pulled up so ~50% of letter height is submerged.
+        At 124px font: 62px ≈ 5.2vw. White letters on white bar = invisible = merge.
       */}
       <div
         className="relative z-[1] bg-white"
         style={{
-          marginTop: "clamp(-11px, -2.4vw, -29px)",
+          marginTop: "clamp(-30px, -5.2vw, -62px)",
           borderTop: "1px solid rgba(10,10,10,0.08)",
           padding: "clamp(40px, 6vw, 72px) clamp(24px, 3.5vw, 32px)",
         }}
