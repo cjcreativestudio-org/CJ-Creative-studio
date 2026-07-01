@@ -4,8 +4,9 @@ export default function EditorialFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer aria-label="Site footer">
-      {/* Black section — no overflow clip so wordmark can bleed into white bar */}
+    {/* isolation:isolate stops the fixed geo video's mix-blend-mode bleeding through */}
+    <footer aria-label="Site footer" className="isolate">
+      {/* Black section */}
       <div className="bg-[#0a0a0a] px-6 md:px-14">
 
         {/* Border top */}
@@ -40,19 +41,24 @@ export default function EditorialFooter() {
       </div>
 
       {/*
-        Wordmark — z:2, NO background.
-        Letter strokes (white) → invisible on white bar below.
-        Letter counters (transparent) → white bar shows through → white. No black holes.
+        Wordmark — z:2, full viewport width (no side padding).
+        Gradient bg: black above, transparent in the bottom overlap zone so
+        the white bar shows through letter counters without the video glow leaking in.
       */}
-      <div className="relative z-[2] px-6 md:px-14">
+      <div
+        className="relative z-[2]"
+        style={{
+          background: "linear-gradient(to bottom, #0a0a0a calc(100% - clamp(30px,5.2vw,62px)), transparent 100%)",
+        }}
+      >
         <span
           aria-hidden="true"
           className="block text-white whitespace-nowrap"
           style={{
             fontFamily: "var(--font-archivo-black)",
             fontWeight: 900,
-            fontSize: "clamp(3rem, 10.33vw, 124px)",
-            letterSpacing: "-0.06em",
+            fontSize: "clamp(3rem, 14vw, 170px)",
+            letterSpacing: "-0.04em",
             lineHeight: 1,
           }}
         >
@@ -61,13 +67,13 @@ export default function EditorialFooter() {
       </div>
 
       {/*
-        White bar — z:1, pulled up so ~50% of letter height is submerged.
-        At 124px font: 62px ≈ 5.2vw. White letters on white bar = invisible = merge.
+        White bar — z:1, pulled up ~50% of the taller letter height.
+        At 170px font: ~85px overlap ≈ 7vw.
       */}
       <div
         className="relative z-[1] bg-white"
         style={{
-          marginTop: "clamp(-30px, -5.2vw, -62px)",
+          marginTop: "clamp(-40px, -7vw, -85px)",
           borderTop: "1px solid rgba(10,10,10,0.08)",
           padding: "clamp(40px, 6vw, 72px) clamp(24px, 3.5vw, 32px)",
         }}
