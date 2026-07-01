@@ -41,7 +41,7 @@ function DiffCard({
   return (
     <div
       ref={ref}
-      className="border border-[#333] p-8 md:p-10 flex flex-col justify-between min-h-[240px] backdrop-blur-sm bg-[rgba(10,10,10,0.6)]"
+      className="border border-[#333] p-10 md:p-14 flex flex-col justify-between min-h-[320px] backdrop-blur-sm bg-[rgba(10,10,10,0.6)]"
     >
       <div className="flex flex-col gap-3">
         <MaskReveal delay={i * 0.12}>
@@ -73,7 +73,7 @@ function DiffCard({
 export default function HomeDifferentiators() {
   return (
     <section
-      className="relative bg-[#0a0a0a] text-[#f0f0f0] px-6 py-24 overflow-hidden"
+      className="relative bg-[#0a0a0a] text-[#f0f0f0] px-6 py-32 overflow-hidden"
       aria-label="How we're different"
     >
       {/* Geometric video background */}
@@ -88,7 +88,7 @@ export default function HomeDifferentiators() {
         <source src="/assets/video/geo-bg.mp4" type="video/mp4" />
       </video>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto">
+      <div className="relative z-10 max-w-[1600px] mx-auto">
         <div className="flex flex-col gap-3 md:grid md:grid-cols-[auto_1fr] md:gap-x-8 md:items-start mb-16">
           <MaskReveal>
             <span className="text-[12px] tracking-[0.18em] uppercase text-[#666] mt-2 whitespace-nowrap">
