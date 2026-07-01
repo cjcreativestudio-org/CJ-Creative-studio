@@ -5,8 +5,8 @@ export default function EditorialFooter() {
 
   return (
     <footer aria-label="Site footer">
-      {/* Black section */}
-      <div className="bg-[#0a0a0a] px-6 md:px-14 overflow-clip">
+      {/* Black section — no overflow clip so wordmark can bleed into white bar */}
+      <div className="bg-[#0a0a0a] px-6 md:px-14">
 
         {/* Border top */}
         <div className="h-px bg-white/[0.06]" />
@@ -37,37 +37,36 @@ export default function EditorialFooter() {
           </Link>
         </div>
 
-        {/*
-          Wordmark — z-index 2, sits above the white bar.
-          White text on the black section is visible; white text overlapping
-          the white bar below is invisible, creating the "merge" effect.
-        */}
-        <div className="relative z-[2]">
-          <span
-            aria-hidden="true"
-            className="block text-white whitespace-nowrap leading-none"
-            style={{
-              fontFamily: "var(--font-archivo-black)",
-              fontWeight: 900,
-              fontSize: "clamp(3rem, 10.33vw, 124px)",
-              letterSpacing: "-0.06em",
-              /* Extend 29px below this container into the white bar */
-              paddingBottom: "clamp(10px, 2.4vw, 29px)",
-              marginBottom: "clamp(-10px, -2.4vw, -29px)",
-            }}
-          >
-            CJ Creative Studio
-          </span>
-        </div>
       </div>
 
       {/*
-        White bottom bar — z-index 1 (below wordmark).
-        White text from wordmark above is invisible here = merge effect.
+        Wordmark — z-index 2, full width, sits above the white bar.
+        White text is visible on black; invisible where it overlaps the white bar = merge.
+      */}
+      <div className="relative z-[2] bg-[#0a0a0a] px-6 md:px-14">
+        <span
+          aria-hidden="true"
+          className="block text-white whitespace-nowrap leading-none"
+          style={{
+            fontFamily: "var(--font-archivo-black)",
+            fontWeight: 900,
+            fontSize: "clamp(3rem, 10.33vw, 124px)",
+            letterSpacing: "-0.06em",
+          }}
+        >
+          CJ Creative Studio
+        </span>
+      </div>
+
+      {/*
+        White bottom bar — z-index 1, pulled up by ~23% of the wordmark font size
+        so the bottom of the letters sits on the white bar (white-on-white = invisible).
+        At 124px font: 29px overlap = 2.4vw.
       */}
       <div
         className="relative z-[1] bg-white"
         style={{
+          marginTop: "clamp(-11px, -2.4vw, -29px)",
           borderTop: "1px solid rgba(10,10,10,0.08)",
           padding: "clamp(40px, 6vw, 72px) clamp(24px, 3.5vw, 32px)",
         }}
