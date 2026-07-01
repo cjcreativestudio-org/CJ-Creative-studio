@@ -4,7 +4,6 @@ export default function EditorialFooter() {
   const year = new Date().getFullYear();
 
   return (
-    {/* isolation:isolate stops the fixed geo video's mix-blend-mode bleeding through */}
     <footer aria-label="Site footer" className="isolate">
       {/* Black section */}
       <div className="bg-[#0a0a0a] px-6 md:px-14">
