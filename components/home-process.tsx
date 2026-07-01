@@ -32,41 +32,74 @@ const steps = [
   },
 ];
 
+const CARD_TRANSITION = { duration: 0.38, ease: [0.16, 1, 0.3, 1] };
+
+const cardVariants = {
+  rest: {
+    scale: 1,
+    background: "rgba(255,255,255,0.04)",
+    borderColor: "rgba(255,255,255,0.08)",
+    boxShadow: "none",
+  },
+  hovered: {
+    scale: 1.03,
+    background: "rgba(242,242,242,0.92)",
+    borderColor: "rgba(0,0,0,0.08)",
+    boxShadow: "0 12px 48px rgba(0,0,0,0.25)",
+  },
+};
+
+const numberVariants = {
+  rest:    { color: "#0A2540" },
+  hovered: { color: "#0A2540" },
+};
+
+const titleVariants = {
+  rest:    { color: "#f0f0f0" },
+  hovered: { color: "#0d0d0d" },
+};
+
+const bodyVariants = {
+  rest:    { color: "#888888" },
+  hovered: { color: "#444444" },
+};
+
 function StepCard({ number, title, body }: { number: string; title: string; body: string }) {
   const reduced = useReducedMotion();
   return (
     <motion.div
-      className="w-[85vw] md:w-[40vw] flex-shrink-0 flex flex-col gap-6 border border-white/[0.08] p-10 md:p-14 h-full cursor-default"
-      style={{
-        background: "rgba(255,255,255,0.04)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-      }}
-      whileHover={reduced ? {} : {
-        scale: 1.03,
-        background: "rgba(255,255,255,0.07)",
-        borderColor: "rgba(255,255,255,0.14)",
-        boxShadow: "0 8px 40px rgba(10,37,64,0.35)",
-        transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
-      }}
+      className="w-[85vw] md:w-[40vw] flex-shrink-0 flex flex-col gap-6 border p-10 md:p-14 h-full cursor-default"
+      style={{ backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}
+      variants={reduced ? {} : cardVariants}
+      initial="rest"
+      whileHover="hovered"
+      transition={CARD_TRANSITION}
     >
-      <span
-        className="text-[clamp(3rem,5vw,5rem)] leading-[1] text-[#0A2540]"
+      <motion.span
+        className="text-[clamp(3rem,5vw,5rem)] leading-[1]"
         style={{ fontFamily: "var(--font-archivo-black)" }}
+        variants={reduced ? {} : numberVariants}
+        transition={CARD_TRANSITION}
         aria-hidden="true"
       >
         {number}
-      </span>
+      </motion.span>
       <div className="flex flex-col gap-4 flex-1">
-        <h3
-          className="text-[clamp(1.4rem,2.5vw,2rem)] leading-[1.1] text-[#f0f0f0]"
+        <motion.h3
+          className="text-[clamp(1.4rem,2.5vw,2rem)] leading-[1.1]"
           style={{ fontFamily: "var(--font-archivo-black)" }}
+          variants={reduced ? {} : titleVariants}
+          transition={CARD_TRANSITION}
         >
           {title}
-        </h3>
-        <p className="text-[15px] leading-[1.7] text-[#888]">
+        </motion.h3>
+        <motion.p
+          className="text-[15px] leading-[1.7]"
+          variants={reduced ? {} : bodyVariants}
+          transition={CARD_TRANSITION}
+        >
           {body}
-        </p>
+        </motion.p>
       </div>
     </motion.div>
   );
