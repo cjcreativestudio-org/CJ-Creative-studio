@@ -4,15 +4,13 @@ export default function EditorialFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-transparent" aria-label="Site footer">
+    <footer className="bg-[#0a0a0a]" aria-label="Site footer">
 
-      {/* Top section — transparent bg, video shows through */}
-      <div className="px-6 md:px-14 pt-16 pb-0">
-
-        {/* Top row: heading left, CTA button right */}
-        <div className="flex items-start justify-between gap-8 pb-12">
+      {/* Top section: thin border + heading left / CTA button right */}
+      <div className="border-t border-white/[0.06] px-6 md:px-14 pt-16 pb-0">
+        <div className="flex items-start justify-between gap-8 pb-16">
           <h2
-            className="text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.15] text-white"
+            className="text-[clamp(2rem,4.5vw,3.2rem)] leading-[1.2] text-white"
             style={{ fontFamily: "var(--font-archivo-black)" }}
           >
             Let&apos;s build something
@@ -21,22 +19,25 @@ export default function EditorialFooter() {
           </h2>
           <Link
             href="/contact"
-            className="shrink-0 inline-block bg-[#0A2540] px-8 py-7 text-[11px] tracking-[0.18em] uppercase text-white transition-[background-color] duration-[160ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d3060]"
+            className="shrink-0 inline-flex items-center bg-[#0A2540] px-8 py-7 text-[11px] tracking-[0.18em] uppercase text-white transition-[background-color] duration-[160ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d3060]"
             style={{ fontFamily: "var(--font-jetbrains-mono)" }}
           >
-            Start a project →
+            START A PROJECT →
           </Link>
         </div>
 
-        {/* Full-bleed wordmark — white text on transparent, merges into white bar below */}
-        <div className="overflow-hidden leading-[0.85]">
+        {/*
+          Massive wordmark — overflows upward into the white bar below.
+          The bottom portion of the letters sits on white, so they vanish (white on white).
+          overflow-visible + negative margin on the white bar pulls it up over the text.
+        */}
+        <div aria-hidden="true">
           <span
-            className="block w-full text-white whitespace-nowrap"
+            className="block w-full text-white whitespace-nowrap leading-none"
             style={{
               fontFamily: "var(--font-archivo-black)",
-              fontSize: "clamp(3.5rem, 12.5vw, 11rem)",
-              letterSpacing: "-0.02em",
-              lineHeight: 0.85,
+              fontSize: "clamp(4rem, 13vw, 11.5rem)",
+              letterSpacing: "-0.01em",
             }}
           >
             CJ Creative Studio
@@ -44,12 +45,12 @@ export default function EditorialFooter() {
         </div>
       </div>
 
-      {/* Bottom bar — solid white, opaque, overlaps bottom of wordmark */}
-      <div className="bg-white px-6 md:px-14 pt-5 pb-8">
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+      {/* White bottom bar — pulled up over the wordmark via negative margin */}
+      <div className="bg-white -mt-[0.28em] px-6 md:px-14 pt-5 pb-8">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
 
-          {/* Left: legal + copyright */}
-          <div className="flex flex-col gap-2">
+          {/* Left: legal links + copyright */}
+          <div className="flex flex-col gap-[6px]">
             <nav className="flex flex-wrap gap-x-6 gap-y-1" aria-label="Legal navigation">
               <Link
                 href="/privacy"
