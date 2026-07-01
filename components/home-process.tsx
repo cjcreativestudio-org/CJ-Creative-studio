@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useReducedMotion, MotionValue } from "motion/react";
+import { EXPO } from "@/lib/easing";
 import MaskReveal from "@/components/mask-reveal";
 
 const steps = [
@@ -32,7 +33,7 @@ const steps = [
   },
 ];
 
-const CARD_TRANSITION = { duration: 0.38, ease: [0.16, 1, 0.3, 1] };
+const CARD_TRANSITION = { duration: 0.38, ease: EXPO };
 
 const cardVariants = {
   rest: {
