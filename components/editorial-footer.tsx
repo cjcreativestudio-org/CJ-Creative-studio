@@ -40,13 +40,14 @@ export default function EditorialFooter() {
       </div>
 
       {/*
-        Wordmark — z-index 2, full width, sits above the white bar.
-        White text is visible on black; invisible where it overlaps the white bar = merge.
+        Wordmark — z:2, NO background.
+        Letter strokes (white) → invisible on white bar below.
+        Letter counters (transparent) → white bar shows through → white. No black holes.
       */}
-      <div className="relative z-[2] bg-[#0a0a0a] px-6 md:px-14">
+      <div className="relative z-[2] px-6 md:px-14">
         <span
           aria-hidden="true"
-          className="block text-white whitespace-nowrap leading-none"
+          className="block text-white whitespace-nowrap"
           style={{
             fontFamily: "var(--font-archivo-black)",
             fontWeight: 900,
