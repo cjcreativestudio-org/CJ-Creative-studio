@@ -33,9 +33,22 @@ const steps = [
 ];
 
 function StepCard({ number, title, body }: { number: string; title: string; body: string }) {
+  const reduced = useReducedMotion();
   return (
-    <div
-      className="w-[85vw] md:w-[40vw] flex-shrink-0 flex flex-col gap-6 bg-[#161616] border border-[#2a2a2a] p-10 md:p-14 h-full"
+    <motion.div
+      className="w-[85vw] md:w-[40vw] flex-shrink-0 flex flex-col gap-6 border border-white/[0.08] p-10 md:p-14 h-full cursor-default"
+      style={{
+        background: "rgba(255,255,255,0.04)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+      }}
+      whileHover={reduced ? {} : {
+        scale: 1.03,
+        background: "rgba(255,255,255,0.07)",
+        borderColor: "rgba(255,255,255,0.14)",
+        boxShadow: "0 8px 40px rgba(10,37,64,0.35)",
+        transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
+      }}
     >
       <span
         className="text-[clamp(3rem,5vw,5rem)] leading-[1] text-[#0A2540]"
@@ -55,7 +68,7 @@ function StepCard({ number, title, body }: { number: string; title: string; body
           {body}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
