@@ -3,7 +3,7 @@
 **Live URL:** https://www.cjcreativestudio.com/
 **Vercel project:** https://vercel.com/ojackson27s-projects/cj-studio
 **GitHub:** https://github.com/cjcreativestudio-org/CJ-Creative-studio (`main` branch)
-**Last updated:** 2026-06-29 (session 5 — homepage copy refresh, How It Works carousel, Testimonials removal)
+**Last updated:** 2026-07-01 (session 7 — Footer rebuilt to match Framer design exactly)
 
 ---
 
@@ -66,6 +66,11 @@ The site has been fully reskinned from a warm beige editorial layout to a **cine
 - [x] **80/20 navy color system** — shipped 2026-06-28; accent color changed from `#5b9fd6` to `#0A2540`; solid navy primary buttons, navy kicker labels, stronger hero aura, navy accents in footer
 - [x] **Homepage copy refresh (session 5)** — shipped 2026-06-29; Opportunity section humanized ("The Standard" kicker, new 3-item copy); How We're Different new header "Built differently." + new 3-box copy + heading alignment fix (index+title pinned to top); Selected Work header → "Proven work." with subtext, project count removed; Testimonials section removed entirely
 - [x] **How It Works → Project Timeline carousel** — shipped 2026-06-29; replaced 3-step GSAP grid with 5-step scroll-jacked dark horizontal carousel (`components/home-process.tsx`); progress dots; mobile vertical stack
+- [x] **Built Differently section expansion (session 6)** — shipped 2026-07-01; full-bleed grid (no max-width), `max-w-[1600px]` header, `p-10 md:p-14`, `min-h-[320px]`, `py-32`; diagonal white geo lines per card (`opacity-[0.07]`); body text `16px` + `mt-12`; `components/home-differentiators.tsx`
+- [x] **Project Timeline glass hover (session 6)** — shipped 2026-07-01; cards switch from dark glass to light frosted panel on hover; all text inverts (white→dark, dark→white); `backdrop-blur(20px)` throughout; Framer Motion variants; `components/home-process.tsx`
+- [x] **Footer full redesign (session 6)** — shipped 2026-07-01; full-bleed (`px-6 md:px-14`), large centred "CJ Creative Studio" wordmark (`clamp(3rem,9vw,10rem)`), "Let's build something precise." + CTA top-right, legal links + © bottom-left, contact bottom-right; Work/Services/About links removed; `components/editorial-footer.tsx`
+- [x] **Framer footer design file (session 6)** — created 2026-07-01; Framer project "Innocent Size" (`1psS0ckwIEyzxGv5ah3l`) at framer.com; Footer Design page mirrors live footer for visual editing
+- [x] **Footer Framer merge effect (session 7)** — shipped 2026-07-01; rebuilt `components/editorial-footer.tsx` to exactly match Framer design: solid black CTA section → full-width "CJ Creative Studio" wordmark at `clamp(3rem,14vw,170px)` with no horizontal padding → white bar pulled up with `marginTop: clamp(-40px,-7vw,-85px)` for ~50% letter overlap; knockout merge effect: white text on white bar = invisible, transparent letter counters reveal white bar behind; gradient bg on wordmark div (`#0a0a0a → transparent` in overlap zone) blocks geo video screen-blend glow; `isolation: isolate` on `<footer>` prevents purple bleed from fixed geo video; white bar has solid black links + copyright + email/phone in JetBrains Mono
 - [ ] **Contact form** — broken until `RESEND_API_KEY` is added to Vercel environment variables
 - [ ] **OG image** — `/assets/cj-logo-stacked.png` is a logo, not a 1200×630 social card
 - [ ] **Founder photos** — founder cards show initials only; replace with real photos
