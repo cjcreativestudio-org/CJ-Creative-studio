@@ -4,6 +4,7 @@ import HomeHero from "@/components/home-hero";
 import HomeProblem from "@/components/home-problem";
 import HomeDifferentiators from "@/components/home-differentiators";
 import HomeWork from "@/components/home-work";
+import HomeSprint from "@/components/home-sprint";
 import HomeProcess from "@/components/home-process";
 import ScrollRiver from "@/components/scroll-river";
 import MobileStickyCta from "@/components/mobile-sticky-cta";
@@ -20,6 +21,7 @@ export default function HomeClient() {
       <HomeProblem />
       <HomeDifferentiators />
       <HomeWork />
+      <HomeSprint />
       <HomeProcess />
       <EditorialFooter />
     </div>

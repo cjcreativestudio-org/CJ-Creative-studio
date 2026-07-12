@@ -2,7 +2,6 @@
 
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "hello@cjcreativestudio.com";
 
 function escapeHtml(str: string): string {
@@ -37,7 +36,16 @@ export async function sendEnquiry(_prev: FormState, formData: FormData): Promise
 
   if (Object.keys(errors).length > 0) return { errors };
 
+  // The Resend constructor throws when no key is available, so guard first
+  // and instantiate per-request — a module-scope client would crash the
+  // whole action instead of returning the graceful serverError state.
+  if (!process.env.RESEND_API_KEY) {
+    console.error("[send-enquiry] RESEND_API_KEY is not set — enquiry email not sent");
+    return { serverError: true };
+  }
+
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: "CJ Studio Website <noreply@cjcreativestudio.com>",
       to: CONTACT_EMAIL,

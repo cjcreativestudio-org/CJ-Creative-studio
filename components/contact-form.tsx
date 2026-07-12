@@ -38,12 +38,15 @@ export default function ContactForm() {
     <form action={action} className="flex flex-col gap-5">
       {/* Server error */}
       {state.serverError && (
-        <div className="flex items-start gap-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-[14px]">
+        <div role="alert" className="flex items-start gap-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-[14px]">
           <Warning size={18} weight="fill" className="shrink-0 mt-0.5" />
-          Something went wrong — please email us directly at{" "}
-          <a href="mailto:hello@cjcreativestudio.com" className="underline font-medium">
-            hello@cjcreativestudio.com
-          </a>
+          <p>
+            We couldn&apos;t send your message just now — please email us directly at{" "}
+            <a href="mailto:hello@cjcreativestudio.com" className="underline font-medium">
+              hello@cjcreativestudio.com
+            </a>{" "}
+            and we&apos;ll reply within 24 hours.
+          </p>
         </div>
       )}
 
