@@ -64,7 +64,7 @@ Shared primitives:
 - `lib/easing.ts` — `EXPO = [0.16, 1, 0.3, 1]`, the ease used across all editorial animations
 - Global layers in `app/layout.tsx`: ShaderBackground + GeoVideoBackground + FilmGrain (fixed backgrounds), LenisProvider (smooth scroll)
 
-Legacy components from the pre-redesign homepage still exist in `components/` but are **imported nowhere**: `laptop-zoom.tsx`, `dark-work-carousel.tsx`, `why-it-matters.tsx`, `testimonials.tsx`, `cta.tsx`, `home-testimonials.tsx`, `home-final-cta.tsx`, `hero-section.tsx`, `nav.tsx`, `footer.tsx`. Do not build on them.
+The ten legacy pre-redesign components (`laptop-zoom`, `dark-work-carousel`, `why-it-matters`, `testimonials`, `cta`, `home-testimonials`, `home-final-cta`, `hero-section`, `nav`, `footer`) were deleted in task t38 — they had zero importers. Deleting `nav`/`footer` stranded `components/logo.tsx` (now imported nowhere) and the public assets `assets/hero-blocks.png`, `assets/hero-sky.png`, `assets/cj-logo-horizontal.png`; these remain in the tree pending a follow-up cleanup decision — do not build on them.
 
 ## Editorial Design System
 
