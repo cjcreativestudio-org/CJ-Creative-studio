@@ -4,6 +4,7 @@ import EditorialNav from "@/components/editorial-nav";
 import EditorialFooter from "@/components/editorial-footer";
 import MaskReveal from "@/components/mask-reveal";
 import CaseStudyReveal from "@/components/case-study-reveal";
+import CopyButton from "@/components/copy-button";
 import {
   leads,
   STATUS_ORDER,
@@ -14,6 +15,7 @@ import {
   pipelineSummary,
   formatDate,
 } from "@/lib/leads";
+import { getOutreachDraft } from "@/lib/outreach";
 
 // Private internal document — keep out of search + do not follow onward links.
 // Same unlisted pattern as /proposal: noindex here, absent from sitemap/robots/nav.
@@ -134,7 +136,9 @@ export default function LeadsPage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#ddd]">
-                    {items.map((lead, i) => (
+                    {items.map((lead, i) => {
+                      const draft = getOutreachDraft(lead.slug);
+                      return (
                       <CaseStudyReveal
                         key={lead.slug}
                         delay={(i % 3) * 0.06}
@@ -210,17 +214,52 @@ export default function LeadsPage() {
                           </p>
                         )}
 
-                        {/* Proposal link — the core deliverable */}
-                        {lead.proposalSlug && (
-                          <Link
-                            href={`/proposal/${lead.proposalSlug}`}
-                            className="inline-flex items-center gap-2 mt-auto pt-2 text-[13px] tracking-[0.12em] uppercase text-[#5b9fd6] transition-opacity duration-[160ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:opacity-70"
-                          >
-                            View proposal →
-                          </Link>
+                        {/* Proposal link + ready-to-send cold email — the deliverable */}
+                        {(lead.proposalSlug || draft) && (
+                          <div className="mt-auto flex flex-col gap-4 pt-4">
+                            {lead.proposalSlug && (
+                              <Link
+                                href={`/proposal/${lead.proposalSlug}`}
+                                className="inline-flex items-center gap-2 text-[13px] tracking-[0.12em] uppercase text-[#5b9fd6] transition-opacity duration-[160ms] ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:opacity-70"
+                              >
+                                View proposal →
+                              </Link>
+                            )}
+                            {draft && (
+                              <div className="border border-[#ddd] bg-white">
+                                <div className="flex items-center justify-between gap-3 border-b border-[#ddd] px-3 py-2">
+                                  <span
+                                    className="text-[10px] tracking-[0.18em] uppercase text-[#999]"
+                                    style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+                                  >
+                                    Cold email · ready to send
+                                  </span>
+                                  <CopyButton
+                                    text={`Subject: ${draft.subject}\n\n${draft.body}`}
+                                  />
+                                </div>
+                                <div className="flex flex-col gap-2 px-3 py-3">
+                                  <p
+                                    className="text-[11px] text-[#0d0d0d]"
+                                    style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+                                  >
+                                    <span className="text-[#999]">Subject: </span>
+                                    {draft.subject}
+                                  </p>
+                                  <pre
+                                    className="min-w-0 max-h-64 overflow-auto whitespace-pre-wrap break-words select-text text-[11px] leading-relaxed text-[#555]"
+                                    style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+                                  >
+                                    {draft.body}
+                                  </pre>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         )}
                       </CaseStudyReveal>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               );
