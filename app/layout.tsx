@@ -41,7 +41,7 @@ const fontMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 });
 
-const BASE_URL = "https://cj-studio-beta.vercel.app";
+const BASE_URL = "https://www.cjcreativestudio.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -56,13 +56,11 @@ export const metadata: Metadata = {
     title: "CJ Studio | Web Design Agency UK",
     description: "Premium websites for ambitious UK businesses. Flat fee, no agency markup.",
     url: BASE_URL,
-    images: [{ url: "/assets/cj-logo-stacked.png", width: 1200, height: 630, alt: "CJ Studio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "CJ Studio | Web Design Agency UK",
     description: "Premium websites for ambitious UK businesses. Flat fee, no agency markup.",
-    images: ["/assets/cj-logo-stacked.png"],
   },
 };
 
