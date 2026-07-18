@@ -61,7 +61,7 @@ function ProjectCard({
       transition={{ duration: 0.8, ease: EXPO }}
     >
       <Link
-        href="/work"
+        href={`/work/${slug}`}
         className="group block"
         aria-label={`View ${name} project`}
       >
@@ -85,7 +85,7 @@ function ProjectCard({
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-[#0A2540] opacity-0 transition-opacity duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-30 flex items-center justify-center">
               <span className="text-white text-[13px] tracking-[0.12em] uppercase opacity-0 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100 transition-opacity duration-300">
-                See all work &rarr;
+                View project &rarr;
               </span>
             </div>
           </div>

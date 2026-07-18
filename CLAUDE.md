@@ -32,7 +32,8 @@ Deploy is automatic: push to `main` → Vercel builds and deploys.
 | Route | Component | Notes |
 |---|---|---|
 | `/` | `home-client.tsx` | Editorial homepage — see Homepage Architecture below |
-| `/work` | WorkGallery | Case study grid + modals, data from `lib/projects.ts` |
+| `/work` | WorkGallery | Case study grid; cards link to `/work/[slug]`, data from `lib/projects.ts` |
+| `/work/[slug]` | `app/work/[slug]/page.tsx` | Per-project case study; `generateStaticParams` over slugs, `dynamicParams=false`, `notFound()` for unknowns, per-page OG (project screenshot) |
 | `/services` | self-contained `page.tsx` | 3 services w/ prices; **template for new static pages** |
 | `/about` | self-contained `page.tsx` | Principles + process + founder cards (initials only) |
 | `/contact` | ContactForm | Server Action + Resend; needs `RESEND_API_KEY` env var |
@@ -97,7 +98,7 @@ Four real client projects consumed by WorkGallery on `/work`: Range Shipping, LA
 ## Outstanding Items
 
 1. **Resend API key** — add `RESEND_API_KEY` to Vercel env vars (contact form broken without it)
-2. **BASE_URL** — `layout.tsx` + `sitemap.ts` still hard-code `https://cj-studio-beta.vercel.app`; update to https://www.cjcreativestudio.com
-3. **OG image** — replace `/assets/cj-logo-stacked.png` with a 1200×630 screenshot
+2. ~~**BASE_URL**~~ — ✅ done (t103): `layout.tsx`, `sitemap.ts`, `robots.ts` now use https://www.cjcreativestudio.com
+3. ~~**OG image**~~ — ✅ done (t103): site-wide OG is now a generated `app/opengraph-image.tsx` (1200×630 `ImageResponse`); the old `/assets/cj-logo-stacked.png` refs were removed. Per-case-study OG uses the project screenshot.
 4. **Real founder photos** — founder cards on /about currently show initials only
-5. **Case study pages** — `/work/[slug]` don't exist; project links go to `/work`
+5. ~~**Case study pages**~~ — ✅ done (t103): `app/work/[slug]/page.tsx` renders one per project; all `/work` cards link to `/work/<slug>`
