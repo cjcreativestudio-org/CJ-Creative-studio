@@ -6,6 +6,7 @@ import EditorialFooter from "@/components/editorial-footer";
 import MaskReveal from "@/components/mask-reveal";
 import CaseStudyReveal from "@/components/case-study-reveal";
 import { demos, getDemo } from "@/lib/demos";
+import DemoRequestCta from "@/components/demo-request-cta";
 
 export const dynamicParams = false;
 
@@ -277,12 +278,7 @@ export default async function DemoPage({
               {demo.cta.body}
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-10">
-              <a
-                href={bookingHref}
-                className="inline-block bg-[#0A2540] text-white px-8 py-4 text-[13px] tracking-[0.12em] uppercase font-medium transition-[background-color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d3060]"
-              >
-                Book your free 20-min call →
-              </a>
+              <DemoRequestCta slug={demo.slug} href={bookingHref} />
               <Link
                 href="/sprint"
                 className="inline-flex items-center gap-2 border border-[#f0f0f0] px-6 py-3 text-[13px] tracking-[0.12em] uppercase text-[#f0f0f0] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]"
