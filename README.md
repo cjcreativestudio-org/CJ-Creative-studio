@@ -20,6 +20,18 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Environment variables
+
+See `.env.example` for the full list. Notable:
+
+- `RESEND_API_KEY` — email delivery for the `/contact` form.
+- `NEXT_PUBLIC_CALCOM_LINK` — Cal.com handle/event slug (e.g. `cjstudio/intro-20min`)
+  for the `/demo/[slug]` "book a call" CTA (outreach engine Brick 7). It is
+  `NEXT_PUBLIC_*`, so it is inlined at build time — **redeploy after changing it.**
+  When unset, the CTA falls back to a pre-addressed mailto (the live `/demo` page
+  never shows a broken/empty booking widget); it auto-arms the Cal.com in-page
+  popup the moment the variable is present, with no code change needed to go live.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
