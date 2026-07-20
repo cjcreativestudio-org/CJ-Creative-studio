@@ -5,8 +5,8 @@ import EditorialNav from "@/components/editorial-nav";
 import EditorialFooter from "@/components/editorial-footer";
 import MaskReveal from "@/components/mask-reveal";
 import CaseStudyReveal from "@/components/case-study-reveal";
+import BookCallCta from "@/components/book-call-cta";
 import { demos, getDemo } from "@/lib/demos";
-import DemoRequestCta from "@/components/demo-request-cta";
 
 export const dynamicParams = false;
 
@@ -49,10 +49,13 @@ export default async function DemoPage({
   const demo = getDemo(slug);
   if (!demo) notFound();
 
-  // TODO(brick-7): wire Cal.com booking + /api/outreach/webhooks/cal.
-  // Interim placeholder so the surface is functional now — a mailto that opens a
-  // pre-addressed "book a call" email. No booking backend is invented in Brick 6.
-  const bookingHref = `mailto:${demo.cta.email}?subject=${encodeURIComponent(
+  // Booking (Brick 7): the primary CTA books a real Cal.com call. The Cal.com
+  // handle/event is env-configured; NEXT_PUBLIC_CALCOM_LINK is inlined here at
+  // build time. Until Ollie sets it (empty here in prod), calLink is undefined
+  // and BookCallCta degrades to the interim mailto below — the public page never
+  // shows a broken/empty widget, and arms the moment the env var is present.
+  const calLink = process.env.NEXT_PUBLIC_CALCOM_LINK?.trim() || undefined;
+  const mailtoHref = `mailto:${demo.cta.email}?subject=${encodeURIComponent(
     demo.cta.bookingSubject
   )}`;
 
@@ -278,7 +281,14 @@ export default async function DemoPage({
               {demo.cta.body}
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-10">
-              <DemoRequestCta slug={demo.slug} href={bookingHref} />
+              <BookCallCta
+                slug={demo.slug}
+                calLink={calLink}
+                mailtoHref={mailtoHref}
+                prefillName={demo.businessName}
+                label="Book your free 20-min call →"
+                className="inline-block bg-[#0A2540] text-white px-8 py-4 text-[13px] tracking-[0.12em] uppercase font-medium transition-[background-color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#0d3060]"
+              />
               <Link
                 href="/sprint"
                 className="inline-flex items-center gap-2 border border-[#f0f0f0] px-6 py-3 text-[13px] tracking-[0.12em] uppercase text-[#f0f0f0] transition-[background-color,color,transform] duration-[160ms] ease-out active:scale-[0.97] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#f0f0f0] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#0a0a0a]"
