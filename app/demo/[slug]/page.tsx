@@ -282,6 +282,7 @@ export default async function DemoPage({
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-10">
               <BookCallCta
+                slug={demo.slug}
                 calLink={calLink}
                 mailtoHref={mailtoHref}
                 prefillName={demo.businessName}

@@ -48,12 +48,15 @@ function ensureCalLoaded(): void {
 }
 
 export default function BookCallCta({
+  slug,
   calLink,
   mailtoHref,
   prefillName,
   label,
   className,
 }: {
+  /** Lead slug — fires the best-effort demo-request attribution beacon on click. */
+  slug?: string;
   /** Cal.com handle/event slug from NEXT_PUBLIC_CALCOM_LINK; undefined -> mailto fallback. */
   calLink?: string;
   /** Interim mailto fallback (always works, even with no Cal.com link configured). */
@@ -69,9 +72,27 @@ export default function BookCallCta({
     if (armed) ensureCalLoaded();
   }, [armed]);
 
+  // Best-effort north-star attribution: record the demo request when the CTA is
+  // clicked (POST /api/outreach/demo-request). Progressive enhancement — swallows
+  // all errors, never blocks the booking navigation/popup. Fires on BOTH the
+  // Cal.com and mailto paths since each is a real "book a call" demo request.
+  function fireBeacon() {
+    if (!slug) return;
+    try {
+      void fetch("/api/outreach/demo-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      // ignore — capture is best-effort, must never block the CTA
+    }
+  }
+
   if (!armed || !calLink) {
     return (
-      <a href={mailtoHref} className={className}>
+      <a href={mailtoHref} onClick={fireBeacon} className={className}>
         {label}
       </a>
     );
@@ -82,6 +103,7 @@ export default function BookCallCta({
       href={calBookingHref(calLink, prefillName)}
       data-cal-link={calLinkSlug(calLink)}
       data-cal-config={calConfig(prefillName)}
+      onClick={fireBeacon}
       className={className}
     >
       {label}

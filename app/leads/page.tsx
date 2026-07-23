@@ -16,6 +16,7 @@ import {
   formatDate,
 } from "@/lib/leads";
 import { getOutreachDraft } from "@/lib/outreach";
+import { listDemoRequests, summariseFunnel } from "@/lib/outreach-attribution";
 
 // Private internal document — keep out of search + do not follow onward links.
 // Same unlisted pattern as /proposal: noindex here, absent from sitemap/robots/nav.
@@ -25,10 +26,17 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function LeadsPage() {
+// The funnel must reflect live store state per request; without this Next could
+// prerender an empty funnel at build (the in-memory path issues no fetch to mark
+// the route dynamic). Private page, so per-request SSR is fine.
+export const dynamic = "force-dynamic";
+
+export default async function LeadsPage() {
   const summary = pipelineSummary(leads);
   const counts = countByStatus(leads);
   const groups = groupByStatus(leads);
+  const demoRequests = await listDemoRequests();
+  const funnel = summariseFunnel(demoRequests);
 
   const stats: { value: number; label: string }[] = [
     { value: summary.inPipeline, label: "In pipeline" },
@@ -103,6 +111,76 @@ export default function LeadsPage() {
                 </span>
               ))}
             </p>
+          </div>
+        </section>
+
+        {/* ── North-star funnel (demo requests → booked calls) ─── */}
+        <section
+          className="bg-[#0a0a0a] px-6 pb-20 border-t border-[#1a1a1a]"
+          aria-label="Outreach funnel (north-star metric)"
+        >
+          <div className="max-w-[1280px] mx-auto pt-16">
+            <span
+              className="text-[11px] tracking-[0.18em] uppercase text-[#5b9fd6]"
+              style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+            >
+              North-star · Demo requests → booked calls
+            </span>
+
+            <div className="flex flex-wrap gap-x-12 gap-y-6 mt-8">
+              {[
+                { value: `${funnel.requested}`, label: "Demo requests" },
+                { value: `${funnel.booked}`, label: "Booked calls" },
+                { value: `${funnel.conversionPct}%`, label: "Conversion" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex flex-col gap-2">
+                  <span
+                    className="text-[clamp(2rem,5vw,3.5rem)] leading-none text-[#f0f0f0]"
+                    style={{ fontFamily: "var(--font-archivo-black)" }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span
+                    className="text-[11px] tracking-[0.14em] uppercase text-[#555]"
+                    style={{ fontFamily: "var(--font-jetbrains-mono)" }}
+                  >
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {demoRequests.length === 0 ? (
+              <p className="mt-10 max-w-[600px] text-[13px] leading-[1.65] text-[#666] font-serif">
+                No demo requests captured yet. A request is recorded when a lead
+                clicks the book-a-call CTA on their demo page. Durable storage
+                activates once the Upstash / KV REST env vars are set; until then
+                this reads the in-memory fallback, which resets on each serverless
+                cold start.
+              </p>
+            ) : (
+              <ul className="mt-10 border-t border-[#1a1a1a]">
+                {demoRequests.map((r) => (
+                  <li
+                    key={r.slug}
+                    className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-[#1a1a1a] py-4"
+                  >
+                    <span className="text-[14px] italic font-serif text-[#f0f0f0]">
+                      {r.businessName}
+                    </span>
+                    <span
+                      className="text-[11px] tracking-[0.14em] uppercase"
+                      style={{
+                        fontFamily: "var(--font-jetbrains-mono)",
+                        color: r.status === "booked" ? "#5b9fd6" : "#777",
+                      }}
+                    >
+                      {r.status} · {formatDate(r.requestedAt.slice(0, 10))}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
 
